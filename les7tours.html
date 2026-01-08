@@ -4,304 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les 7 Tours - 7 Ensemble</title>
-   <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    /* Effet de clignotement doux */
-    .blink {
-        animation: blinkAnim 1.4s infinite;
-    }
-
-    @keyframes blinkAnim {
-        0%, 100% { opacity: 1; }
-        50%      { opacity: 0.35; }
-    }
-
-    /* Variante “gros mot lumineux” si tu en as besoin plus tard */
-    .blink-strong {
-        font-weight: 700;
-        font-size: 1.6rem;
-        color: #ffffff;
-        text-shadow:
-            0 0 8px  rgba(255,255,255,0.8),
-            0 0 12px rgba(78,205,196,0.9);
-        animation: pulse 1.8s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-        0%   { opacity: 1; }
-        50%  { opacity: 0.4; }
-        100% { opacity: 1; }
-    }
-
-    /* Mise en avant de termes importants */
-    .highlight-term {
-        color: #00c7bb;
-        font-weight: 600;
-    }
-
-    .highlight-lumiere {
-        color: #ffffff;
-        font-size: 1.6rem;
-        font-weight: 700;
-        text-shadow: 0 0 10px #ffffff, 0 0 20px #d7faff;
-    }
-
-    .highlight-constellation {
-        color: #00e7d4;
-        font-size: 1.6rem;
-        font-weight: 700;
-    }
-
-    /* Centrer proprement un bloc explicatif */
-    .section-centered {
-        text-align: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background: linear-gradient(
-            180deg,
-            #0f1419 0%,
-            #1a237e 30%,
-            #3949ab 60%,
-            #5c6bc0 85%,
-            #9c27b0 100%
-        );
-        background-attachment: fixed;
-        min-height: 100vh;
-        color: white;
-        overflow-x: hidden;
-    }
-
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image:
-            radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
-            radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent);
-        background-size: 200px 200px;
-        animation: twinkle 4s infinite;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    @keyframes twinkle {
-        0%, 100% { opacity: 0.3; }
-        50%      { opacity: 1; }
-    }
-
-   .container {
-    max-width: 1400px; /* un peu plus large pour laisser respirer les deux tableaux */
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-}
-
-
-    header {
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .logo {
-        font-size: 2.5rem;
-        font-weight: bold;
-        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-    }
-
-    .main-title {
-        text-align: center;
-        font-size: 3rem;
-        margin: 3rem 0;
-        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .section {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 3rem;
-        border-radius: 20px;
-        margin: 3rem 0;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* ⭐️ Les deux tableaux Orion / La Pléiade */
-  .tours-overview {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3rem;
-    margin: 3rem 0;
-}
-
-.tour-table {
-    min-width: 0;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.tour-table table {
-    width: 100%;
-    table-layout: fixed;
-}
-
-
-
-  .tour-table {
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
-    border-radius: 15px;
-    padding: 2rem;
-    overflow-x: hidden;   /* IMPORTANT : plus de barre horizontale */
-}
-
-    .table-title {
-        text-align: center;
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-        padding: 1rem;
-        border-radius: 10px;
-    }
-
-    .option-3 .table-title {
-        background: linear-gradient(45deg, #f093fb, #f5576c);
-        color: white;
-    }
-
-    .option-7 .table-title {
-        
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
-        
-    }
-
- table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 1rem;
-    table-layout: auto;
-}
-
-/* Colonne Avoir (option 7) — s'adapte aux gros montants */
-.option-7 table th:nth-child(5),
-.option-7 table td:nth-child(5) {
-    min-width: max-content;
-    white-space: nowrap;
-}
-
-th {
-    background: rgba(255,255,255,0.2);
-    padding: 1rem 0.5rem;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-    td {
-    padding: 0.8rem 0.5rem;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    font-weight: bold;
-    /* plus de word-wrap ici */
-}
-
-/* Les montants ne se coupent jamais sur 2 lignes */
-td.amount {
-    white-space: nowrap;
-}
-
-
-    .tour-row:nth-child(even) {
-        background: rgba(255,255,255,0.05);
-    }
-
-    .amount {
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-
-    .total-row {
-        background: linear-gradient(45deg,
-            rgba(255,107,107,0.3),
-            rgba(78,205,196,0.3)
-        );
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-
-    .explanation {
-        background: linear-gradient(45deg,
-            rgba(78,205,196,0.1),
-            rgba(255,107,107,0.1)
-        );
-        padding: 2rem;
-        border-radius: 15px;
-        margin: 2rem 0;
-        border-left: 5px solid #4ecdc4;
-    }
-
-    .important-note {
-        background: rgba(255,107,107,0.2);
-        padding: 2rem;
-        border-radius: 15px;
-        margin: 2rem 0;
-        border-left: 5px solid #ff6b6b;
-        font-weight: 500;
-    }
-
-    .highlight-number {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #4ecdc4;
-    }
-
-    /* 📱 Version mobile */
-    @media (max-width: 768px) {
-        .tours-overview {
-            flex-direction: column;    /* une table sous l’autre */
-            align-items: center;
-        }
-
-        .tour-table {
-            max-width: 100%;
-        }
-
-        .main-title {
-            font-size: 2rem;
-        }
-
-        table {
-            font-size: 0.9rem;
-        }
-
-        th, td {
-            padding: 0.5rem 0.3rem;
-        }
-    }
-</style>
-
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tours.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">7 Ensemble</a>
+            <a href="index.html" class="logo">7 Ensemble</a>
         </div>
     </header>
 
@@ -312,198 +23,196 @@ td.amount {
             <div class="section">
                 <h2 style="font-size: 2rem; color: #4ecdc4; text-align: center; margin-bottom: 2rem;">Principe de Base</h2>
                 <div class="explanation" style="max-width: 900px; margin: 0 auto; text-align:center;">
+                    <!-- PARAGRAPHE 1 -->
+                    <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                        Le système <strong>7 Ensemble</strong> fonctionne sur <strong>7 tours progressifs</strong>.<br>
+                        À chaque tour, les montants évoluent, mais l'idée reste la même :<br>
+                        <strong>tout le monde contribue, tout le monde avance</strong>.
+                    </p>
 
-  <!-- PARAGRAPHE 1 -->
-  <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
-    Le système <strong>7 Ensemble</strong> fonctionne sur <strong>7 tours progressifs</strong>.<br>
-    À chaque tour, les montants évoluent, mais l’idée reste la même :<br>
-    <strong>tout le monde contribue, tout le monde avance</strong>.
-  </p>
+                    <!-- PARAGRAPHE PORTE-LUMIÈRE / CONSTELLATION -->
+                    <p style="font-size: 1.2rem; line-height: 1.7; color:#00c7bb; font-weight:600; margin-bottom: 1.5rem;">
+                        Votre
+                        <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
+                            0 0 6px rgba(255,255,255,0.9),
+                            0 0 14px rgba(78,205,196,0.9),
+                            0 0 24px rgba(78,205,196,0.7);">
+                            Alcyone
+                        </span>
+                        est la personne à qui vous offrez votre contribution à chaque tour.<br>
+                        Votre Constellation
+                        <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
+                            0 0 6px rgba(255,255,255,0.9),
+                            0 0 14px rgba(156,39,176,0.9),
+                            0 0 24px rgba(156,39,176,0.7);">
+                            La Pléiade
+                        </span>
+                        est le cercle de personnes qui vous soutiennent en retour.
+                    </p>
 
-  <!-- PARAGRAPHE PORTE-LUMIÈRE / CONSTELLATION -->
- 
-  <p style="font-size: 1.2rem; line-height: 1.7; color:#00c7bb; font-weight:600; margin-bottom: 1.5rem;">
-  Votre 
-  <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-               0 0 6px rgba(255,255,255,0.9),
-               0 0 14px rgba(78,205,196,0.9),
-               0 0 24px rgba(78,205,196,0.7);">
-    Alcyone
-  </span>
-  est la personne à qui vous offrez votre contribution à chaque tour.<br>
-  Votre Constellation 
-  <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-               0 0 6px rgba(255,255,255,0.9),
-               0 0 14px rgba(156,39,176,0.9),
-               0 0 24px rgba(156,39,176,0.7);">
-    La Pléiade
-  </span>
-  est le cercle de personnes qui vous soutiennent en retour.
-</p>
+                    <!-- PARAGRAPHE 3 -->
+                    <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                        Ce système crée un mouvement harmonieux, simple et puissant :<br>
+                        vous offrez à une personne que nous appelerons Alcyone, et l'on reçoit de sa Constellation.<br>
+                        Chacun avance, chacun rayonne, chacun construit sa propre évolution financière.
+                    </p>
 
-
-  <!-- PARAGRAPHE 3 -->
-  <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
-    Ce système crée un mouvement harmonieux, simple et puissant :<br>
-    vous offrez à une personne que nous appelerons Alcyone, et l’on reçoit de sa Constellation.<br>
-    Chacun avance, chacun rayonne, chacun construit sa propre évolution financière.
-  </p>
-
-  <!-- PARAGRAPHE 4 -->
-  <p style="font-size: 1.2rem; line-height: 1.7; margin-top: 1rem;">
-    Tu commences à un premier niveau accessible, puis, tour après tour, tu montes en puissance.<br>
-    Tu aides les autres à avancer, et en retour, la communauté te permet d’atteindre ta propre<br>
-    <strong>destination financière</strong>.
-  </p>
-
-</div>
-            <div class="tours-overview">
-                <!-- Option 3 Personnes -->
-                <div class="tour-table option-3">
-                    <div class="table-title">Triangulum</div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tour</th>
-                                <th>Offert</th>
-                                <th>Reçu</th>
-                                <th>Prochain</th>
-                                <th>Avoir</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="tour-row">
-                                <td>1</td>
-                                <td class="amount">21€</td>
-                                <td class="amount">63€</td>
-                                <td class="amount">63€</td>
-                                <td class="amount">0€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>2</td>
-                                <td class="amount">63€</td>
-                                <td class="amount">189€</td>
-                                <td class="amount">100€</td>
-                                <td class="amount">89€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>3</td>
-                                <td class="amount">100€</td>
-                                <td class="amount">300€</td>
-                                <td class="amount">200€</td>
-                                <td class="amount">100€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>4</td>
-                                <td class="amount">200€</td>
-                                <td class="amount">600€</td>
-                                <td class="amount">500€</td>
-                                <td class="amount">100€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>5</td>
-                                <td class="amount">500€</td>
-                                <td class="amount">1,500€</td>
-                                <td class="amount">1,000€</td>
-                                <td class="amount">500€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>6</td>
-                                <td class="amount">1,000€</td>
-                                <td class="amount">3,000€</td>
-                                <td class="amount">2,000€</td>
-                                <td class="amount">1,000€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>7</td>
-                                <td class="amount">2,000€</td>
-                                <td class="amount">6,000€</td>
-                                <td class="amount">FIN</td>
-                                <td class="amount">6,000€</td>
-                            </tr>
-                            <tr class="total-row">
-                                <td colspan="4"><strong>Montant total</strong></td>
-                                <td class="highlight-number">7'789€</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <!-- PARAGRAPHE 4 -->
+                    <p style="font-size: 1.2rem; line-height: 1.7; margin-top: 1rem;">
+                        Tu commences à un premier niveau accessible, puis, tour après tour, tu montes en puissance.<br>
+                        Tu aides les autres à avancer, et en retour, la communauté te permet d'atteindre ta propre<br>
+                        <strong>destination financière</strong>.
+                    </p>
                 </div>
 
-                <!-- Option 7 Personnes -->
-                <div class="tour-table option-7">
-                    <div class="table-title">Les Pléiades</div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Tour</th>
-                                <th>Offert</th>
-                                <th>Reçu</th>
-                                <th>Prochain</th>
-                                <th>Avoir</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="tour-row">
-                                <td>1</td>
-                                <td class="amount">21€</td>
-                                <td class="amount">147€</td>
-                                <td class="amount">100€</td>
-                                <td class="amount">47€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>2</td>
-                                <td class="amount">100€</td>
-                                <td class="amount">700€</td>
-                                <td class="amount">500€</td>
-                                <td class="amount">200€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>3</td>
-                                <td class="amount">500€</td>
-                                <td class="amount">3,500€</td>
-                                <td class="amount">2,000€</td>
-                                <td class="amount">1,500€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>4</td>
-                                <td class="amount">2,000€</td>
-                                <td class="amount">14,000€</td>
-                                <td class="amount">10,000€</td>
-                                <td class="amount">4,000€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>5</td>
-                                <td class="amount">10,000€</td>
-                                <td class="amount">70,000€</td>
-                                <td class="amount">50,000€</td>
-                                <td class="amount">20,000€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>6</td>
-                                <td class="amount">50,000€</td>
-                                <td class="amount">350,000€</td>
-                                <td class="amount">200,000€</td>
-                                <td class="amount">150,000€</td>
-                            </tr>
-                            <tr class="tour-row">
-                                <td>7</td>
-                                <td class="amount">200,000€</td>
-                                <td class="amount">1,400,000€</td>
-                                <td class="amount">FIN</td>
-                                <td class="amount">1,400,000€</td>
-                            </tr>
-                            <tr class="total-row">
-                                <td colspan="4"><strong>Montant total</strong></td>
-                                <td class="highlight-number">1'575'747€</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="tours-overview">
+                    <!-- Option 3 Personnes -->
+                    <div class="tour-table option-3">
+                        <div class="table-title">Triangulum</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tour</th>
+                                    <th>Offert</th>
+                                    <th>Reçu</th>
+                                    <th>Prochain</th>
+                                    <th>Avoir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tour-row">
+                                    <td>1</td>
+                                    <td class="amount">21€</td>
+                                    <td class="amount">63€</td>
+                                    <td class="amount">63€</td>
+                                    <td class="amount">0€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>2</td>
+                                    <td class="amount">63€</td>
+                                    <td class="amount">189€</td>
+                                    <td class="amount">100€</td>
+                                    <td class="amount">89€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>3</td>
+                                    <td class="amount">100€</td>
+                                    <td class="amount">300€</td>
+                                    <td class="amount">200€</td>
+                                    <td class="amount">100€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>4</td>
+                                    <td class="amount">200€</td>
+                                    <td class="amount">600€</td>
+                                    <td class="amount">500€</td>
+                                    <td class="amount">100€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>5</td>
+                                    <td class="amount">500€</td>
+                                    <td class="amount">1,500€</td>
+                                    <td class="amount">1,000€</td>
+                                    <td class="amount">500€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>6</td>
+                                    <td class="amount">1,000€</td>
+                                    <td class="amount">3,000€</td>
+                                    <td class="amount">2,000€</td>
+                                    <td class="amount">1,000€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>7</td>
+                                    <td class="amount">2,000€</td>
+                                    <td class="amount">6,000€</td>
+                                    <td class="amount">FIN</td>
+                                    <td class="amount">6,000€</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="4"><strong>Montant total</strong></td>
+                                    <td class="highlight-number">7'789€</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Option 7 Personnes -->
+                    <div class="tour-table option-7">
+                        <div class="table-title">Les Pléiades</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tour</th>
+                                    <th>Offert</th>
+                                    <th>Reçu</th>
+                                    <th>Prochain</th>
+                                    <th>Avoir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tour-row">
+                                    <td>1</td>
+                                    <td class="amount">21€</td>
+                                    <td class="amount">147€</td>
+                                    <td class="amount">100€</td>
+                                    <td class="amount">47€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>2</td>
+                                    <td class="amount">100€</td>
+                                    <td class="amount">700€</td>
+                                    <td class="amount">500€</td>
+                                    <td class="amount">200€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>3</td>
+                                    <td class="amount">500€</td>
+                                    <td class="amount">3,500€</td>
+                                    <td class="amount">2,000€</td>
+                                    <td class="amount">1,500€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>4</td>
+                                    <td class="amount">2,000€</td>
+                                    <td class="amount">14,000€</td>
+                                    <td class="amount">10,000€</td>
+                                    <td class="amount">4,000€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>5</td>
+                                    <td class="amount">10,000€</td>
+                                    <td class="amount">70,000€</td>
+                                    <td class="amount">50,000€</td>
+                                    <td class="amount">20,000€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>6</td>
+                                    <td class="amount">50,000€</td>
+                                    <td class="amount">350,000€</td>
+                                    <td class="amount">200,000€</td>
+                                    <td class="amount">150,000€</td>
+                                </tr>
+                                <tr class="tour-row">
+                                    <td>7</td>
+                                    <td class="amount">200,000€</td>
+                                    <td class="amount">1,400,000€</td>
+                                    <td class="amount">FIN</td>
+                                    <td class="amount">1,400,000€</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="4"><strong>Montant total</strong></td>
+                                    <td class="highlight-number">1'575'747€</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
                 <h2 style="font-size: 2rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Explication des Colonnes</h2>
-                
+
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
                     <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
                         <h3 style="color: #4ecdc4; margin-bottom: 1rem;">Offert</h3>
@@ -511,11 +220,11 @@ td.amount {
                     </div>
                     <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
                         <h3 style="color: #45b7d1; margin-bottom: 1rem;">Reçu</h3>
-                        <p>Montant reçu de votre <br> <strong>Constellation</strong> <br> par tour  </p>
+                        <p>Montant reçu de votre <br> <strong>Constellation</strong> <br> par tour</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
                         <h3 style="color: #feca57; margin-bottom: 1rem;">Prochain</h3>
-                        <p>Montant à Ofrrir à votre <br> <strong>Alcyone</strong> <br> pour le tour suivant</p>
+                        <p>Montant à Offrir à votre <br> <strong>Alcyone</strong> <br> pour le tour suivant</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
                         <h3 style="color: #ff6b6b; margin-bottom: 1rem;">Avoir</h3>
@@ -527,24 +236,35 @@ td.amount {
             <div class="important-note">
                 <h3 style="color: #ff6b6b; margin-bottom: 1rem;">Information importante</h3>
                 <p style="font-size: 1.1rem; line-height: 1.6;">
-                    Ce système fonctionne grâce à la participation continue de nouveaux <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-               0 0 6px rgba(255,255,255,0.9),
-               0 0 14px rgba(78,205,196,0.9),
-               0 0 24px rgba(78,205,196,0.7);">
-   &nbsp; Alcyone 
-  </span><br>
+                    Ce système fonctionne grâce à la participation continue de nouveaux
+                    <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
+                        0 0 6px rgba(255,255,255,0.9),
+                        0 0 14px rgba(78,205,196,0.9),
+                        0 0 24px rgba(78,205,196,0.7);">
+                        &nbsp; Alcyone
+                    </span><br>
                     Comme toute association caritative ou fondation qui a besoin de nouveaux donateurs pour continuer ses recherches, <br>
-                    7 Ensemble nécessite un flux constant de participants. Il n'y a pas de miracle 7 Ensemble que nous avançons, pas seuls. <br> 
+                    7 Ensemble nécessite un flux constant de participants. Il n'y a pas de miracle 7 Ensemble que nous avançons, pas seuls. <br>
                     Cette logique s'applique partout : les commerces ont besoin de nouveaux clients pour survivre, sinon ils ferment comme
-                    de nombreux restaurants aujourd'hui. C'est la réalité de tout système d'entraide collective <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-               0 0 6px rgba(255,255,255,0.9),
-               0 0 14px rgba(78,205,196,0.9),
-               0 0 24px rgba(78,205,196,0.7);">
-   &nbsp; 7 Ensemble 
-  </span>  &nbsp; qu'on avance.
+                    de nombreux restaurants aujourd'hui. C'est la réalité de tout système d'entraide collective
+                    <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
+                        0 0 6px rgba(255,255,255,0.9),
+                        0 0 14px rgba(78,205,196,0.9),
+                        0 0 24px rgba(78,205,196,0.7);">
+                        &nbsp; 7 Ensemble
+                    </span> &nbsp; qu'on avance.
                 </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="index.html" class="btn-primary" style="font-size: 1.3rem; padding: 20px 40px;">
+                    🏠 Retour à l'accueil
+                </a>
             </div>
         </div>
     </main>
+
+    <!-- External Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>
