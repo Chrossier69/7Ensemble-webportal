@@ -4,385 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission - 7 Ensemble</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(180deg, #0f1419 0%, #1a237e 30%, #3949ab 60%, #5c6bc0 85%, #9c27b0 100%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            color: white;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animation confettis */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ff6b6b;
-            animation: confetti-fall 3s linear infinite;
-        }
-
-        .confetti:nth-child(2n) { background: #4ecdc4; animation-delay: -0.5s; }
-        .confetti:nth-child(3n) { background: #45b7d1; animation-delay: -1s; }
-        .confetti:nth-child(4n) { background: #feca57; animation-delay: -1.5s; }
-        .confetti:nth-child(5n) { background: #f093fb; animation-delay: -2s; }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Étoiles scintillantes */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
-                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent);
-            background-size: 200px 200px;
-            animation: twinkle 4s infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-            animation: rainbow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes rainbow {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        .hero-mission {
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .celebration-banner {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #f093fb);
-            padding: 2rem;
-            border-radius: 20px;
-            margin: 2rem 0;
-            animation: pulse-glow 2s ease-in-out infinite alternate;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .celebration-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 3s linear infinite;
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 20px rgba(255,107,107,0.5); }
-            100% { box-shadow: 0 0 40px rgba(78,205,196,0.8); }
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
-        }
-
-        .mission-title {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .impact-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .impact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: card-shine 3s ease-in-out infinite;
-        }
-
-        @keyframes card-shine {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        .impact-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255,107,107,0.3);
-        }
-
-        .impact-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .impact-card:nth-child(2n) .impact-icon {
-            animation-delay: -1s;
-        }
-
-        .impact-card:nth-child(3n) .impact-icon {
-            animation-delay: -2s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .testimonial-section {
-            background: linear-gradient(45deg, rgba(255,107,107,0.2), rgba(78,205,196,0.2));
-            padding: 4rem;
-            border-radius: 30px;
-            margin: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-section::before {
-            content: '🎉';
-            position: absolute;
-            font-size: 3rem;
-            top: 20px;
-            left: 20px;
-            animation: rotate 4s linear infinite;
-        }
-
-        .testimonial-section::after {
-            content: '✨';
-            position: absolute;
-            font-size: 2rem;
-            bottom: 20px;
-            right: 20px;
-            animation: rotate 4s linear infinite reverse;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .gratitude-message {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #2109be;
-            margin-bottom: 2rem;
-            animation: text-glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes text-glow {
-            0% { text-shadow: 0 0 10px rgba(255,107,107,0.5); }
-            100% { text-shadow: 0 0 20px rgba(78,205,196,0.8); }
-        }
-
-        .creator-section {
-            background: rgba(255,255,255,0.05);
-            padding: 3rem;
-            border-radius: 25px;
-            margin: 3rem 0;
-            border-left: 5px solid #4ecdc4;
-        }
-
-        .quote-bubble {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 2rem;
-            border-radius: 20px;
-            margin: 2rem 0;
-            position: relative;
-            animation: bubble-float 4s ease-in-out infinite;
-        }
-
-        @keyframes bubble-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .quote-bubble::before {
-            content: '"';
-            font-size: 6rem;
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            color: rgba(255,255,255,0.3);
-        }
-
-        .vision-goals {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .goal-item {
-            background: linear-gradient(135deg, rgba(240,147,251,0.2), rgba(245,87,108,0.2));
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            animation: goal-pulse 3s ease-in-out infinite;
-        }
-
-        .goal-item:nth-child(2n) {
-            animation-delay: -1s;
-        }
-
-        .goal-item:nth-child(7) {
-    grid-column: 1 / -1;       /* Occupe toute la largeur de la grille */
-    justify-self: center;      /* Centre le bloc */
-    max-width: 300px;          /* Taille parfaite pour être joli */
-}
-
-
-        @keyframes goal-pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .btn-mission {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 20px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            animation: button-glow 2s ease-in-out infinite alternate;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        @keyframes button-glow {
-            0% { box-shadow: 0 5px 20px rgba(255,107,107,0.4); }
-            100% { box-shadow: 0 5px 30px rgba(78,205,196,0.6); }
-        }
-
-        .btn-mission:hover {
-            transform: translateY(-3px) scale(1.05);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mission-title { font-size: 2.5rem; }
-            .gratitude-message { font-size: 1.5rem; }
-            .impact-grid { grid-template-columns: 1fr; }
-        }
-        /* POP-UP */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    background: #1a1a2e;
-    margin: 10% auto;
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
-    color: white;
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
-}
-
-.close {
-    float: right;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-    </style>
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mission.css">
 </head>
 <body>
     <!-- Confettis animés -->
@@ -397,16 +22,27 @@
     <div class="confetti" style="left: 90%; animation-delay: -2.4s;"></div>
 
     <header>
-        <div class="container">
-            <a href="#" class="logo">7 Ensemble</a>
-        </div>
+        <nav class="container">
+            <a href="index.html" class="logo">7 Ensemble</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span>☰</span>
+            </button>
+            <div class="nav-menu">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#principe">Principe</a>
+                <a href="les7tours.html">Les 7 Tours</a>
+                <a href="mission.html">Mission</a>
+                <a href="index.html#urgence">Urgence</a>
+            </div>
+            <button class="btn-primary" onclick="window.location.href='index.html#inscription'">Rejoindre la révolution</button>
+        </nav>
     </header>
 
     <main>
         <section class="hero-mission">
             <div class="container">
                 <h1 class="mission-title">Notre Mission Révolutionnaire</h1>
-                
+
                 <div class="celebration-banner">
                     <div class="gratitude-message">
                         Merci 7 Ensemble ! Tu es enfin là, on t'attendait depuis tellement longtemps !
@@ -417,13 +53,13 @@
                 <div class="testimonial-section">
                     <h2 style="font-size: 2.5rem; color: #4ecdc4; margin-bottom: 2rem;">Enfin une plateforme qui pense à NOUS !</h2>
                     <p style="font-size: 1.4rem; line-height: 1.8;">
-                        Après des années d'attente, après avoir essayé tant de solutions qui ne marchent pas,<br> 
+                        Après des années d'attente, après avoir essayé tant de solutions qui ne marchent pas,<br>
                         <strong style="color: #ffffff"><span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-               0 0 6px rgba(255,255,255,0.9),
-               0 0 14px rgba(78,205,196,0.9),
-               0 0 24px rgba(78,205,196,0.7);">
-   &nbsp; 7 Ensemble 
-  </span> arrive enfin pour révolutionner l'entraide mondiale !</strong>
+                            0 0 6px rgba(255,255,255,0.9),
+                            0 0 14px rgba(78,205,196,0.9),
+                            0 0 24px rgba(78,205,196,0.7);">
+                            &nbsp; 7 Ensemble
+                        </span> arrive enfin pour révolutionner l'entraide mondiale !</strong>
                     </p>
                 </div>
             </div>
@@ -432,10 +68,10 @@
         <section class="container">
             <div class="creator-section">
                 <h2 style="font-size: 2.5rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Pourquoi J'ai Créé 7 Ensemble</h2>
-                
+
                 <div class="quote-bubble">
                     <p style="font-size: 1.4rem; line-height: 1.8; font-style: italic;">
-                        Ne supportant plus ce qui se passe autour de moi, j'ai décidé de créer cette plateforme d'entraide révolutionnaire. 
+                        Ne supportant plus ce qui se passe autour de moi, j'ai décidé de créer cette plateforme d'entraide révolutionnaire.
                         Il était temps que quelqu'un se lève pour les citoyens ordinaires !
                     </p>
                 </div>
@@ -446,13 +82,13 @@
                         <h3 style="color: #ff6b6b; font-size: 1.5rem;">Vision Humaine</h3>
                         <p>Une plateforme créée avec le cœur, pour répondre aux vrais besoins des Familles vous Créer un Vrai Pouvoir d'Achat.</p>
                     </div>
-                    
+
                     <div class="impact-card">
                         <div class="impact-icon">🛡️</div>
                         <h3 style="color: #4ecdc4; font-size: 1.5rem;">Protection Totale</h3>
                         <p>Aucun frais caché, aucune commission. Votre seul Contribution de : 21€ pour changer votre vie.</p>
                     </div>
-                    
+
                     <div class="impact-card">
                         <div class="impact-icon">🌍</div>
                         <h3 style="color: #45b7d1; font-size: 1.5rem;">Impact Mondial</h3>
@@ -463,34 +99,35 @@
 
             <div class="creator-section">
                 <h2 style="font-size: 2.5rem; color: #4ecdc4; text-align: center; margin-bottom: 2rem;">7 Ensemble ❤️ Créons le Changement</h2>
-               
+
                 <div style="background: linear-gradient(45deg, rgba(78,205,196,0.2), rgba(255,107,107,0.2)); padding: 3rem; border-radius: 20px; text-align: center;">
                     <p style="font-size: 1.5rem; line-height: 1.3; margin-bottom: 2rem;">
-                        <strong style="font-size: 1.7rem; color: #f093fb;">Je n’ai pas créé 7 Ensemble pour devenir riche.</strong>
-   <div style="font-size:1.3rem; line-height:1.7; text-align:left; white-space:pre-line;">  
-Depuis des années, J’ai vu trop de vies se casser à cause d’un simple chiffre sur un compte.
+                        <strong style="font-size: 1.7rem; color: #f093fb;">Je n'ai pas créé 7 Ensemble pour devenir riche.</strong>
+                    </p>
+                    <div style="font-size:1.3rem; line-height:1.7; text-align:left; white-space:pre-line;">
+Depuis des années, J'ai vu trop de vies se casser à cause d'un simple chiffre sur un compte.
 Des Familles qui comptent tout.
 Des Parents qui se privent.
 Des Retraités qui ont tout donné et qui n'ont plus rien.
 
-J’ai moi aussi traversé des nuits froides,
+J'ai moi aussi traversé des nuits froides,
 Un Matelas gonflable percés,
 Une Voiture transformée en chambre,
 Des Locaux vides en guise de refuge.
 
-J’ai connu les galères que personne ne voit.
+J'ai connu les galères que personne ne voit.
 Les Peurs, les Pertes, les Injustices…
-Et malgré tout ça, une chose n’a jamais Changé :
-Je n’ai jamais accepté que le monde soit fait pour écraser les plus fragiles.
+Et malgré tout ça, une chose n'a jamais Changé :
+Je n'ai jamais accepté que le monde soit fait pour écraser les plus fragiles.
 
-Alors j’ai décidé de faire quelque chose.
+Alors j'ai décidé de faire quelque chose.
 Pas un miracle, pas une invention folle,
-juste l’idée la plus simple du monde :
-<strong style="color:#4ecdc4;">S’entraider.<br> Ensemble.<br> Vraiment.</strong>
+juste l'idée la plus simple du monde :
+<strong style="color:#4ecdc4;">S'entraider.<br> Ensemble.<br> Vraiment.</strong>
 
-Ce que les États n’ont jamais fait,
-Ce que les systèmes n’ont jamais compris,
-C’est que quand on donne un peu d’air aux gens,
+Ce que les États n'ont jamais fait,
+Ce que les systèmes n'ont jamais compris,
+C'est que quand on donne un peu d'air aux gens,
 Ils se relèvent tous seuls.
 Quand tu donnes de la dignité,
 Tu répares une vie.
@@ -501,7 +138,7 @@ Je finance, je crée, je prends les risques.
 Je suis au même niveau que tout le monde,
 Parce que je suis comme tout le monde.
 
-Je fais ça parce que je sais ce que c’est
+Je fais ça parce que je sais ce que c'est
 De manquer,
 De tomber,
 De lutter,
@@ -510,43 +147,29 @@ De se relever sans personne.
 0 0 6px rgba(255,255,255,0.9),
 0 0 14px rgba(78,205,196,0.9),
 0 0 24px rgba(78,205,196,0.7);">
-7 Ensemble n’est pas une chance.
+7 Ensemble n'est pas une chance.
 </span>
-C’est une réponse.
+C'est une réponse.
 Une main tendue.
-Une respiration pour ceux qui n’en ont plus.<br>
-<strong><em>Ce que je veux ?  
-Que personne ne vive dans la peur du lendemain.  
-Que personne ne choisisse entre manger et se chauffer.  
-Que les rêves redeviennent possibles.  
-Que l’entraide devienne Normale.</em></strong>
+Une respiration pour ceux qui n'en ont plus.<br>
+<strong><em>Ce que je veux ?
+Que personne ne vive dans la peur du lendemain.
+Que personne ne choisisse entre manger et se chauffer.
+Que les rêves redeviennent possibles.
+Que l'entraide devienne Normale.</em></strong>
 
 <div style="text-align:center; margin-top:0.1rem;">
-    <strong style="color:#4ecdc4; font-size:1.7rem;">Ce mouvement n’est pas à moi. Il est à NOUS.</strong><br><br>
+    <strong style="color:#4ecdc4; font-size:1.7rem;">Ce mouvement n'est pas à moi. Il est à NOUS.</strong><br><br>
 </div>
 
 <div style="width:100%; display:flex; justify-content:center; margin:2rem 0;">
     <svg viewBox="-50 0 1000 180" style="max-width:900px; width:100%; height:auto; overflow:visible;">
-
-        <style>
-            .p {
-                animation: float 2s ease-in-out infinite;
-                transform-origin: center 80%;
-            }
-            @keyframes float {
-                0%,100% { transform: translateY(0); }
-                50% { transform: translateY(-8px); }
-            }
-        </style>
-
         <symbol id="perso">
             <circle cx="0" cy="0" r="18" fill="currentColor"/>
             <path d="M0 16 Q -22 50 0 80 Q 22 50 0 16 Z" fill="white" opacity="0.9"/>
             <path d="M -26 35 Q -5 20 0 25 Q 5 20 26 35"
                   stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
         </symbol>
-
-        <!-- 7 danseurs centrés -->
         <g class="p" style="animation-delay:0s;  color:#ff6b6b;" transform="translate(80,60)"><use href="#perso"/></g>
         <g class="p" style="animation-delay:0.1s; color:#ffa94d;" transform="translate(220,60)"><use href="#perso"/></g>
         <g class="p" style="animation-delay:0.2s; color:#ffd93b;" transform="translate(360,60)"><use href="#perso"/></g>
@@ -554,7 +177,6 @@ Que l’entraide devienne Normale.</em></strong>
         <g class="p" style="animation-delay:0.4s; color:#22b8cf;" transform="translate(640,60)"><use href="#perso"/></g>
         <g class="p" style="animation-delay:0.5s; color:#5c7cfa;" transform="translate(780,60)"><use href="#perso"/></g>
         <g class="p" style="animation-delay:0.6s; color:#cc5de8;" transform="translate(920,60)"><use href="#perso"/></g>
-
     </svg>
 </div>
 
@@ -562,205 +184,80 @@ Que l’entraide devienne Normale.</em></strong>
     <span class="blink" style="font-size:2rem; color:#ffffff; text-shadow:
     0 0 6px rgba(255,255,255,0.9),
     0 0 14px rgba(78,205,196,0.9),
-    0 0 24px rgba(78,205,196,0.7);">
+    0 0 24px rgba(4, 242, 226, 0.7);">
         7 Ensemble, Oui : Que Nous Allons Créer Le Changement.
     </span>
 </div>
-
+                    </div>
                 </div>
             </div>
 
             <div class="creator-section">
                 <h2 style="font-size: 2.5rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Nos Objectifs Révolutionnaires</h2>
-                
-                <div class="vision-goals" style="
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    justify-items: center;
-">
 
-    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,0,255,0.15), rgba(255,0,255,0.05));">
-        <h3 style="color: #ff4dd2; font-size: 1.3rem; margin-bottom: 1rem;">🏠 Familles Heureuses</h3>
-        <p>Permettre à chaque famille de vivre sans stress financier, de profiter de la vie, de souffler enfin sans compter chaque franc.</p>
-    </div>
+                <div class="vision-goals">
+                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,0,255,0.15), rgba(255,0,255,0.05));">
+                        <h3 style="color: #ff4dd2; font-size: 1.3rem; margin-bottom: 1rem;">🏠 Familles Heureuses</h3>
+                        <p>Permettre à chaque famille de vivre sans stress financier, de profiter de la vie, de souffler enfin sans compter chaque franc.</p>
+                    </div>
 
-    <div class="goal-item" style="background: linear-gradient(135deg, rgba(90,90,255,0.15), rgba(90,90,255,0.05));">
-        <h3 style="color: #4c6ef5; font-size: 1.3rem; margin-bottom: 1rem;">👴 Retraités Dignes</h3>
-        <p>Offrir aux personnes âgées une fin de vie digne, sereine, après une existence entière de travail et de sacrifices.</p>
-    </div>
+                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(90,90,255,0.15), rgba(90,90,255,0.05));">
+                        <h3 style="color: #4c6ef5; font-size: 1.3rem; margin-bottom: 1rem;">👴 Retraités Dignes</h3>
+                        <p>Offrir aux personnes âgées une fin de vie digne, sereine, après une existence entière de travail et de sacrifices.</p>
+                    </div>
 
-    <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,200,255,0.15), rgba(0,200,255,0.05));">
-        <h3 style="color: #22b8cf; font-size: 1.3rem; margin-bottom: 1rem;">💖 Accès à la Santé</h3>
-        <p>Permettre à chacun d’accéder à la vraie santé, celle qui soigne, qui prévient, celle qu'on mérite tous… même quand elle coûte cher.</p>
-    </div>
+                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,200,255,0.15), rgba(0,200,255,0.05));">
+                        <h3 style="color: #22b8cf; font-size: 1.3rem; margin-bottom: 1rem;">💖 Accès à la Santé</h3>
+                        <p>Permettre à chacun d'accéder à la vraie santé, celle qui soigne, qui prévient, celle qu'on mérite tous… même quand elle coûte cher.</p>
+                    </div>
 
-    <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,255,200,0.15), rgba(0,255,200,0.05));">
-        <h3 style="color: #20c997; font-size: 1.3rem; margin-bottom: 1rem;">🌟 Rêves Réalisés</h3>
-        <p>Que chacun puisse réaliser ses rêves, créer son entreprise, voyager, avancer, réaliser enfin ce qu’il a toujours porté en lui. Vivre tout simplement !</p>
-    </div>
+                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,255,200,0.15), rgba(0,255,200,0.05));">
+                        <h3 style="color: #20c997; font-size: 1.3rem; margin-bottom: 1rem;">🌟 Rêves Réalisés</h3>
+                        <p>Que chacun puisse réaliser ses rêves, créer son entreprise, voyager, avancer, réaliser enfin ce qu'il a toujours porté en lui. Vivre tout simplement !</p>
+                    </div>
 
-    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,255,0,0.15), rgba(255,255,0,0.05));">
-        <h3 style="color: #ffd43b; font-size: 1.3rem; margin-bottom: 1rem;">🧸 Avenir Assuré pour Nos Enfants</h3>
-        <p>Offrir à chaque enfant et ado un vrai départ dans la vie, une tirelire pour leur futur, un soutien pour leurs rêves, et la force d’avancer sans limitation injuste.</p>
-    </div>
+                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,255,0,0.15), rgba(255,255,0,0.05));">
+                        <h3 style="color: #ffd43b; font-size: 1.3rem; margin-bottom: 1rem;">🧸 Avenir Assuré pour Nos Enfants</h3>
+                        <p>Offrir à chaque enfant et ado un vrai départ dans la vie, une tirelire pour leur futur, un soutien pour leurs rêves, et la force d'avancer sans limitation injuste.</p>
+                    </div>
 
-    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,150,0,0.15), rgba(255,150,0,0.05));">
-        <h3 style="color: #ff922b; font-size: 1.3rem; margin-bottom: 1rem;">🤝 Entraide Mondiale</h3>
-        <p>Créer une chaîne d’entraide planétaire où chaque être humain peut compter sur les autres, sans jugement et sans frontières.</p>
-    </div> 
+                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,150,0,0.15), rgba(255,150,0,0.05));">
+                        <h3 style="color: #ff922b; font-size: 1.3rem; margin-bottom: 1rem;">🤝 Entraide Mondiale</h3>
+                        <p>Créer une chaîne d'entraide planétaire où chaque être humain peut compter sur les autres, sans jugement et sans frontières.</p>
+                    </div>
 
-    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,70,0,0.15), rgba(255,70,0,0.05));">
-        <h3 style="color: #ff6b6b; font-size: 1.3rem; margin-bottom: 1rem;">🍽️ À Manger Pour TOUS</h3>
-        <p>Gagnons cette bataille : qu’aucune personne, sur cette planète, ne se couche encore affamée.</p>
-    </div>
-
-</div>
-
+                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,70,0,0.15), rgba(255,70,0,0.05));">
+                        <h3 style="color: #ff6b6b; font-size: 1.3rem; margin-bottom: 1rem;">🍽️ À Manger Pour TOUS</h3>
+                        <p>Gagnons cette bataille : qu'aucune personne, sur cette planète, ne se couche encore affamée.</p>
+                    </div>
+                </div>
+            </div>
 
             <div style="text-align: center; margin: 4rem 0;">
                 <div class="celebration-banner">
                     <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Rejoignez Notre Mission !</h2>
                     <p style="font-size: 1.7rem; margin-bottom: 2rem;">
-                        Ensemble, écrivons l’histoire de <strong style="color: #ffffff"><span class="blink" style="font-size: 2.3rem; color:#ffffff; text-shadow:
-               0 0 6px rgba(255,255,255,0.9),
-               0 0 14px rgba(78,205,196,0.9),
-               0 0 24px rgba(4, 242, 226, 0.7);">
-   &nbsp;7 Ensemble </strong> : un mouvement qui avance, qui rassemble et qui transforme.
-Unissons nos forces pour redonner espoir, relever ceux qui n’y croient plus
-et faire briller ce que personne n’a encore osé construire.
+                        Ensemble, écrivons l'histoire de <strong style="color: #ffffff"><span class="blink" style="font-size: 2.3rem; color:#ffffff; text-shadow:
+                            0 0 6px rgba(255,255,255,0.9),
+                            0 0 14px rgba(78,205,196,0.9),
+                            0 0 24px rgba(4, 242, 226, 0.7);">
+                            &nbsp;7 Ensemble </strong> : un mouvement qui avance, qui rassemble et qui transforme.
+Unissons nos forces pour redonner espoir, relever ceux qui n'y croient plus
+et faire briller ce que personne n'a encore osé construire.
 Changeons le monde… vraiment.
 Pas demain. Maintenant.
                     </p>
-                 <a href="#" class="btn-mission" onclick="openModal('sevenModal')">
-   🚀 Je Rejoins la Mission Maintenant !
-</a>
-
+                    <a href="index.html" class="btn-mission">
+                        🚀 Je Rejoins la Mission Maintenant !
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <script>
-        // Animation des confettis continue
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            confetti.style.backgroundColor = [
-                '#ff6b6b', '#4ecdc4', '#45b7d1', '#feca57', '#f093fb'
-            ][Math.floor(Math.random() * 5)];
-            
-            document.body.appendChild(confetti);
-            
-            setTimeout(() => {
-                confetti.remove();
-            }, 5000);
-        }
-
-        // Créer des confettis régulièrement
-        setInterval(createConfetti, 300);
-
-        // Animation au scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.impact-card, .goal-item');
-            elements.forEach((el, index) => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.8) {
-                    el.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
-                }
-            });
-        }
-
-        window.addEventListener('scroll', animateOnScroll);
-
-        function openModal(id) {
-    document.getElementById(id).style.display = "block";
-}
-
-function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-}
-
-        
-    </script>
-   <div id="sevenModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('sevenModal')">&times;</span>
-            <h2 style="text-align: center; color: #4ecdc4; margin-bottom: 2rem;">🌟 Rejoindre 7 Ensemble 🌟 </h2>
-                        </p>
-            
-            <form id="sevenForm" onsubmit="submitForm(event, 'seven')">
-                <div class="form-group">
-                    <label for="sevenFullName">Nom complet :</label>
-                    <input type="text" id="sevenFullName" required placeholder="Votre nom et prénom">
-                </div>
-                <div class="form-group">
-                    <label for="sevenEmail">Email :</label>
-                    <input type="email" id="sevenEmail" required placeholder="votre@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="sevenCountry">Pays :</label>
-                    <select id="sevenCountry" required>
-                        <option value="" style="background: #1a1a2e88; color:" ">Choisir votre pays</option>
-                        <option value="" style="background: #1a1a2e; color:"FR">France</option>
-                        <option value="" style="background: #1a1a2e; color:"CH">Suisse</option>
-                        <option value="" style="background: #1a1a2e; color:"BE">Belgique</option>
-                        <option value="" style="background: #1a1a2e; color:"CA">Canada</option>
-                        <option value="" style="background: #1a1a2e; color:"MA">Maroc</option>
-                        <option value="" style="background: #1a1a2e; color:"TN">Tunisie</option>
-                        <option value="" style="background: #1a1a2e; color:"SN">Sénégal</option>
-                        <option value="" style="background: #1a1a2e; color:"CI">Côte d'Ivoire</option>
-                        <option value="" style="background: #1a1a2e; color:"IN">Inde</option>
-                        <option value="" style="background: #1a1a2e; color:"OTHER">Autre</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="sevenPaymentMethod">Mode de paiement préféré :</label>
-                    <select id="sevenPaymentMethod" required style="background: rgba(255,255,255,0.1); color: white; padding: 15px; border-radius: 10px;">
-                        <option value="" style="background: #1a1a2e; color: white;">Choisir votre méthode</option>
-                        <option value="card" style="background: #1a1a2e; color: white;">💳 Carte bancaire</option>
-                        <option value="paypal" style="background: #1a1a2e; color: white;">🔵 PayPal</option>
-                        <option value="transfer" style="background: #1a1a2e; color: white;">🏦 Virement bancaire</option>
-                        <option value="mobile" style="background: #1a1a2e; color: white;">📱 Mobile Money (Afrique)</option>
-                        <option value="crypto" style="background: #1a1a2e; color: white;">₿ Bitcoin/Crypto</option>
-                        <option value="other" style="background: #1a1a2e; color: white;">🌍 Autre (nous nous adapterons)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                                     
-                    
-                    <label>
-                        <input type="checkbox" required style="width: auto; margin-right: 0.5rem;">
-                        <span style="color: rgba(255,255,255,0.9);">J'accepte le système d'entraide 7 Ensemble (option 3 ou 7 personnes) et comprends le principe de solidarité mutuelle.</span>
-                    </label>
-                </div>
-               <!-- Bloc centré : titre, options et message -->
-<div class="section-centree">
-  <h2>✨ Rejoindre 7 Ensemble ✨</h2>
-
-  <label>
-    <input type="radio" name="choixOption" value="3">
-    Option 3 personnes vers 7'789€
-  </label>
-
-  <label>
-    <input type="radio" name="choixOption" value="7" checked>
-    Option 7 personnes vers 1'575'747€
-  </label>
-
-  <button type="submit" class="btn-primary" 
-          style="width: 100%; margin-top: 1rem; font-size: 1.2rem; padding: 20px;">
-    🚀 Créer Ma Constellation !
-  </button>
-
-  <p id="messageVoyage" class="voyage-text">
-    Bravo, votre aventure commence ici 💖
-  </p>
-</div>
- 
+    <!-- External Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
 </body>
-
 </html>
