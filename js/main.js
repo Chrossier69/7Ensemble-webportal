@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize form validation
     initFormValidation();
+
+    // Initialize mobile menu
+    initMobileMenu();
 });
 
 /**
@@ -117,11 +120,43 @@ function debounce(func, wait) {
     };
 }
 
+/**
+ * Mobile menu toggle
+ */
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('mobile-open');
+            // Toggle icon
+            const icon = this.querySelector('span');
+            if (icon) {
+                icon.textContent = navMenu.classList.contains('mobile-open') ? '✕' : '☰';
+            }
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('mobile-open');
+                const icon = menuToggle.querySelector('span');
+                if (icon) {
+                    icon.textContent = '☰';
+                }
+            });
+        });
+    }
+}
+
 // Export utilities
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         initSmoothScroll,
         initFormValidation,
+        initMobileMenu,
         isValidEmail,
         formatCurrency,
         debounce

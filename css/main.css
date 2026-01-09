@@ -329,10 +329,49 @@ nav {
     100% { box-shadow: 0 0 0px rgba(255, 215, 0, 0.8); }
 }
 
+/* === MOBILE MENU === */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-menu.mobile-open {
+    display: flex !important;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
     .nav-menu {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 1rem 0;
+        margin-top: 1rem;
+        border-radius: 10px;
+    }
+
+    .nav-menu a {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-menu a:last-child {
+        border-bottom: none;
     }
 
     .modal-content {
