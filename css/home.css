@@ -133,6 +133,80 @@
     overflow: hidden;
 }
 
+/* === DUAL CONSTELLATION WRAPPER === */
+.dual-constellation-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4rem;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.dual-constellation-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 80%;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(78,205,196,0.5) 20%,
+        rgba(255,107,107,0.5) 50%,
+        rgba(78,205,196,0.5) 80%,
+        transparent
+    );
+    animation: connectionPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes connectionPulse {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 10px rgba(78,205,196,0.3);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 30px rgba(255,107,107,0.8);
+    }
+}
+
+.constellation-side {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.constellation-title {
+    font-size: 1.8rem;
+    color: #f093fb;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(240,147,251,0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.constellation-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.constellation-gain {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4ecdc4;
+    margin-top: 1rem;
+    text-shadow: 0 0 10px rgba(78,205,196,0.5);
+    position: relative;
+    z-index: 1;
+}
+
 .constellation-visual::before {
     content: '';
     position: absolute;
@@ -197,7 +271,8 @@
     overflow: hidden;
 }
 
-.member-1 {
+/* === PLEIADES MEMBERS (7 members) === */
+.pleiades-member.member-1 {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -207,7 +282,7 @@
     background-position: center;
 }
 
-.member-2 {
+.pleiades-member.member-2 {
     top: 30px;
     right: 30px;
     animation-delay: -1s;
@@ -216,7 +291,7 @@
     background-position: center;
 }
 
-.member-3 {
+.pleiades-member.member-3 {
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
@@ -226,7 +301,7 @@
     background-position: center;
 }
 
-.member-4 {
+.pleiades-member.member-4 {
     bottom: 30px;
     right: 30px;
     animation-delay: -3s;
@@ -235,7 +310,7 @@
     background-position: center;
 }
 
-.member-5 {
+.pleiades-member.member-5 {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -245,7 +320,7 @@
     background-position: center;
 }
 
-.member-6 {
+.pleiades-member.member-6 {
     bottom: 30px;
     left: 30px;
     animation-delay: -5s;
@@ -254,7 +329,7 @@
     background-position: center;
 }
 
-.member-7 {
+.pleiades-member.member-7 {
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
@@ -264,15 +339,110 @@
     background-position: center;
 }
 
+/* === TRIANGULUM MEMBERS (3 members in triangle pattern) === */
+.triangulum-member {
+    animation: orbitTriangulum 6s linear infinite;
+}
+
+.triangulum-1 {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: rgba(102,126,234,0.9);
+}
+
+.triangulum-2 {
+    bottom: 30px;
+    left: 30px;
+    animation-delay: -2s;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border-color: rgba(240,147,251,0.9);
+}
+
+.triangulum-3 {
+    bottom: 30px;
+    right: 30px;
+    animation-delay: -4s;
+    background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+    border-color: rgba(78,205,196,0.9);
+}
+
+/* Triangulum center styling */
+.triangulum-center {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    box-shadow: 0 0 30px rgba(102,126,234,0.8);
+    font-size: 1rem;
+}
+
+/* Pléiades center styling */
+.pleiades-center {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    box-shadow: 0 0 30px rgba(255,107,107,0.8);
+}
+
+/* === ORBIT ANIMATIONS === */
 @keyframes orbit {
     0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
     100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+@keyframes orbitTriangulum {
+    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
 }
 
 @keyframes pulse {
     0% { transform: scale(1) translate(-50%, -50%); box-shadow: 0 0 0 0 rgba(255,107,107,0.7); }
     70% { transform: scale(1.05) translate(-50%, -50%); box-shadow: 0 0 0 10px rgba(255,107,107,0); }
     100% { transform: scale(1) translate(-50%, -50%); box-shadow: 0 0 0 0 rgba(255,107,107,0); }
+}
+
+/* === MIXING EFFECT === */
+.dual-constellation-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(
+        circle,
+        rgba(78,205,196,0.3) 0%,
+        rgba(255,107,107,0.3) 50%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: mixingPulse 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes mixingPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.8;
+    }
+}
+
+/* Constellation side hover effects with mixing */
+.constellation-side:hover {
+    animation: sideGlow 2s ease-in-out infinite;
+}
+
+@keyframes sideGlow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.2) drop-shadow(0 0 20px rgba(78,205,196,0.6));
+    }
 }
 
 /* === TOURS SECTION === */
@@ -438,5 +608,49 @@
     .stats-grid {
         flex-direction: column;
         text-align: center;
+    }
+
+    /* Dual constellation responsive */
+    .dual-constellation-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .dual-constellation-wrapper::before {
+        width: 80%;
+        height: 2px;
+        top: 50%;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(78,205,196,0.5) 20%,
+            rgba(255,107,107,0.5) 50%,
+            rgba(78,205,196,0.5) 80%,
+            transparent
+        );
+    }
+
+    .constellation-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .constellation-member {
+        width: 50px;
+        height: 50px;
+    }
+
+    .constellation-center {
+        width: 70px;
+        height: 70px;
+        font-size: 1rem;
+    }
+
+    .constellation-title {
+        font-size: 1.5rem;
+    }
+
+    .constellation-gain {
+        font-size: 1.1rem;
     }
 }
