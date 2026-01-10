@@ -189,16 +189,12 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
     animation: orbit 8s linear infinite;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
-    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    border: 3px solid rgba(255,255,255,0.8);
+    overflow: hidden;
 }
 
 .member-1 {
@@ -206,16 +202,18 @@
     left: 50%;
     transform: translateX(-50%);
     animation-delay: 0s;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white"/><path d="M30 65 Q50 80 70 65" stroke="white" stroke-width="3" fill="none"/><circle cx="45" cy="30" r="2" fill="black"/><circle cx="55" cy="30" r="2" fill="black"/></svg>');
+    background-image: url('../img/1.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .member-2 {
     top: 30px;
     right: 30px;
     animation-delay: -1s;
-    background: linear-gradient(45deg, #f093fb, #f5576c);
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white"/><path d="M35 70 Q50 85 65 70" stroke="white" stroke-width="3" fill="none"/><circle cx="45" cy="30" r="2" fill="black"/><circle cx="55" cy="30" r="2" fill="black"/><path d="M40 65 Q50 75 60 65" stroke="white" stroke-width="2" fill="none"/></svg>');
+    background-image: url('../img/2.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .member-3 {
@@ -223,16 +221,18 @@
     right: 10px;
     transform: translateY(-50%);
     animation-delay: -2s;
-    background: linear-gradient(45deg, #4ecdc4, #44a08d);
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white"/><path d="M30 65 Q50 75 70 65" stroke="white" stroke-width="3" fill="none"/><circle cx="45" cy="32" r="2" fill="black"/><circle cx="55" cy="32" r="2" fill="black"/></svg>');
+    background-image: url('../img/3.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .member-4 {
     bottom: 30px;
     right: 30px;
     animation-delay: -3s;
-    background: linear-gradient(45deg, #a8edea, #fed6e3);
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white"/><path d="M35 65 Q50 80 65 65" stroke="white" stroke-width="3" fill="none"/><circle cx="44" cy="30" r="2" fill="black"/><circle cx="56" cy="30" r="2" fill="black"/></svg>');
+    background-image: url('../img/4.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .member-5 {
@@ -240,16 +240,18 @@
     left: 50%;
     transform: translateX(-50%);
     animation-delay: -4s;
-    background: linear-gradient(45deg, #ffecd2, #fcb69f);
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white"/><path d="M32 68 Q50 78 68 68" stroke="white" stroke-width="3" fill="none"/><circle cx="46" cy="32" r="2" fill="black"/><circle cx="54" cy="32" r="2" fill="black"/></svg>');
+    background-image: url('../img/5.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .member-6 {
     bottom: 30px;
     left: 30px;
     animation-delay: -5s;
-    background: linear-gradient(45deg, #ff9a9e, #fecfef);
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white"/><path d="M30 65 Q50 80 70 65" stroke="white" stroke-width="3" fill="none"/><circle cx="45" cy="30" r="2" fill="black"/><circle cx="55" cy="30" r="2" fill="black"/></svg>');
+    background-image: url('../img/6.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .member-7 {
@@ -257,8 +259,9 @@
     left: 10px;
     transform: translateY(-50%);
     animation-delay: -6s;
-    background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="35" r="15" fill="white"/><path d="M35 65 Q50 75 65 65" stroke="white" stroke-width="3" fill="none"/><circle cx="47" cy="32" r="2" fill="black"/><circle cx="53" cy="32" r="2" fill="black"/></svg>');
+    background-image: url('../img/7.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 @keyframes orbit {
