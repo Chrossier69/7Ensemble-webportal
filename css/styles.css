@@ -749,6 +749,25 @@ nav {
     50% { opacity: 1; }
 }
 
+/* Canvas-based constellation wrapper */
+.constellation-canvas-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.constellation-canvas-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+/* Legacy constellation container (fallback) */
 .constellation-container {
     position: relative;
     width: 220px;
@@ -2022,6 +2041,16 @@ td.amount {
     .btn-primary {
         margin-top: 2px !important;
         margin: auto;
+    }
+
+    .constellation-canvas-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+
+    .constellation-canvas-wrapper canvas {
+        max-width: 280px;
+        max-height: 280px;
     }
 
     .constellation-container {
