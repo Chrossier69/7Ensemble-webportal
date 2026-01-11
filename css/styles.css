@@ -820,81 +820,132 @@ nav {
     text-align: center;
 }
 
-.tours-timeline {
-    position: relative;
-    max-width: 800px;
+/* Tours Grid Layout */
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     margin: 4rem auto;
+    max-width: 1200px;
 }
 
-.tour-item {
-    display: flex;
-    align-items: center;
-    margin: 2rem 0;
-    position: relative;
-    animation: slideInLeft 0.6s ease-out;
-}
-
-.tour-item:nth-child(even) {
-    flex-direction: row-reverse;
-    animation: slideInRight 0.6s ease-out;
-}
-
-.tour-number {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 2rem;
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
-    animation: pulse 2s infinite;
-}
-
-.tour-content {
-    flex: 1;
-    background: rgba(255,255,255,0.1);
+/* Tour Card Styling */
+.tour-card {
+    background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15));
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
     padding: 2rem;
-    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
     backdrop-filter: blur(10px);
 }
 
-.tour-amount {
-    font-size: 2.5rem;
+.tour-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.tour-card:hover::before {
+    left: 100%;
+}
+
+.tour-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(78,205,196,0.5);
+    box-shadow: 0 15px 40px rgba(102,126,234,0.3);
+}
+
+/* Tour Badge */
+.tour-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: bold;
-    color: #4ecdc4;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4);
 }
 
-.tour-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+.tour-badge-final {
+    background: linear-gradient(45deg, #ff6b6b, #f093fb);
+    box-shadow: 0 4px 15px rgba(255,107,107,0.5);
+    animation: pulse 2s infinite;
+}
+
+/* Tour Card Title */
+.tour-card-title {
+    font-size: 1.8rem;
     color: #f093fb;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Tour Card Amount */
+.tour-card-amount {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #4ecdc4;
+    margin: 1.5rem 0;
+    text-shadow: 0 0 20px rgba(78,205,196,0.5);
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.tour-card-amount-final {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Tour Card Description */
+.tour-card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    margin-top: 1rem;
+}
+
+/* Final Tour Card Special Styling */
+.tour-card-final {
+    background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(240,147,251,0.2));
+    border: 2px solid rgba(255,107,107,0.3);
+    grid-column: span 1;
+}
+
+/* Tours Summary Section */
+.tours-summary {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.tours-summary-title {
+    font-size: 2.5rem;
+    color: #4ecdc4;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.tours-summary-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* === URGENCE SECTION === */
@@ -1466,13 +1517,34 @@ td.amount {
         grid-template-columns: 1fr;
     }
 
-    .tour-item {
-        flex-direction: column !important;
-        text-align: center;
+    /* Tours Grid Responsive */
+    .tours-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .tour-number {
-        margin: 1rem 0;
+    .tour-card {
+        padding: 1.5rem;
+    }
+
+    .tour-card-amount {
+        font-size: 2rem;
+    }
+
+    .tour-card-amount-final {
+        font-size: 2.3rem;
+    }
+
+    .tours-summary {
+        padding: 2rem 1rem;
+    }
+
+    .tours-summary-title {
+        font-size: 1.8rem;
+    }
+
+    .tours-summary-text {
+        font-size: 1.1rem;
     }
 
     .stats-grid {
