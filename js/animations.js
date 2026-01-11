@@ -68,7 +68,7 @@ function animateNumbers() {
     });
 }
 
-// Animate elements on scroll (optimized)
+// Animate elements on scroll (optimized - uses CSS classes)
 function animateOnScroll() {
     const elements = document.querySelectorAll('.impact-card, .goal-item, .tour-card');
     const windowHeight = window.innerHeight;
@@ -80,15 +80,11 @@ function animateOnScroll() {
         const rect = el.getBoundingClientRect();
 
         if (rect.top >= 0 && rect.top <= windowHeight * 0.85) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-
+            // Add CSS class instead of inline styles to prevent layout thrashing
             setTimeout(() => {
-                el.style.transition = 'all 0.6s ease-out';
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
+                el.classList.add('scroll-fade-in');
                 el.dataset.animated = 'true';
-            }, index * 100);
+            }, index * 50); // Reduced delay for smoother animation
         }
     });
 }
