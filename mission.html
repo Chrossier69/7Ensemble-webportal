@@ -214,21 +214,7 @@
                     </div>
 
                     <div class="mission-community">
-                        <svg viewBox="-50 0 1000 180" class="svg-responsive">
-                            <symbol id="perso">
-                                <circle cx="0" cy="0" r="18" fill="currentColor"/>
-                                <path d="M0 16 Q -22 50 0 80 Q 22 50 0 16 Z" fill="white" opacity="0.9"/>
-                                <path d="M -26 35 Q -5 20 0 25 Q 5 20 26 35"
-                                      stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
-                            </symbol>
-                            <g class="p svg-person-1" transform="translate(80,60)"><use href="#perso"/></g>
-                            <g class="p svg-person-2" transform="translate(220,60)"><use href="#perso"/></g>
-                            <g class="p svg-person-3" transform="translate(360,60)"><use href="#perso"/></g>
-                            <g class="p svg-person-4" transform="translate(500,60)"><use href="#perso"/></g>
-                            <g class="p svg-person-5" transform="translate(640,60)"><use href="#perso"/></g>
-                            <g class="p svg-person-6" transform="translate(780,60)"><use href="#perso"/></g>
-                            <g class="p svg-person-7" transform="translate(920,60)"><use href="#perso"/></g>
-                        </svg>
+                        <canvas id="community-canvas" style="width: 100%; height: 180px; display: block; margin: 0 auto;"></canvas>
                     </div>
 
                     <div class="mission-finale">
@@ -334,6 +320,7 @@ Pas demain. Maintenant.
     </footer>
 
     <!-- External Scripts -->
+    <script src="js/community-canvas.js"></script>
     <script src="js/main.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/animations.js"></script>
