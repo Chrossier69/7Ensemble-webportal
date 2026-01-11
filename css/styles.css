@@ -2622,11 +2622,403 @@ td.amount {
     margin: 4rem 0;
 }
 
-.mission-vision-box {
-    background: linear-gradient(45deg, rgba(78,205,196,0.2), rgba(255,107,107,0.2));
-    padding: 3rem;
+/* === MISSION STORY REDESIGN (Mobile-First) === */
+.mission-story {
+    background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(255,107,107,0.1));
+    padding: 1.5rem;
     border-radius: 20px;
+    margin: 2rem 0;
+}
+
+.mission-intro {
     text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mission-statement {
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+/* Story Grid - Mobile First */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.story-section {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid #4ecdc4;
+}
+
+.story-subtitle {
+    color: #4ecdc4;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.story-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.story-list li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.story-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #4ecdc4;
+    font-weight: bold;
+}
+
+/* Mission Core */
+.mission-core {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background: rgba(255,107,107,0.1);
+    border-radius: 15px;
+}
+
+.core-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0.5rem 0;
+}
+
+.core-highlight {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+/* Mission Solution */
+.mission-solution {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2));
+    border-radius: 15px;
+}
+
+.solution-title {
+    color: #4ecdc4;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.solution-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.solution-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.pillar {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4ecdc4;
+    padding: 1rem;
+    background: rgba(78,205,196,0.1);
+    border-radius: 10px;
+    border: 2px solid rgba(78,205,196,0.3);
+}
+
+/* Mission Philosophy */
+.mission-philosophy {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+}
+
+.philosophy-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.philosophy-highlight {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4ecdc4;
+    line-height: 1.8;
+    padding: 1rem;
+    background: rgba(78,205,196,0.1);
+    border-radius: 10px;
+}
+
+/* Mission Commitment */
+.mission-commitment {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+}
+
+.commitment-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.commitment-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.commitment-item:hover {
+    transform: translateY(-5px);
+}
+
+.commitment-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.commitment-statement {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #4ecdc4;
+    line-height: 1.7;
+}
+
+/* Mission Why */
+.mission-why {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+}
+
+.why-intro {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #4ecdc4;
+    font-weight: bold;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.why-item {
+    padding: 1rem;
+    background: rgba(255,107,107,0.1);
+    border-radius: 10px;
+    border-left: 3px solid #ff6b6b;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Mission Answer */
+.mission-answer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background: rgba(78,205,196,0.1);
+    border-radius: 15px;
+}
+
+.answer-statement {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.answer-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Mission Goals */
+.mission-goals {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+}
+
+.goals-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #ff6b6b;
+    margin-bottom: 2rem;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.goal-box {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid rgba(78,205,196,0.2);
+    transition: all 0.3s ease;
+}
+
+.goal-box:hover {
+    transform: translateY(-5px);
+    border-color: rgba(78,205,196,0.5);
+    box-shadow: 0 10px 30px rgba(78,205,196,0.2);
+}
+
+.goal-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Mission Collective */
+.mission-collective {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background: linear-gradient(45deg, rgba(102,126,234,0.2), rgba(240,147,251,0.2));
+    border-radius: 15px;
+}
+
+.collective-statement {
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+
+/* Mission Community */
+.mission-community {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+/* Mission Finale */
+.mission-finale {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin: 2rem 0;
+}
+
+.finale-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* === TABLET RESPONSIVE (768px+) === */
+@media (min-width: 768px) {
+    .mission-story {
+        padding: 2.5rem;
+    }
+
+    .story-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .solution-pillars {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .pillar {
+        flex: 1;
+        max-width: 200px;
+    }
+
+    .commitment-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .goals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .mission-statement {
+        font-size: 1.5rem;
+    }
+
+    .core-highlight {
+        font-size: 1.5rem;
+    }
+
+    .solution-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* === DESKTOP RESPONSIVE (1280px+) === */
+@media (min-width: 1280px) {
+    .mission-story {
+        padding: 3rem;
+    }
+
+    .story-grid {
+        gap: 3rem;
+    }
+
+    .mission-core {
+        padding: 3rem 2rem;
+    }
+
+    .mission-solution {
+        padding: 3rem 2rem;
+    }
+
+    .goals-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .commitment-grid {
+        gap: 2rem;
+    }
+
+    .mission-statement {
+        font-size: 1.7rem;
+    }
+
+    .solution-title {
+        font-size: 2rem;
+    }
+
+    .finale-text {
+        font-size: 1.6rem;
+    }
 }
 
 .explanation-column-box {
