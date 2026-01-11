@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les 7 Tours - 7 Ensemble</title>
 
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/tours.css">
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Promotional Banner -->
@@ -23,10 +22,8 @@
             </button>
             <div class="nav-menu">
                 <a href="index.html">Accueil</a>
-                <a href="index.html#principe">Principe</a>
                 <a href="les7tours.html">Les 7 Tours</a>
                 <a href="mission.html">Mission</a>
-                <a href="index.html#urgence">Urgence</a>
             </div>
             <button class="btn-primary" onclick="window.location.href='index.html#inscription'">Rejoindre la révolution</button>
         </nav>
@@ -37,44 +34,38 @@
             <h1 class="main-title">Les 7 Tours : Fonctionnement Des Étapes</h1>
 
             <div class="section">
-                <h2 style="font-size: 2rem; color: #4ecdc4; text-align: center; margin-bottom: 2rem;">Principe de Base</h2>
-                <div class="explanation" style="max-width: 900px; margin: 0 auto; text-align:center;">
+                <h2 class="section-header-cyan section-header-pink">Principe de Base</h2>
+                <div class="explanation centered-explanation">
                     <!-- PARAGRAPHE 1 -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <p class="text-tours-explanation">
                         Le système <strong>7 Ensemble</strong> fonctionne sur <strong>7 tours progressifs</strong>.<br>
                         À chaque tour, les montants évoluent, mais l'idée reste la même :<br>
                         <strong>tout le monde contribue, tout le monde avance</strong>.
                     </p>
 
                     <!-- PARAGRAPHE PORTE-LUMIÈRE / CONSTELLATION -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; color:#00c7bb; font-weight:600; margin-bottom: 1.5rem;">
+                    <p class="text-tours-highlight">
                         Votre
-                        <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                            0 0 6px rgba(255,255,255,0.9),
-                            0 0 14px rgba(78,205,196,0.9),
-                            0 0 24px rgba(78,205,196,0.7);">
+                        <span class="blink glow-text-alcyone">
                             Alcyone
                         </span>
                         est la personne à qui vous offrez votre contribution à chaque tour.<br>
                         Votre Constellation
-                        <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                            0 0 6px rgba(255,255,255,0.9),
-                            0 0 14px rgba(156,39,176,0.9),
-                            0 0 24px rgba(156,39,176,0.7);">
+                        <span class="blink glow-text-pleiade">
                             La Pléiade
                         </span>
                         est le cercle de personnes qui vous soutiennent en retour.
                     </p>
 
                     <!-- PARAGRAPHE 3 -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <p class="text-tours-explanation">
                         Ce système crée un mouvement harmonieux, simple et puissant :<br>
                         vous offrez à une personne que nous appelerons Alcyone, et l'on reçoit de sa Constellation.<br>
                         Chacun avance, chacun rayonne, chacun construit sa propre évolution financière.
                     </p>
 
                     <!-- PARAGRAPHE 4 -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; margin-top: 1rem;">
+                    <p class="text-tours-detail">
                         Tu commences à un premier niveau accessible, puis, tour après tour, tu montes en puissance.<br>
                         Tu aides les autres à avancer, et en retour, la communauté te permet d'atteindre ta propre<br>
                         <strong>destination financière</strong>.
@@ -227,53 +218,47 @@
             </div>
 
             <div class="section">
-                <h2 style="font-size: 2rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Explication des Colonnes</h2>
+                <h2 class="section-header-cyan section-header-pink">Explication des Colonnes</h2>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #4ecdc4; margin-bottom: 1rem;">Offert</h3>
+                <div class="grid-explanation-columns">
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-cyan">Offert</h3>
                         <p>Montant Offert à votre <br> <strong>Alcyone</strong> <br> à chaque tour</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #45b7d1; margin-bottom: 1rem;">Reçu</h3>
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-blue">Reçu</h3>
                         <p>Montant reçu de votre <br> <strong>Constellation</strong> <br> par tour</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #feca57; margin-bottom: 1rem;">Prochain</h3>
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-yellow">Prochain</h3>
                         <p>Montant à Offrir à votre <br> <strong>Alcyone</strong> <br> pour le tour suivant</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #ff6b6b; margin-bottom: 1rem;">Avoir</h3>
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-red">Avoir</h3>
                         <p>Montant pour vous faire plaisir commencer à Exister Soyez Heureux</p>
                     </div>
                 </div>
             </div>
 
             <div class="important-note">
-                <h3 style="color: #ff6b6b; margin-bottom: 1rem;">Information importante</h3>
+                <h3 class="info-note-title-red">Information importante</h3>
                 <p style="font-size: 1.1rem; line-height: 1.6;">
                     Ce système fonctionne grâce à la participation continue de nouveaux
-                    <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                        0 0 6px rgba(255,255,255,0.9),
-                        0 0 14px rgba(78,205,196,0.9),
-                        0 0 24px rgba(78,205,196,0.7);">
+                    <span class="blink glow-text-alcyone">
                         &nbsp; Alcyone
                     </span><br>
                     Comme toute association caritative ou fondation qui a besoin de nouveaux donateurs pour continuer ses recherches, <br>
                     7 Ensemble nécessite un flux constant de participants. Il n'y a pas de miracle 7 Ensemble que nous avançons, pas seuls. <br>
                     Cette logique s'applique partout : les commerces ont besoin de nouveaux clients pour survivre, sinon ils ferment comme
                     de nombreux restaurants aujourd'hui. C'est la réalité de tout système d'entraide collective
-                    <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                        0 0 6px rgba(255,255,255,0.9),
-                        0 0 14px rgba(78,205,196,0.9),
-                        0 0 24px rgba(78,205,196,0.7);">
+                    <span class="blink glow-text-alcyone">
                         &nbsp; 7 Ensemble
                     </span> &nbsp; qu'on avance.
                 </p>
             </div>
 
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="index.html" class="btn-primary" style="font-size: 1.3rem; padding: 20px 40px;">
+            <div class="centered-section-margin-medium">
+                <a href="index.html" class="btn-primary btn-tours-link">
                     🏠 Retour à l'accueil
                 </a>
             </div>

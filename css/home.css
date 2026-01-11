@@ -349,7 +349,9 @@
     left: 50%;
     transform: translateX(-50%);
     animation-delay: 0s;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-image: url('../img/1.jpeg');
+    background-size: cover;
+    background-position: center;
     border-color: rgba(102,126,234,0.9);
 }
 
@@ -357,7 +359,9 @@
     bottom: 30px;
     left: 30px;
     animation-delay: -2s;
-    background: linear-gradient(135deg, #f093fb, #f5576c);
+    background-image: url('../img/2.jpeg');
+    background-size: cover;
+    background-position: center;
     border-color: rgba(240,147,251,0.9);
 }
 
@@ -365,7 +369,9 @@
     bottom: 30px;
     right: 30px;
     animation-delay: -4s;
-    background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+    background-image: url('../img/3.jpeg');
+    background-size: cover;
+    background-position: center;
     border-color: rgba(78,205,196,0.9);
 }
 
