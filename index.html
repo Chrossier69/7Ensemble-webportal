@@ -501,10 +501,37 @@
     </div>
 
     <!-- Footer -->
+    <style>/* Footer base styles (Mobile-first) */
+.site-footer {
+  background-color: #0f172a; /* Dark theme (neutral, modern) */
+  color: #e5e7eb;
+  text-align: center;
+  padding: 16px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+
+  /* Sticky footer */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Desktop (≥1280px) */
+@media (min-width: 1280px) {
+  .site-footer {
+    padding: 24px;
+    font-size: 16px;
+  }
+
+  body {
+    padding-bottom: 72px;
+  }
+}
+</style>
     <footer class="site-footer">
-        <div class="footer-content">
-            <p class="footer-text">All Rights Reserved by 7 Ensemble</p>
-        </div>
+      <p>All Rights Reserved by 7 Ensemble</p>
     </footer>
 
     <!-- External Scripts -->
