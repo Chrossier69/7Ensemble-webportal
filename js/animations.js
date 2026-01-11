@@ -1,59 +1,123 @@
 /**
  * 7 ENSEMBLE - Animations
  * Handles scroll-triggered animations and number counting
+ * Optimized for performance
  */
 
-// Animate numbers on scroll
+// Throttle function to improve scroll performance
+function throttle(func, delay) {
+    let timeoutId;
+    let lastExecTime = 0;
+    return function(...args) {
+        const currentTime = Date.now();
+        const timeSinceLastExec = currentTime - lastExecTime;
+
+        clearTimeout(timeoutId);
+
+        if (timeSinceLastExec > delay) {
+            func.apply(this, args);
+            lastExecTime = currentTime;
+        } else {
+            timeoutId = setTimeout(() => {
+                func.apply(this, args);
+                lastExecTime = Date.now();
+            }, delay - timeSinceLastExec);
+        }
+    };
+}
+
+// Animate numbers on scroll (optimized)
 function animateNumbers() {
-    const numbers = document.querySelectorAll('.stat-number, .tour-amount');
+    const numbers = document.querySelectorAll('.stat-number, .tour-card-amount');
+
     numbers.forEach(num => {
+        // Skip if already animated
+        if (num.classList.contains('animated')) return;
+
         const rect = num.getBoundingClientRect();
-        if (rect.top < window.innerHeight && !num.classList.contains('animated')) {
+        const windowHeight = window.innerHeight;
+
+        // Only animate when element is in viewport
+        if (rect.top >= 0 && rect.top <= windowHeight * 0.85) {
             num.classList.add('animated');
-            const finalValue = num.textContent;
-            num.textContent = '0';
+            const finalValue = num.textContent.trim();
+            const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+
+            // Skip animation for very small numbers or if no numeric value
+            if (!numericValue || numericValue < 10) {
+                return;
+            }
+
+            num.textContent = '0€';
             let current = 0;
-            const target = parseInt(finalValue.replace(/[^\d]/g, ''));
-            const increment = target / 50;
+            const increment = numericValue / 30; // Reduced iterations for better performance
+            const duration = 1000; // 1 second total
+            const interval = duration / 30;
+
             const timer = setInterval(() => {
                 current += increment;
-                if (current >= target) {
+                if (current >= numericValue) {
                     num.textContent = finalValue;
                     clearInterval(timer);
                 } else {
-                    num.textContent = Math.floor(current) + (finalValue.includes('€') ? '€' : '');
+                    const currentFormatted = Math.floor(current).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+                    num.textContent = currentFormatted + '€';
                 }
-            }, 50);
+            }, interval);
         }
     });
 }
 
-// Add scroll listener for number animations
-if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', animateNumbers);
-    // Trigger once on load
-    document.addEventListener('DOMContentLoaded', animateNumbers);
-}
-
-// Animate elements on scroll
+// Animate elements on scroll (optimized)
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.impact-card, .goal-item');
+    const elements = document.querySelectorAll('.impact-card, .goal-item, .tour-card');
+    const windowHeight = window.innerHeight;
+
     elements.forEach((el, index) => {
+        // Skip if already animated
+        if (el.dataset.animated === 'true') return;
+
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
-            el.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+
+        if (rect.top >= 0 && rect.top <= windowHeight * 0.85) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+
+            setTimeout(() => {
+                el.style.transition = 'all 0.6s ease-out';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+                el.dataset.animated = 'true';
+            }, index * 100);
         }
     });
 }
 
-// Add scroll listener for element animations
+// Throttled scroll handlers for better performance
+const throttledAnimateNumbers = throttle(animateNumbers, 200);
+const throttledAnimateOnScroll = throttle(animateOnScroll, 200);
+
+// Add scroll listener for animations
 if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', animateOnScroll);
-    document.addEventListener('DOMContentLoaded', animateOnScroll);
+    // Use passive listeners for better scroll performance
+    window.addEventListener('scroll', throttledAnimateNumbers, { passive: true });
+    window.addEventListener('scroll', throttledAnimateOnScroll, { passive: true });
+
+    // Trigger once on load
+    document.addEventListener('DOMContentLoaded', () => {
+        animateNumbers();
+        animateOnScroll();
+    });
 }
 
-// Create confetti for mission page
+// Create confetti for mission page (optimized)
 function createConfetti() {
+    // Limit max confetti elements
+    const existingConfetti = document.querySelectorAll('.confetti');
+    if (existingConfetti.length > 20) {
+        return; // Don't create more if we already have too many
+    }
+
     const confetti = document.createElement('div');
     confetti.className = 'confetti';
     confetti.style.left = Math.random() * 100 + '%';
@@ -74,7 +138,7 @@ if (typeof window !== 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
         // Check if we're on the mission page
         if (document.querySelector('.hero-mission')) {
-            setInterval(createConfetti, 300);
+            setInterval(createConfetti, 500); // Reduced frequency
         }
     });
 }
@@ -84,6 +148,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         animateNumbers,
         animateOnScroll,
-        createConfetti
+        createConfetti,
+        throttle
     };
 }
