@@ -697,7 +697,7 @@ nav {
 .constellation-subtitle {
     font-size: 1rem;
     color: rgba(255,255,255,0.7);
-    margin-bottom: 1rem;
+    margin-bottom: 7rem;
     position: relative;
     z-index: 1;
 }
@@ -706,7 +706,7 @@ nav {
     font-size: 1.3rem;
     font-weight: bold;
     color: #4ecdc4;
-    margin-top: 1rem;
+    margin-top: 7rem;
     text-shadow: 0 0 10px rgba(78,205,196,0.5);
     position: relative;
     z-index: 1;
@@ -736,8 +736,8 @@ nav {
 
 .constellation-container {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
     margin: 2rem auto;
 }
 
@@ -1051,6 +1051,7 @@ nav {
 }
 
 .tour-badge-final {
+    margin-left: 85px;
     background: linear-gradient(45deg, #ff6b6b, #f093fb);
     box-shadow: 0 4px 15px rgba(255,107,107,0.5);
     animation: pulse 2s infinite;
@@ -1306,7 +1307,7 @@ td.amount {
 }
 
 .amount {
-    font-size: 1.1rem;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -1942,6 +1943,16 @@ td.amount {
         padding: 2rem 1rem;
     }
 
+    .btn-primary {
+        margin-top: 20px !important;
+        margin: auto;
+    }
+
+    .constellation-container {
+        width: 149px;
+        height: 149px;
+    }
+
     /* Fix constellation on mobile */
     .dual-constellation-wrapper {
         flex-direction: column;
@@ -2184,7 +2195,7 @@ td.amount {
 }
 
 .text-header-large {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
 }
 
@@ -2636,7 +2647,7 @@ td.amount {
 
 .modal-header-risk {
     text-align: center;
-    color: #4ecdc4;
+    color: #fff;
     font-size: 2.8rem;
     font-weight: bold;
     z-index: 2;
