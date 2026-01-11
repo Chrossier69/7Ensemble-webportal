@@ -1735,6 +1735,19 @@ td.amount {
         height: 60px;
         font-size: 0.9rem;
     }
+
+    /* Fix constellation margins for small mobile */
+    .constellation-subtitle {
+        margin-bottom: 1rem;
+    }
+
+    .constellation-gain {
+        margin-top: 1rem;
+    }
+
+    .constellation-visual {
+        padding: 1rem;
+    }
 }
 
 /* Mobile Devices (576px and up) */
@@ -1980,6 +1993,63 @@ td.amount {
     .constellation-container {
         width: 149px;
         height: 149px;
+    }
+
+    /* Fix constellation margins for mobile visibility */
+    .constellation-subtitle {
+        margin-bottom: 1rem;
+    }
+
+    .constellation-gain {
+        margin-top: 1rem;
+    }
+
+    .constellation-visual {
+        padding: 1.5rem;
+        margin: 2rem 0;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .constellation-side {
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .constellation-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Simplify animations on mobile for better performance */
+    .constellation-member {
+        animation-duration: 12s;
+    }
+
+    /* Reduce animation intensity on mobile */
+    body::before {
+        animation: twinkle 8s ease-in-out infinite;
+        opacity: 0.2;
+    }
+
+    .constellation-center {
+        animation-duration: 3s;
+    }
+
+    /* Remove will-change on mobile to reduce GPU load */
+    .constellation-member,
+    .constellation-center,
+    .tour-card,
+    .impact-card,
+    .goal-item {
+        will-change: auto;
+    }
+
+    .pulse, .pulse-heart, .glow-heart {
+        will-change: auto;
     }
 
     /* Fix constellation on mobile */
