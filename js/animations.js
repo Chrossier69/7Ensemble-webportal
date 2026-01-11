@@ -129,12 +129,12 @@ function createConfetti() {
     }, 5000);
 }
 
-// Start confetti animation if on mission page
+// Start confetti animation if on mission page (optimized)
 if (typeof window !== 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
         // Check if we're on the mission page
         if (document.querySelector('.hero-mission')) {
-            setInterval(createConfetti, 500); // Reduced frequency
+            setInterval(createConfetti, 800); // Further reduced frequency for performance
         }
     });
 }
