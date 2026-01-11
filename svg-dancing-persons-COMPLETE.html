@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Dancing Persons - FIXED</title>
+
+    <!-- Link to SVG Animation CSS -->
+    <link rel="stylesheet" href="public/css/svg-animations.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(180deg, #0f1419 0%, #1a237e 30%, #3949ab 60%, #5c6bc0 85%, #9c27b0 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4ecdc4;
+            margin-bottom: 2rem;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h2 {
+            color: #ffa94d;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            line-height: 1.8;
+        }
+
+        .test-info {
+            background: rgba(78, 205, 196, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .test-info h3 {
+            margin-top: 0;
+            color: #4ecdc4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎭 7 Ensemble - Dancing SVG Persons (FIXED)</h1>
+
+    <div class="instructions">
+        <h2>✅ What You Should See:</h2>
+        <ul>
+            <li>7 colored persons dancing with smooth animations</li>
+            <li>Each person has a different color (Red → Orange → Yellow → Green → Blue → Indigo → Purple)</li>
+            <li>Staggered timing - each person starts 0.2s after the previous one</li>
+            <li>Hover over a person to pause their animation</li>
+        </ul>
+    </div>
+
+    <!-- ========================================
+         CORRECTED SVG CODE - COPY THIS TO YOUR mission.html
+         ======================================== -->
+
+    <div class="mission-community">
+        <svg viewBox="-50 0 1000 180" class="svg-responsive">
+
+            <!-- Person Symbol Definition -->
+            <symbol id="perso">
+                <circle cx="0" cy="0" r="18" fill="currentColor"></circle>
+                <path d="M0 16 Q -22 50 0 80 Q 22 50 0 16 Z" fill="white" opacity="0.9"></path>
+                <path d="M -26 35 Q -5 20 0 25 Q 5 20 26 35" stroke="white" stroke-width="12" stroke-linecap="round" fill="none"></path>
+            </symbol>
+
+            <!-- 7 Dancing Persons with Colors -->
+            <g class="p svg-person-1" style="color:#ff6b6b;" transform="translate(80,60)">
+                <use href="#perso"></use>
+            </g>
+
+            <g class="p svg-person-2" style="color:#ffa94d;" transform="translate(220,60)">
+                <use href="#perso"></use>
+            </g>
+
+            <g class="p svg-person-3" style="color:#ffd93b;" transform="translate(360,60)">
+                <use href="#perso"></use>
+            </g>
+
+            <g class="p svg-person-4" style="color:#51cf66;" transform="translate(500,60)">
+                <use href="#perso"></use>
+            </g>
+
+            <g class="p svg-person-5" style="color:#22b8cf;" transform="translate(640,60)">
+                <use href="#perso"></use>
+            </g>
+
+            <g class="p svg-person-6" style="color:#5c7cfa;" transform="translate(780,60)">
+                <use href="#perso"></use>
+            </g>
+
+            <g class="p svg-person-7" style="color:#cc5de8;" transform="translate(920,60)">
+                <use href="#perso"></use>
+            </g>
+        </svg>
+    </div>
+
+    <div class="test-info">
+        <h3>🔍 Debug Information</h3>
+        <p><strong>Open Browser Console (F12)</strong> to see animation status</p>
+        <p><strong>Type:</strong> <code style="background: rgba(0,0,0,0.3); padding: 3px 8px; border-radius: 4px;">toggleSVGAnimation()</code> to pause/play all animations</p>
+        <p id="status" style="margin-top: 10px; font-weight: bold;"></p>
+    </div>
+
+</div>
+
+<!-- JavaScript for Animation -->
+<script src="public/js/svg-animation-fixed.js"></script>
+
+<script>
+    // Display status after page loads
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            const persons = document.querySelectorAll('.p');
+            const status = document.getElementById('status');
+
+            if (persons.length === 7) {
+                status.innerHTML = '✅ All 7 persons loaded and animating!';
+                status.style.color = '#51cf66';
+            } else {
+                status.innerHTML = '❌ Error: Only ' + persons.length + ' persons found!';
+                status.style.color = '#ff6b6b';
+            }
+        }, 1500);
+    });
+</script>
+
+</body>
+</html>
