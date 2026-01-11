@@ -1,0 +1,73 @@
+===============================================
+  SVG DANCING PERSONS - QUICK FIX CARD
+===============================================
+
+PROBLEM: svg-person-1 to svg-person-7 don't move
+
+ROOT CAUSE: Missing color styles + CSS not applying
+
+===============================================
+  SOLUTION (Copy/Paste This Code)
+===============================================
+
+1. IN <HEAD> ADD:
+   <link rel="stylesheet" href="public/css/svg-animations.css">
+
+2. REPLACE YOUR SVG WITH THIS:
+   (Each line needs style="color:...")
+
+<div class="mission-community">
+    <svg viewBox="-50 0 1000 180" class="svg-responsive">
+        <symbol id="perso">
+            <circle cx="0" cy="0" r="18" fill="currentColor"></circle>
+            <path d="M0 16 Q -22 50 0 80 Q 22 50 0 16 Z" fill="white" opacity="0.9"></path>
+            <path d="M -26 35 Q -5 20 0 25 Q 5 20 26 35" stroke="white" stroke-width="12" stroke-linecap="round" fill="none"></path>
+        </symbol>
+
+        <g class="p svg-person-1" style="color:#ff6b6b;" transform="translate(80,60)"><use href="#perso"></use></g>
+        <g class="p svg-person-2" style="color:#ffa94d;" transform="translate(220,60)"><use href="#perso"></use></g>
+        <g class="p svg-person-3" style="color:#ffd93b;" transform="translate(360,60)"><use href="#perso"></use></g>
+        <g class="p svg-person-4" style="color:#51cf66;" transform="translate(500,60)"><use href="#perso"></use></g>
+        <g class="p svg-person-5" style="color:#22b8cf;" transform="translate(640,60)"><use href="#perso"></use></g>
+        <g class="p svg-person-6" style="color:#5c7cfa;" transform="translate(780,60)"><use href="#perso"></use></g>
+        <g class="p svg-person-7" style="color:#cc5de8;" transform="translate(920,60)"><use href="#perso"></use></g>
+    </svg>
+</div>
+
+3. BEFORE </BODY> ADD:
+   <script src="public/js/svg-animation-fixed.js"></script>
+
+===============================================
+  TEST IT
+===============================================
+
+1. Open: svg-dancing-persons-COMPLETE.html
+2. Should see 7 colored persons dancing
+3. Hover = pause animation
+
+===============================================
+  KEY DIFFERENCE
+===============================================
+
+YOUR CODE (BROKEN):
+<g class="p svg-person-1" transform="translate(80,60)">
+                           ↑
+                    MISSING COLOR!
+
+FIXED CODE (WORKING):
+<g class="p svg-person-1" style="color:#ff6b6b;" transform="translate(80,60)">
+                                ↑
+                           COLOR ADDED!
+
+===============================================
+  FILES TO USE
+===============================================
+
+✅ public/css/svg-animations.css (CSS with !important)
+✅ public/js/svg-animation-fixed.js (JavaScript init)
+✅ svg-dancing-persons-COMPLETE.html (Test page)
+✅ SVG-ANIMATION-FIX-GUIDE.md (Full guide)
+
+===============================================
+
+Need help? Read: SVG-ANIMATION-FIX-GUIDE.md
