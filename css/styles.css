@@ -1387,6 +1387,8 @@ td.amount {
     height: 10px;
     background: #ff6b6b;
     animation: confetti-fall 3s linear infinite;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .confetti:nth-child(2n) { background: #4ecdc4; animation-delay: -0.5s; }
