@@ -253,8 +253,8 @@
 
         <section id="mission" class="mission-section-box">
             <div class="container">
-                <h2 class="section-header-large">
-                    <span class="coeur-magique">🫶</span> Mon Petit Coup de Gueule : Pourquoi 7 Ensemble ? <span class="coeur-magique">🫶</span>
+                <h2 class="section-header-large section-header-pourquoi">
+                    <span class="coeur-magique">🫶</span> <span class="pourquoi-text">Mon Petit Coup de Gueule&nbsp;: Pourquoi 7 Ensemble&nbsp;?</span> <span class="coeur-magique">🫶</span>
                 </h2>
 
                 <div class="quote-box">
@@ -423,24 +423,31 @@
         </section>
     </main>
 
-    <!-- Modal d'inscription 7 personnes -->
-    <div id="sevenModal" class="modal">
+    <!-- Unified Registration Modal -->
+    <div id="registrationModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('sevenModal')">&times;</span>
+            <span class="close" onclick="closeModal('registrationModal')">&times;</span>
             <h2 class="modal-title-centered">🌟 Rejoindre 7 Ensemble 🌟</h2>
 
-            <form id="sevenForm" onsubmit="return submitForm(event, 'seven')">
+            <form id="registrationForm" onsubmit="return submitRegistrationForm(event)">
                 <div class="form-group">
-                    <label for="sevenFullName">Nom complet :</label>
-                    <input type="text" id="sevenFullName" name="fullName" required placeholder="Votre nom et prénom">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom" minlength="2">
                 </div>
+
                 <div class="form-group">
-                    <label for="sevenEmail">Email :</label>
-                    <input type="email" id="sevenEmail" name="email" required placeholder="votre@email.com">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" required placeholder="Votre nom de famille" minlength="2">
                 </div>
+
                 <div class="form-group">
-                    <label for="sevenCountry">Pays :</label>
-                    <select id="sevenCountry" name="country" required>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Pays :</label>
+                    <select id="country" name="country" required>
                         <option value="">Choisir votre pays</option>
                         <option value="FR">France</option>
                         <option value="CH">Suisse</option>
@@ -456,8 +463,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="sevenPaymentMethod">Mode de paiement préféré :</label>
-                    <select id="sevenPaymentMethod" name="paymentMethod" required>
+                    <label for="paymentMethod">Mode de paiement préféré :</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
                         <option value="">Choisir votre méthode</option>
                         <option value="card">💳 Carte bancaire</option>
                         <option value="paypal">🔵 PayPal</option>
@@ -476,17 +483,21 @@
                 </div>
 
                 <div class="section-centree">
-                    <h3>✨ Choisir mon option ✨</h3>
+                    <h3>✨ Votre option ✨</h3>
 
-                    <label>
-                        <input type="radio" name="choixOption" value="3">
-                        Option 3 personnes vers 7'789€
-                    </label>
+                    <div id="option3Container" style="display: none;">
+                        <label class="option-label-selected">
+                            <input type="radio" id="option3Radio" name="choixOption" value="3">
+                            <strong>Option 3 personnes vers 7'789€</strong>
+                        </label>
+                    </div>
 
-                    <label>
-                        <input type="radio" name="choixOption" value="7" checked>
-                        Option 7 personnes vers 1'575'747€
-                    </label>
+                    <div id="option7Container" style="display: none;">
+                        <label class="option-label-selected">
+                            <input type="radio" id="option7Radio" name="choixOption" value="7">
+                            <strong>Option 7 personnes vers 1'575'747€</strong>
+                        </label>
+                    </div>
 
                     <button type="submit" class="btn-primary btn-full-width">
                         🚀 Créer Ma Constellation !

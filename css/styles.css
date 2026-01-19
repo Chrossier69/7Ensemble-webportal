@@ -3258,3 +3258,112 @@ td.amount {
     height: auto;
     overflow: visible;
 }
+/* ===================================
+   HOMEPAGE LAYOUT FIXES
+   =================================== */
+
+/* Fix "Pourquoi 7 Ensemble ?" to stay on one line */
+.section-header-pourquoi {
+    white-space: nowrap;
+}
+
+.pourquoi-text {
+    font-size: 2.2rem !important;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .pourquoi-text {
+        font-size: 1.6rem !important;
+        white-space: normal;
+        line-height: 1.3;
+    }
+    
+    .section-header-pourquoi {
+        white-space: normal;
+    }
+}
+
+/* Option label styling when selected */
+.option-label-selected {
+    display: block;
+    padding: 15px 20px;
+    background: linear-gradient(45deg, rgba(78,205,196,0.2), rgba(102,126,234,0.2));
+    border: 2px solid #4ecdc4;
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-label-selected:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(78,205,196,0.3);
+}
+
+.option-label-selected strong {
+    color: #4ecdc4;
+    font-size: 1.1rem;
+}
+
+/* ===================================
+   SCROLLING FIXES
+   =================================== */
+
+/* Fix mission page scroll issues */
+html {
+    scroll-behavior: auto !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Ensure no conflicting overflow on main containers */
+main {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+/* Remove unnecessary scrollbars */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15,20,25,0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #764ba2, #667eea);
+}
+
+/* Fix modal scrolling when open */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* ===================================
+   ADDITIONAL LAYOUT IMPROVEMENTS
+   =================================== */
+
+/* Ensure consistent width for content blocks */
+.risk-zero-section,
+.quote-box,
+.principe-grid,
+.constellation-visual {
+    max-width: 100%;
+    width: 100%;
+}
+
