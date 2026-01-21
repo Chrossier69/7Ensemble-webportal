@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7 Ensemble - Votre Nouvelle Aventure Financière</title>
 
+    <!-- Preload hero video for better performance (desktop only) -->
+    <link rel="preload" as="image" href="/img/banner-img.png">
+    <link rel="preload" as="video" href="/img/banner-video.mp4" media="(min-width: 769px)">
+
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -30,9 +34,21 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>7 Ensemble</h1>
+        <!-- Hero Section with Video Background -->
+        <section class="hero hero-video">
+            <!-- Video Background -->
+            <div class="hero-video-container">
+                <video class="hero-video-bg" autoplay loop muted playsinline poster="/img/banner-img.png">
+                    <source src="/img/banner-video.mp4" type="video/mp4">
+                    <!-- Fallback image if video doesn't load -->
+                </video>
+                <!-- Overlay for better text readability -->
+                <div class="hero-video-overlay"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="container hero-content">
+                <h1 class="hero-title">7 Ensemble</h1>
                 <p class="subtitle">Qui, avec 21€, a changé ma vie</p>
                 <p class="tagline">Une plateforme conçue pour que tout le monde puisse vivre et profiter des bons moments de la vie en famille, <br> sans avoir à se soucier si demain, ils auront de quoi payer leurs factures</p>
 

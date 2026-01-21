@@ -3519,3 +3519,246 @@ main {
     }
 }
 
+
+/* ===================================
+   VIDEO HERO SECTION
+   =================================== */
+
+/* Hero with video background */
+.hero-video {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+/* Video container */
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Video background */
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Fallback for browsers that don't support video */
+.hero-video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/banner-img.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* Dark overlay for better text readability */
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(15, 20, 25, 0.7) 0%,
+        rgba(26, 35, 126, 0.6) 30%,
+        rgba(57, 73, 171, 0.5) 60%,
+        rgba(92, 107, 192, 0.4) 85%,
+        rgba(156, 39, 176, 0.5) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hero content - above video */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    padding: 2rem 1rem;
+}
+
+/* Ensure text is always readable */
+.hero-content h1,
+.hero-content .subtitle,
+.hero-content .tagline,
+.hero-content .transformation-amount,
+.hero-content .hero-subtitle-text,
+.hero-content .hero-risk-zero-text,
+.hero-content .hero-quick-message {
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 4px 8px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero title enhancement */
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Animation for content */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content .subtitle {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero-content .tagline {
+    animation: fadeInUp 1.4s ease-out;
+}
+
+.hero-content .transformation-amount {
+    animation: fadeInUp 1.6s ease-out;
+}
+
+.hero-content .flex-buttons-container {
+    animation: fadeInUp 1.8s ease-out;
+}
+
+/* ===================================
+   RESPONSIVE VIDEO HERO
+   =================================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .hero-video {
+        min-height: 90vh;
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-content .tagline br {
+        display: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-video {
+        min-height: 100vh;
+        padding: 40px 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-content {
+        padding: 1rem 0.5rem;
+    }
+
+    /* Pause video on mobile to save bandwidth */
+    .hero-video-bg {
+        display: none;
+    }
+
+    /* Show static image instead on mobile */
+    .hero-video-container::before {
+        z-index: 0;
+    }
+
+    /* Darker overlay on mobile for better readability */
+    .hero-video-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(15, 20, 25, 0.85) 0%,
+            rgba(26, 35, 126, 0.75) 50%,
+            rgba(156, 39, 176, 0.7) 100%
+        );
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .transformation-amount {
+        font-size: 3rem !important;
+    }
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .hero-video-bg {
+        animation: none;
+    }
+
+    .hero-content h1,
+    .hero-content .subtitle,
+    .hero-content .tagline,
+    .hero-content .transformation-amount,
+    .hero-content .flex-buttons-container {
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .hero-video-overlay {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Print styles - show static image only */
+@media print {
+    .hero-video-bg {
+        display: none !important;
+    }
+
+    .hero-video-container::before {
+        display: block;
+    }
+}
+
