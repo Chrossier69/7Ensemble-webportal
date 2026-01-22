@@ -3607,11 +3607,10 @@ main {
 .hero-content h1,
 .hero-content .subtitle,
 .hero-content .tagline,
-.hero-content .transformation-amount,
 .hero-content .hero-subtitle-text,
 .hero-content .hero-risk-zero-text,
 .hero-content .hero-quick-message {
-    text-shadow: 
+    text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.8),
         0 4px 8px rgba(0, 0, 0, 0.6),
         0 0 20px rgba(0, 0, 0, 0.4);
@@ -3841,9 +3840,17 @@ td.amount {
 
 .footer-main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
     margin-bottom: 2rem;
+}
+
+/* Tablet - 2 columns */
+@media (max-width: 992px) {
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
 }
 
 .footer-section {
