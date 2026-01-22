@@ -5,13 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission - 7 Ensemble</title>
 
+    <!-- Preload banner video for better performance (desktop only) -->
+    <link rel="preload" as="image" href="img/banner.png">
+    <link rel="preload" as="video" href="img/banner-video.mp4" media="(min-width: 769px)">
+
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Promotional Banner -->
-    <section class="promo-banner">
-        <img src="img/Animated_Banner.gif" alt="7 Ensemble - Promotional Banner">
+    <!-- Video Banner Header -->
+    <section class="mission-banner-video">
+        <!-- Video Background -->
+        <div class="banner-video-container">
+            <video class="banner-video-bg" autoplay loop muted playsinline poster="img/banner.png">
+                <source src="img/banner-video.mp4" type="video/mp4">
+                <!-- Fallback to static image if video doesn't load -->
+            </video>
+            <!-- Overlay for cosmic theme -->
+            <div class="banner-video-overlay"></div>
+        </div>
     </section>
 
     <!-- Confettis animés -->
@@ -348,5 +360,47 @@ Pas demain. Maintenant.
     <script src="js/main.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/animations.js"></script>
+
+    <!-- Mission Banner Video Optimization -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const bannerVideo = document.querySelector('.banner-video-bg');
+
+        if (bannerVideo) {
+            // Optimize video playback
+            bannerVideo.addEventListener('loadeddata', function() {
+                console.log('Mission banner video loaded successfully');
+            });
+
+            // Handle video errors - fallback to static image
+            bannerVideo.addEventListener('error', function() {
+                console.warn('Banner video failed to load, using static image fallback');
+                bannerVideo.style.display = 'none';
+            });
+
+            // Pause video when not in viewport (performance optimization)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        bannerVideo.play().catch(err => console.log('Banner video autoplay prevented:', err));
+                    } else {
+                        bannerVideo.pause();
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            observer.observe(bannerVideo);
+
+            // Disable video on slow connections
+            if ('connection' in navigator) {
+                const connection = navigator.connection;
+                if (connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g')) {
+                    bannerVideo.style.display = 'none';
+                    console.log('Banner video disabled due to slow connection');
+                }
+            }
+        }
+    });
+    </script>
 </body>
 </html>
