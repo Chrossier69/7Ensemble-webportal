@@ -3945,29 +3945,15 @@ td.amount {
 }
 
 .doc-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 15px;
-    background: rgba(78,205,196,0.1);
-    border: 1px solid rgba(78,205,196,0.3);
-    border-radius: 5px;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
     font-size: 0.95rem;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .doc-link:hover {
-    background: rgba(78,205,196,0.2);
-    border-color: #4ecdc4;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(78,205,196,0.3);
-}
-
-.doc-link::before {
-    content: "📄";
-    font-size: 1.2rem;
+    color: #4ecdc4;
+    text-decoration: underline;
 }
 
 .footer-bottom {
