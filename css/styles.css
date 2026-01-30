@@ -557,10 +557,12 @@ nav {
 .principe-section {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
-    margin: 2rem 0;
-    border-radius: 20px;
-    padding: 2rem 0;
+    margin: 3rem auto;
+    max-width: 1400px;
+    border-radius: 2rem;
+    padding: 3rem 2rem;
     border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .principe-grid {
@@ -572,9 +574,7 @@ nav {
 
 @media (min-width: 768px) {
     .principe-section {
-        margin: 3rem 0;
-        border-radius: 25px;
-        padding: 3rem 0;
+        padding: 4rem 3rem;
     }
 
     .principe-grid {
@@ -588,9 +588,7 @@ nav {
 
 @media (min-width: 992px) {
     .principe-section {
-        margin: 4rem 0;
-        border-radius: 30px;
-        padding: 4rem 0;
+        padding: 4rem 4rem;
     }
 
     .principe-grid {
@@ -990,9 +988,14 @@ nav {
 
 /* === TOURS SECTION === */
 .tours-section {
-    margin: 3rem 0;
+    margin: 3rem auto;
+    max-width: 1400px;
     text-align: center;
-    padding: 0;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 2rem;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 /* Tours Grid Layout */
@@ -1013,7 +1016,7 @@ nav {
 
 @media (min-width: 768px) {
     .tours-section {
-        margin: 4rem 0;
+        padding: 4rem 3rem;
     }
 
     .tours-grid {
@@ -1030,7 +1033,7 @@ nav {
 
 @media (min-width: 992px) {
     .tours-section {
-        margin: 6rem 0;
+        padding: 4rem 4rem;
     }
 
     .tours-grid {
@@ -1169,11 +1172,12 @@ nav {
 /* === URGENCE SECTION === */
 .urgence-section {
     background: linear-gradient(45deg, rgba(255,107,107,0.2), rgba(78,205,196,0.2));
-    padding: 4rem 0;
-    border-radius: 25px;
-    margin: 4rem 0;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
     text-align: center;
-    border: 2px solid rgba(255,107,107,0.3);
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .stats-grid {
@@ -2616,17 +2620,21 @@ td.amount {
 /* === BOX STYLES === */
 .explanation-box {
     text-align: center;
-    margin: 3rem 0;
-    padding: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+    padding: 3rem 2rem;
     background: rgba(255,107,107,0.1);
-    border-radius: 15px;
+    border-radius: 2rem;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .explanation-box-cyan {
     background: rgba(78,205,196,0.1);
-    padding: 3rem;
-    border-radius: 20px;
-    margin: 3rem 0;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .option-box {
@@ -2638,35 +2646,42 @@ td.amount {
 
 .option-box-header {
     text-align: center;
-    margin: 4rem 0;
-    padding: 3rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+    padding: 3rem 2rem;
     background: linear-gradient(45deg, rgba(78,205,196,0.2), rgba(255,107,107,0.2));
-    border-radius: 20px;
-    border: 2px solid #4ecdc4;
+    border-radius: 2rem;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .warning-box {
     text-align: center;
-    margin-top: 3rem;
-    padding: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+    padding: 3rem 2rem;
     background: rgba(255,107,107,0.2);
-    border-radius: 15px;
+    border-radius: 2rem;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .quote-box {
     text-align: center;
-    margin: 3rem 0;
-    padding: 3rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+    padding: 3rem 2rem;
     background: rgba(255,107,107,0.15);
-    border-radius: 20px;
+    border-radius: 2rem;
     border-left: 5px solid #ff6b6b;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .mission-section-box {
     background: rgba(255,255,255,0.05);
-    padding: 4rem 0;
-    border-radius: 25px;
-    margin: 4rem 0;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .risk-zero-section {
@@ -2683,39 +2698,51 @@ td.amount {
 .legal-section-box {
     background: linear-gradient(135deg, #220f1f, #4e2a33);
     padding: 3rem 2rem;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     margin: 3rem auto;
-    max-width: 1400px; /* Consistent max-width */
-    box-shadow: inset 0 0 7px rgba(0,0,0,0.4);
+    max-width: 1400px;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
     color: white;
 }
 
 .cta-section-purple {
     background: linear-gradient(135deg, #667eea, #764ba2);
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     text-align: center;
-    border-radius: 25px;
-    margin: 4rem auto;
-    max-width: 1400px; /* Consistent max-width */
+    border-radius: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 /* Responsive padding for final sections */
 @media (min-width: 768px) {
     .risk-zero-section,
     .legal-section-box,
-    .cta-section-purple {
+    .cta-section-purple,
+    .urgence-section,
+    .explanation-box,
+    .mission-section-box,
+    .explanation-box-cyan,
+    .option-box-header,
+    .warning-box,
+    .quote-box {
         padding: 4rem 3rem;
     }
 }
 
 @media (min-width: 992px) {
     .risk-zero-section,
-    .legal-section-box {
+    .legal-section-box,
+    .cta-section-purple,
+    .urgence-section,
+    .explanation-box,
+    .mission-section-box,
+    .explanation-box-cyan,
+    .option-box-header,
+    .warning-box,
+    .quote-box {
         padding: 4rem 4rem;
-    }
-
-    .cta-section-purple {
-        padding: 6rem 4rem;
     }
 }
 
