@@ -1242,11 +1242,13 @@ nav {
 /* === SECTION === */
 .section {
     background: rgba(255, 255, 255, 0.05);
-    padding: 3rem;
-    border-radius: 20px;
-    margin: 3rem 0;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 /* === CENTERED SECTION === */
@@ -1288,8 +1290,9 @@ nav {
     width: 100%;
     overflow-x: hidden;
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
-    border-radius: 15px;
+    border-radius: 2rem;
     padding: 2rem;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .table-title {
@@ -1323,7 +1326,9 @@ table {
     table-layout: fixed;
 }
 
-/* Column widths for option 7 */
+/* Column widths for both options - symmetric styling */
+.option-3 table th:nth-child(5),
+.option-3 table td:nth-child(5),
 .option-7 table th:nth-child(5),
 .option-7 table td:nth-child(5) {
     min-width: max-content;
@@ -1379,19 +1384,23 @@ td.amount {
         rgba(78,205,196,0.1),
         rgba(255,107,107,0.1)
     );
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 2rem 0;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
     border-left: 5px solid #4ecdc4;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .important-note {
     background: rgba(255,107,107,0.2);
-    padding: 2rem;
-    border-radius: 15px;
-    margin: 2rem 0;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
     border-left: 5px solid #ff6b6b;
     font-weight: 500;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 /* ===================================
@@ -2726,7 +2735,11 @@ td.amount {
     .explanation-box-cyan,
     .option-box-header,
     .warning-box,
-    .quote-box {
+    .quote-box,
+    .section,
+    .tour-table,
+    .explanation,
+    .important-note {
         padding: 4rem 3rem;
     }
 }
@@ -2741,7 +2754,11 @@ td.amount {
     .explanation-box-cyan,
     .option-box-header,
     .warning-box,
-    .quote-box {
+    .quote-box,
+    .section,
+    .tour-table,
+    .explanation,
+    .important-note {
         padding: 4rem 4rem;
     }
 }
