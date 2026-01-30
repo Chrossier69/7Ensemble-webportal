@@ -4149,14 +4149,14 @@ td.amount {
 /* Tablet - Mission Banner */
 @media (max-width: 992px) {
     .mission-banner-video {
-        padding-bottom: 28%; /* Slightly taller on tablet */
+        padding-bottom: 14%; /* Reduced by ~50% per client request */
     }
 }
 
 /* Mobile - Mission Banner */
 @media (max-width: 768px) {
     .mission-banner-video {
-        padding-bottom: 35%; /* Taller on mobile for better visibility */
+        padding-bottom: 18%; /* Reduced by ~50% per client request */
     }
 
     /* Keep video playing on mobile with proper settings */
