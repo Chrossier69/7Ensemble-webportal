@@ -4,359 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notre Mission - 7 Ensemble</title>
-
-    <!-- Preload banner video for better performance (desktop only) -->
-    <link rel="preload" as="image" href="img/banner.png">
-    <link rel="preload" as="video" href="img/banner-video.mp4" media="(min-width: 769px)">
-
-    <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
-
-    <style>
-        /* Mission Page Specific Styles */
-        /* CRITICAL: Ensure perfect scrolling */
-        html {
-            scroll-behavior: smooth;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        body {
-            overflow-y: auto;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* Mission Hero Section */
-        .mission-hero {
-            position: relative;
-            padding: 120px 20px 80px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(15,20,25,0.95) 0%, rgba(26,35,126,0.8) 50%, rgba(57,73,171,0.7) 100%);
-            overflow: visible;
-        }
-
-        .mission-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #4ecdc4, #667eea, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .mission-hero .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.2s backwards;
-        }
-
-        /* Mission Statement Section */
-        .mission-statement {
-            padding: 100px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .mission-statement h2 {
-            font-size: 2.5rem;
-            color: #4ecdc4;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .mission-statement p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 1.5rem;
-        }
-
-        .mission-statement .highlight {
-            color: #f093fb;
-            font-weight: 600;
-        }
-
-        /* 7 Goals Section */
-        .goals-section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .goals-section h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            color: #667eea;
-            margin-bottom: 3rem;
-            font-weight: 800;
-        }
-
-        .goals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .goal-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .goal-card.fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .goal-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-            padding: 2px;
-            background: linear-gradient(135deg, var(--card-color-1), var(--card-color-2));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0.5;
-            transition: opacity 0.4s ease;
-        }
-
-        .goal-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .goal-card:hover::before {
-            opacity: 1;
-        }
-
-        .goal-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-        }
-
-        .goal-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--card-color-1);
-        }
-
-        .goal-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.8);
-        }
-
-        /* Rainbow gradient colors for each card */
-        .goal-card:nth-child(1) { --card-color-1: #ff6b6b; --card-color-2: #ff8787; }
-        .goal-card:nth-child(2) { --card-color-1: #4ecdc4; --card-color-2: #6ee7dd; }
-        .goal-card:nth-child(3) { --card-color-1: #f093fb; --card-color-2: #f5b3ff; }
-        .goal-card:nth-child(4) { --card-color-1: #feca57; --card-color-2: #ffd670; }
-        .goal-card:nth-child(5) { --card-color-1: #667eea; --card-color-2: #8899f2; }
-        .goal-card:nth-child(6) { --card-color-1: #45b7d1; --card-color-2: #6cc8dc; }
-        .goal-card:nth-child(7) { --card-color-1: #ff4757; --card-color-2: #ff6b7a; }
-
-        /* Call to Action Section */
-        .cta-section {
-            padding: 100px 20px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            color: #4ecdc4;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 3rem;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 20px 50px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-            background: linear-gradient(135deg, #4ecdc4, #667eea);
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(78,205,196,0.4);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(78,205,196,0.6);
-        }
-
-        /* Statistics Section */
-        .stats-section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-
-        .stat-item.fade-in {
-            animation: scaleIn 0.6s ease-out forwards;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #4ecdc4, #667eea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 10px 30px rgba(78,205,196,0.4);
-            }
-            50% {
-                box-shadow: 0 10px 40px rgba(78,205,196,0.7);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .mission-hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .mission-hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .goals-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 2rem;
-            }
-
-            .goal-card {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mission-hero {
-                padding: 80px 20px 60px;
-            }
-
-            .mission-hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .mission-hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .mission-statement h2 {
-                font-size: 2rem;
-            }
-
-            .mission-statement p {
-                font-size: 1.1rem;
-            }
-
-            .goals-section h2 {
-                font-size: 2rem;
-            }
-
-            .goals-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .goal-icon {
-                font-size: 3rem;
-            }
-
-            .goal-title {
-                font-size: 1.3rem;
-            }
-
-            .cta-button {
-                padding: 18px 40px;
-                font-size: 1.2rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Video Banner Header -->
@@ -381,107 +29,101 @@
                 <a href="les7tours.html">Les 7 Tours</a>
                 <a href="mission.html" class="active">Mission</a>
             </div>
-            <button class="btn-primary" onclick="window.location.href='index.html#inscription'">Rejoindre la révolution</button>
+            <button class="btn-primary" onclick="showModalBothOptions()">Rejoindre la révolution</button>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="mission-hero">
-            <h1>Notre Mission</h1>
-            <p class="subtitle">Transformer l'entraide en révolution financière mondiale</p>
-        </section>
+        <!-- Mission Statement Section -->
+        <section class="section">
+            <h1 class="main-title">Notre Mission</h1>
+            <h2 class="section-header-cyan">Transformer l'entraide en révolution financière mondiale</h2>
 
-        <!-- Mission Statement -->
-        <section class="mission-statement">
-            <h2>Pourquoi 7 Ensemble existe</h2>
-            <p>
-                Dans un monde où l'argent divise et isole, <span class="highlight">7 Ensemble</span> rassemble et élève.
-                Nous croyons que chaque personne mérite de vivre dignement, sans peur du lendemain,
-                sans compter chaque euro pour survivre.
-            </p>
-            <p>
-                Notre mission est simple mais révolutionnaire : <strong>créer une chaîne d'entraide mondiale</strong>
-                où chacun peut transformer <span class="highlight">21€</span> en un avenir meilleur.
-                Pas de banques gourmandes, pas de frais cachés, juste la <strong>force du collectif</strong>.
-            </p>
-            <p>
-                Nous ne sommes pas une entreprise. Nous sommes un <strong>mouvement</strong>.
-                Une communauté qui refuse d'accepter que la pauvreté soit une fatalité.
-                Ensemble, nous changeons les règles du jeu.
-            </p>
+            <div class="explanation">
+                <h3 class="section-header-pink">Pourquoi 7 Ensemble existe</h3>
+                <p class="text-tours-explanation">
+                    Dans un monde où l'argent divise et isole, <strong class="text-strong-cyan">7 Ensemble</strong> rassemble et élève.
+                    Nous croyons que chaque personne mérite de vivre dignement, sans peur du lendemain,
+                    sans compter chaque euro pour survivre.
+                </p>
+                <p class="text-tours-explanation">
+                    Notre mission est simple mais révolutionnaire : <strong class="text-strong-cyan">créer une chaîne d'entraide mondiale</strong>
+                    où chacun peut transformer <strong class="text-strong-red">21€</strong> en un avenir meilleur.
+                    Pas de banques gourmandes, pas de frais cachés, juste la <strong class="text-strong-cyan">force du collectif</strong>.
+                </p>
+                <p class="text-tours-explanation">
+                    Nous ne sommes pas une entreprise. Nous sommes un <strong class="text-strong-cyan">mouvement</strong>.
+                    Une communauté qui refuse d'accepter que la pauvreté soit une fatalité.
+                    <strong class="text-strong-cyan">Ensemble, nous changeons les règles du jeu.</strong>
+                </p>
+            </div>
         </section>
 
         <!-- 7 Goals Section -->
-        <section class="goals-section">
-            <h2>Nos 7 Objectifs Révolutionnaires</h2>
+        <section class="section">
+            <h2 class="section-header-large">Nos 7 Objectifs Révolutionnaires</h2>
 
-            <div class="goals-grid">
+            <div class="grid-explanation-columns">
                 <!-- Goal 1 -->
-                <div class="goal-card">
-                    <span class="goal-icon">🏠</span>
-                    <h3 class="goal-title">Familles Heureuses</h3>
-                    <p class="goal-description">
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-cyan">🏠 Familles Heureuses</h3>
+                    <p>
                         Permettre à chaque famille de vivre sans stress financier, de profiter de la vie,
                         de souffler enfin sans compter chaque franc.
                     </p>
                 </div>
 
                 <!-- Goal 2 -->
-                <div class="goal-card">
-                    <span class="goal-icon">👴</span>
-                    <h3 class="goal-title">Retraités Dignes</h3>
-                    <p class="goal-description">
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-blue">👴 Retraités Dignes</h3>
+                    <p>
                         Offrir aux personnes âgées une fin de vie digne et sereine, après une existence
                         entière de travail et de sacrifices.
                     </p>
                 </div>
 
                 <!-- Goal 3 -->
-                <div class="goal-card">
-                    <span class="goal-icon">💖</span>
-                    <h3 class="goal-title">Accès à la Santé</h3>
-                    <p class="goal-description">
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-yellow">💖 Accès à la Santé</h3>
+                    <p>
                         Permettre à chacun d'accéder à la vraie santé, celle qui soigne et prévient,
                         celle qu'on mérite tous... même quand elle coûte cher.
                     </p>
                 </div>
 
                 <!-- Goal 4 -->
-                <div class="goal-card">
-                    <span class="goal-icon">🌟</span>
-                    <h3 class="goal-title">Rêves Réalisés</h3>
-                    <p class="goal-description">
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-red">🌟 Rêves Réalisés</h3>
+                    <p>
                         Que chacun puisse réaliser ses rêves, créer son entreprise, voyager, avancer,
                         réaliser enfin ce qu'il a toujours porté en lui.
                     </p>
                 </div>
+            </div>
 
+            <div class="grid-explanation-columns" style="margin-top: 2rem;">
                 <!-- Goal 5 -->
-                <div class="goal-card">
-                    <span class="goal-icon">🧸</span>
-                    <h3 class="goal-title">Avenir pour Enfants</h3>
-                    <p class="goal-description">
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-cyan">🧸 Avenir pour Enfants</h3>
+                    <p>
                         Offrir à chaque enfant et ado un vrai départ dans la vie, une tirelire pour leur futur,
                         un soutien pour leurs rêves sans limitation injuste.
                     </p>
                 </div>
 
                 <!-- Goal 6 -->
-                <div class="goal-card">
-                    <span class="goal-icon">🤝</span>
-                    <h3 class="goal-title">Entraide Mondiale</h3>
-                    <p class="goal-description">
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-blue">🤝 Entraide Mondiale</h3>
+                    <p>
                         Créer une chaîne d'entraide planétaire où chaque être humain peut compter sur les autres,
                         sans jugement et sans frontières.
                     </p>
                 </div>
 
                 <!-- Goal 7 -->
-                <div class="goal-card">
-                    <span class="goal-icon">🍽️</span>
-                    <h3 class="goal-title">Manger Pour TOUS</h3>
-                    <p class="goal-description">
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-yellow">🍽️ Manger Pour TOUS</h3>
+                    <p>
                         Gagnons cette bataille : qu'aucune personne, sur cette planète,
                         ne se couche encore affamée. Jamais.
                     </p>
@@ -489,42 +131,19 @@
             </div>
         </section>
 
-        <!-- Statistics Section -->
-        <section class="stats-section">
-            <h2 style="font-size: 2.5rem; color: #667eea; margin-bottom: 1rem;">Notre Impact Grandissant</h2>
-            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7);">
-                Chaque jour, notre communauté grandit et change des vies
-            </p>
-
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="1847">0</div>
-                    <div class="stat-label">Membres Engagés</div>
-                </div>
-
-                <div class="stat-item">
-                    <div class="stat-number" data-target="342567">0</div>
-                    <div class="stat-label">Euros Redistribués</div>
-                </div>
-
-                <div class="stat-item">
-                    <div class="stat-number" data-target="89">0</div>
-                    <div class="stat-label">Vies Transformées</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <h2>Rejoignez la Révolution</h2>
-            <p>
+        <!-- Call to Action Section -->
+        <section class="cta-section-purple">
+            <h2 class="text-header-large">Rejoignez la Révolution 7 Ensemble</h2>
+            <p class="text-destination-amount">
                 Ne restez pas spectateur. Devenez acteur du changement.
-                Avec seulement <strong>21€</strong>, vous pouvez rejoindre un mouvement qui change le monde.
             </p>
-            <p>
-                Pas demain. <strong>Maintenant</strong>.
+            <p class="text-explanation">
+                Avec seulement <strong class="text-strong-cyan">21€</strong>, vous pouvez rejoindre un mouvement qui change le monde.
             </p>
-            <button class="cta-button" id="missionCtaButton" onclick="showModalBothOptions()">
+            <p class="text-medium-bold">
+                Pas demain. <strong class="text-strong-cyan">Maintenant</strong>.
+            </p>
+            <button class="btn-primary btn-large-cta" onclick="showModalBothOptions()">
                 🚀 Je Rejoins la Mission Maintenant !
             </button>
         </section>
@@ -688,115 +307,5 @@
     <!-- External Scripts -->
     <script src="js/main.js"></script>
     <script src="js/modal.js"></script>
-
-    <!-- Mission Page Animation Script -->
-    <script>
-        // ======================================
-        // INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS
-        // ======================================
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Banner video optimization
-            const bannerVideo = document.querySelector('.banner-video-bg');
-
-            if (bannerVideo) {
-                bannerVideo.addEventListener('loadeddata', function() {
-                    console.log('Mission banner video loaded successfully');
-                });
-
-                bannerVideo.addEventListener('error', function() {
-                    console.warn('Banner video failed to load, using static image fallback');
-                    bannerVideo.style.display = 'none';
-                });
-
-                const videoObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            bannerVideo.play().catch(err => console.log('Banner video autoplay prevented:', err));
-                        } else {
-                            bannerVideo.pause();
-                        }
-                    });
-                }, { threshold: 0.25 });
-
-                videoObserver.observe(bannerVideo);
-
-                if ('connection' in navigator) {
-                    const connection = navigator.connection;
-                    if (connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g')) {
-                        bannerVideo.style.display = 'none';
-                        console.log('Banner video disabled due to slow connection');
-                    }
-                }
-            }
-
-            // ======================================
-            // FADE-IN ANIMATION FOR GOAL CARDS
-            // ======================================
-
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all goal cards
-            const goalCards = document.querySelectorAll('.goal-card');
-            goalCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-                observer.observe(card);
-            });
-
-            // Observe stat items
-            const statItems = document.querySelectorAll('.stat-item');
-            statItems.forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.2}s`;
-                observer.observe(item);
-            });
-
-            // ======================================
-            // ANIMATED COUNTER FOR STATISTICS
-            // ======================================
-
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const statsObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = parseInt(entry.target.getAttribute('data-target'));
-                        animateCounter(entry.target, 0, target, 2000);
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            statNumbers.forEach(number => {
-                statsObserver.observe(number);
-            });
-
-            function animateCounter(element, start, end, duration) {
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const current = Math.floor(progress * (end - start) + start);
-                    element.textContent = current.toLocaleString('fr-FR');
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    }
-                };
-                window.requestAnimationFrame(step);
-            }
-
-            console.log('✅ Mission page loaded successfully - All animations initialized');
-        });
-    </script>
 </body>
 </html>
