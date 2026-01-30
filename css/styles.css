@@ -4087,7 +4087,7 @@ td.amount {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 23.125%; /* 444/1920 = 0.23125 for 1920x444 aspect ratio */
+    padding-bottom: 12%; /* Reduced by ~50% from 23.125% per client request */
     overflow: hidden;
 }
 
@@ -4208,3 +4208,31 @@ td.amount {
     }
 }
 
+
+/* ===================================
+   UNIVERSAL STANDARD BLOCK STYLES
+   Applied site-wide for consistency
+   Reference: risk-zero-section
+   =================================== */
+
+.standard-block {
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .standard-block {
+        padding: 4rem 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .standard-block {
+        padding: 4rem 4rem;
+    }
+}
