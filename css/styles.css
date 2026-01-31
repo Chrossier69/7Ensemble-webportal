@@ -4131,7 +4131,7 @@ td.amount {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 50%; /* Full height banner - 50% for cinematic effect */
+    padding-bottom: 23.125%; /* 444/1920 = 0.23125 - preserves video aspect ratio without cropping */
     overflow: hidden;
 }
 
@@ -4193,14 +4193,14 @@ td.amount {
 /* Tablet - Mission Banner */
 @media (max-width: 992px) {
     .mission-banner-video {
-        padding-bottom: 60%; /* Full height banner for tablet */
+        padding-bottom: 23.125%; /* Maintains video aspect ratio (1920x444) */
     }
 }
 
 /* Mobile - Mission Banner */
 @media (max-width: 768px) {
     .mission-banner-video {
-        padding-bottom: 75%; /* Full height banner for mobile */
+        padding-bottom: 23.125%; /* Maintains video aspect ratio (1920x444) */
     }
 
     /* Keep video playing on mobile with proper settings */
