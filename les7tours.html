@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les 7 Tours - 7 Ensemble</title>
 
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/tours.css">
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Video Banner Header -->
+    <section class="mission-banner-video">
+        <div class="banner-video-container">
+            <video class="banner-video-bg" autoplay loop muted playsinline poster="img/banner.png">
+                <source src="img/banner-video.mp4" type="video/mp4">
+            </video>
+            <div class="banner-video-overlay"></div>
+        </div>
+    </section>
+
     <header>
         <nav class="container">
             <a href="index.html" class="logo">7 Ensemble</a>
@@ -18,12 +27,10 @@
             </button>
             <div class="nav-menu">
                 <a href="index.html">Accueil</a>
-                <a href="index.html#principe">Principe</a>
                 <a href="les7tours.html">Les 7 Tours</a>
                 <a href="mission.html">Mission</a>
-                <a href="index.html#urgence">Urgence</a>
             </div>
-            <button class="btn-primary" onclick="window.location.href='index.html#inscription'">Rejoindre la révolution</button>
+            <button class="btn-primary" onclick="showModalBothOptions()">Rejoindre la révolution</button>
         </nav>
     </header>
 
@@ -32,44 +39,38 @@
             <h1 class="main-title">Les 7 Tours : Fonctionnement Des Étapes</h1>
 
             <div class="section">
-                <h2 style="font-size: 2rem; color: #4ecdc4; text-align: center; margin-bottom: 2rem;">Principe de Base</h2>
-                <div class="explanation" style="max-width: 900px; margin: 0 auto; text-align:center;">
+                <h2 class="section-header-cyan section-header-pink">Principe de Base</h2>
+                <div class="explanation centered-explanation">
                     <!-- PARAGRAPHE 1 -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <p class="text-tours-explanation">
                         Le système <strong>7 Ensemble</strong> fonctionne sur <strong>7 tours progressifs</strong>.<br>
                         À chaque tour, les montants évoluent, mais l'idée reste la même :<br>
                         <strong>tout le monde contribue, tout le monde avance</strong>.
                     </p>
 
                     <!-- PARAGRAPHE PORTE-LUMIÈRE / CONSTELLATION -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; color:#00c7bb; font-weight:600; margin-bottom: 1.5rem;">
+                    <p class="text-tours-highlight">
                         Votre
-                        <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                            0 0 6px rgba(255,255,255,0.9),
-                            0 0 14px rgba(78,205,196,0.9),
-                            0 0 24px rgba(78,205,196,0.7);">
+                        <span class="blink glow-text-alcyone">
                             Alcyone
                         </span>
                         est la personne à qui vous offrez votre contribution à chaque tour.<br>
                         Votre Constellation
-                        <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                            0 0 6px rgba(255,255,255,0.9),
-                            0 0 14px rgba(156,39,176,0.9),
-                            0 0 24px rgba(156,39,176,0.7);">
+                        <span class="blink glow-text-pleiade">
                             La Pléiade
                         </span>
                         est le cercle de personnes qui vous soutiennent en retour.
                     </p>
 
                     <!-- PARAGRAPHE 3 -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <p class="text-tours-explanation">
                         Ce système crée un mouvement harmonieux, simple et puissant :<br>
                         vous offrez à une personne que nous appelerons Alcyone, et l'on reçoit de sa Constellation.<br>
                         Chacun avance, chacun rayonne, chacun construit sa propre évolution financière.
                     </p>
 
                     <!-- PARAGRAPHE 4 -->
-                    <p style="font-size: 1.2rem; line-height: 1.7; margin-top: 1rem;">
+                    <p class="text-tours-detail">
                         Tu commences à un premier niveau accessible, puis, tour après tour, tu montes en puissance.<br>
                         Tu aides les autres à avancer, et en retour, la communauté te permet d'atteindre ta propre<br>
                         <strong>destination financière</strong>.
@@ -122,23 +123,23 @@
                                 <tr class="tour-row">
                                     <td>5</td>
                                     <td class="amount">500€</td>
-                                    <td class="amount">1,500€</td>
-                                    <td class="amount">1,000€</td>
+                                    <td class="amount">1'500€</td>
+                                    <td class="amount">1'000€</td>
                                     <td class="amount">500€</td>
                                 </tr>
                                 <tr class="tour-row">
                                     <td>6</td>
-                                    <td class="amount">1,000€</td>
-                                    <td class="amount">3,000€</td>
-                                    <td class="amount">2,000€</td>
-                                    <td class="amount">1,000€</td>
+                                    <td class="amount">1'000€</td>
+                                    <td class="amount">3'000€</td>
+                                    <td class="amount">2'000€</td>
+                                    <td class="amount">1'000€</td>
                                 </tr>
                                 <tr class="tour-row">
                                     <td>7</td>
-                                    <td class="amount">2,000€</td>
-                                    <td class="amount">6,000€</td>
+                                    <td class="amount">2'000€</td>
+                                    <td class="amount">6'000€</td>
                                     <td class="amount">FIN</td>
-                                    <td class="amount">6,000€</td>
+                                    <td class="amount">6'000€</td>
                                 </tr>
                                 <tr class="total-row">
                                     <td colspan="4"><strong>Montant total</strong></td>
@@ -150,7 +151,7 @@
 
                     <!-- Option 7 Personnes -->
                     <div class="tour-table option-7">
-                        <div class="table-title">Les Pléiades</div>
+                        <div class="table-title">La Pléiade</div>
                         <table>
                             <thead>
                                 <tr>
@@ -179,37 +180,37 @@
                                 <tr class="tour-row">
                                     <td>3</td>
                                     <td class="amount">500€</td>
-                                    <td class="amount">3,500€</td>
-                                    <td class="amount">2,000€</td>
-                                    <td class="amount">1,500€</td>
+                                    <td class="amount">3'500€</td>
+                                    <td class="amount">2'000€</td>
+                                    <td class="amount">1'500€</td>
                                 </tr>
                                 <tr class="tour-row">
                                     <td>4</td>
-                                    <td class="amount">2,000€</td>
-                                    <td class="amount">14,000€</td>
-                                    <td class="amount">10,000€</td>
-                                    <td class="amount">4,000€</td>
+                                    <td class="amount">2'000€</td>
+                                    <td class="amount">14'000€</td>
+                                    <td class="amount">10'000€</td>
+                                    <td class="amount">4'000€</td>
                                 </tr>
                                 <tr class="tour-row">
                                     <td>5</td>
-                                    <td class="amount">10,000€</td>
-                                    <td class="amount">70,000€</td>
-                                    <td class="amount">50,000€</td>
-                                    <td class="amount">20,000€</td>
+                                    <td class="amount">10'000€</td>
+                                    <td class="amount">70'000€</td>
+                                    <td class="amount">50'000€</td>
+                                    <td class="amount">20'000€</td>
                                 </tr>
                                 <tr class="tour-row">
                                     <td>6</td>
-                                    <td class="amount">50,000€</td>
-                                    <td class="amount">350,000€</td>
-                                    <td class="amount">200,000€</td>
-                                    <td class="amount">150,000€</td>
+                                    <td class="amount">50'000€</td>
+                                    <td class="amount">350'000€</td>
+                                    <td class="amount">200'000€</td>
+                                    <td class="amount">150'000€</td>
                                 </tr>
                                 <tr class="tour-row">
                                     <td>7</td>
-                                    <td class="amount">200,000€</td>
-                                    <td class="amount">1,400,000€</td>
+                                    <td class="amount">200'000€</td>
+                                    <td class="amount">1'400'000€</td>
                                     <td class="amount">FIN</td>
-                                    <td class="amount">1,400,000€</td>
+                                    <td class="amount">1'400'000€</td>
                                 </tr>
                                 <tr class="total-row">
                                     <td colspan="4"><strong>Montant total</strong></td>
@@ -222,60 +223,211 @@
             </div>
 
             <div class="section">
-                <h2 style="font-size: 2rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Explication des Colonnes</h2>
+                <h2 class="section-header-cyan section-header-pink">Explication des Colonnes</h2>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #4ecdc4; margin-bottom: 1rem;">Offert</h3>
+                <div class="grid-explanation-columns">
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-cyan">Offert</h3>
                         <p>Montant Offert à votre <br> <strong>Alcyone</strong> <br> à chaque tour</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #45b7d1; margin-bottom: 1rem;">Reçu</h3>
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-blue">Reçu</h3>
                         <p>Montant reçu de votre <br> <strong>Constellation</strong> <br> par tour</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #feca57; margin-bottom: 1rem;">Prochain</h3>
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-yellow">Prochain</h3>
                         <p>Montant à Offrir à votre <br> <strong>Alcyone</strong> <br> pour le tour suivant</p>
                     </div>
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
-                        <h3 style="color: #ff6b6b; margin-bottom: 1rem;">Avoir</h3>
+                    <div class="explanation-column-box">
+                        <h3 class="explanation-column-title-red">Avoir</h3>
                         <p>Montant pour vous faire plaisir commencer à Exister Soyez Heureux</p>
                     </div>
                 </div>
             </div>
 
             <div class="important-note">
-                <h3 style="color: #ff6b6b; margin-bottom: 1rem;">Information importante</h3>
+                <h3 class="info-note-title-red">Information importante</h3>
                 <p style="font-size: 1.1rem; line-height: 1.6;">
                     Ce système fonctionne grâce à la participation continue de nouveaux
-                    <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                        0 0 6px rgba(255,255,255,0.9),
-                        0 0 14px rgba(78,205,196,0.9),
-                        0 0 24px rgba(78,205,196,0.7);">
+                    <span class="blink glow-text-alcyone">
                         &nbsp; Alcyone
                     </span><br>
                     Comme toute association caritative ou fondation qui a besoin de nouveaux donateurs pour continuer ses recherches, <br>
                     7 Ensemble nécessite un flux constant de participants. Il n'y a pas de miracle 7 Ensemble que nous avançons, pas seuls. <br>
                     Cette logique s'applique partout : les commerces ont besoin de nouveaux clients pour survivre, sinon ils ferment comme
                     de nombreux restaurants aujourd'hui. C'est la réalité de tout système d'entraide collective
-                    <span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                        0 0 6px rgba(255,255,255,0.9),
-                        0 0 14px rgba(78,205,196,0.9),
-                        0 0 24px rgba(78,205,196,0.7);">
+                    <span class="blink glow-text-alcyone">
                         &nbsp; 7 Ensemble
                     </span> &nbsp; qu'on avance.
                 </p>
             </div>
 
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="index.html" class="btn-primary" style="font-size: 1.3rem; padding: 20px 40px;">
+            <div class="centered-section-margin-medium">
+                <a href="index.html" class="btn-primary btn-tours-link">
                     🏠 Retour à l'accueil
                 </a>
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="site-footer-enhanced">
+        <div class="footer-content-wrapper">
+            <div class="footer-main">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">7 Ensemble</a>
+                    <p class="footer-description">
+                        Une plateforme révolutionnaire d'entraide mutuelle. Ensemble, changeons le monde et éradiquons la pauvreté.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="les7tours.html">Les 7 Tours</a></li>
+                        <li><a href="mission.html">Notre Mission</a></li>
+                        <li><a href="livre-blanc.html">Livre Blanc</a></li>
+                    </ul>
+                </div>
+
+                <!-- Document Links -->
+                <div class="footer-section">
+                    <h3>Documents</h3>
+                    <div class="footer-documents">
+                        <a href="mentions-legales.html" class="doc-link">
+                            Mentions Légales
+                        </a>
+                        <a href="politique-confidentialite.html" class="doc-link">
+                            Politique de Confidentialité
+                        </a>
+                        <a href="conditions-generales.html" class="doc-link">
+                            Conditions Générales
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-contact">
+                        <p>Email: <a href="mailto:support@7ensemble.ch">support@7ensemble.ch</a></p>
+                        <p>Mission: <a href="mailto:mission@7ensemble.ch">mission@7ensemble.ch</a></p>
+                        <p>Christophe: <a href="mailto:christophe@7ensemble.ch">christophe@7ensemble.ch</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 <strong>7 Ensemble</strong>. Tous droits réservés. | Ensemble, changeons le monde.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Unified Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title-centered">🌟 Rejoindre 7 Ensemble 🌟</h2>
+
+            <form id="registrationForm" onsubmit="return submitRegistrationForm(event)">
+                <!-- Prénom -->
+                <div class="form-group">
+                    <label for="prenom">Prénom <span class="required">*</span></label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" autocomplete="given-name">
+                </div>
+
+                <!-- Nom -->
+                <div class="form-group">
+                    <label for="nom">Nom <span class="required">*</span></label>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" autocomplete="family-name">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email">
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                    <label for="country">Pays <span class="required">*</span></label>
+                    <select id="country" name="country" autocomplete="country">
+                        <option value="">Choisir votre pays</option>
+                        <option value="FR">France</option>
+                        <option value="CH">Suisse</option>
+                        <option value="BE">Belgique</option>
+                        <option value="CA">Canada</option>
+                        <option value="MA">Maroc</option>
+                        <option value="TN">Tunisie</option>
+                        <option value="SN">Sénégal</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="IN">Inde</option>
+                        <option value="OTHER">Autre</option>
+                    </select>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-group">
+                    <label for="paymentMethod">Mode de paiement préféré <span class="required">*</span></label>
+                    <select id="paymentMethod" name="paymentMethod">
+                        <option value="">Choisir votre méthode</option>
+                        <option value="card">💳 Carte bancaire</option>
+                        <option value="paypal">🔵 PayPal</option>
+                        <option value="transfer">🏦 Virement bancaire</option>
+                        <option value="mobile">📱 Mobile Money (Afrique)</option>
+                        <option value="crypto">₿ Bitcoin/Crypto</option>
+                        <option value="other">🌍 Autre (nous nous adapterons)</option>
+                    </select>
+                </div>
+
+                <!-- Terms -->
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" class="checkbox-inline">
+                        <span class="checkbox-label-text">J'accepte le système d'entraide 7 Ensemble et comprends le principe de solidarité mutuelle. <span class="required">*</span></span>
+                    </label>
+                </div>
+
+                <!-- Options Section -->
+                <div class="section-centree options-container">
+                    <h3 id="optionsTitle">✨ Choisir mon option ✨</h3>
+
+                    <!-- Option 3 people (conditionally shown) -->
+                    <div id="option3Container" class="option-container" style="display: none;">
+                        <label class="option-label">
+                            <input type="radio" id="option3Radio" name="choixOption" value="3">
+                            <span class="option-text">Option 3 personnes vers 7'789€</span>
+                        </label>
+                    </div>
+
+                    <!-- Option 7 people (conditionally shown) -->
+                    <div id="option7Container" class="option-container" style="display: none;">
+                        <label class="option-label">
+                            <input type="radio" id="option7Radio" name="choixOption" value="7">
+                            <span class="option-text">Option 7 personnes vers 1'575'747€</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full-width">
+                        🚀 Créer Ma Constellation !
+                    </button>
+
+                    <p class="voyage-text">
+                        Bravo, votre aventure commence ici 💖
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- External Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>

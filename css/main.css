@@ -54,6 +54,24 @@ body::before {
     z-index: 1;
 }
 
+/* === PROMOTIONAL BANNER === */
+.promo-banner {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    position: relative;
+    z-index: 99;
+}
+
+.promo-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 250px;
+    object-fit: cover;
+}
+
 /* === HEADER === */
 header {
     background: rgba(0, 0, 0, 0.3);
@@ -346,6 +364,10 @@ nav {
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
+    .promo-banner img {
+        max-height: 150px;
+    }
+
     nav {
         flex-wrap: wrap;
     }

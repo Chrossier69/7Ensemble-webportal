@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission - 7 Ensemble</title>
-
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/mission.css">
+    <title>Notre Mission - 7 Ensemble</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Confettis animés -->
-    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="confetti" style="left: 20%; animation-delay: -0.3s;"></div>
-    <div class="confetti" style="left: 30%; animation-delay: -0.6s;"></div>
-    <div class="confetti" style="left: 40%; animation-delay: -0.9s;"></div>
-    <div class="confetti" style="left: 50%; animation-delay: -1.2s;"></div>
-    <div class="confetti" style="left: 60%; animation-delay: -1.5s;"></div>
-    <div class="confetti" style="left: 70%; animation-delay: -1.8s;"></div>
-    <div class="confetti" style="left: 80%; animation-delay: -2.1s;"></div>
-    <div class="confetti" style="left: 90%; animation-delay: -2.4s;"></div>
+    <!-- Video Banner Header -->
+    <section class="mission-banner-video">
+        <div class="banner-video-container">
+            <video class="banner-video-bg" autoplay loop muted playsinline poster="img/banner.png">
+                <source src="img/banner-video.mp4" type="video/mp4">
+            </video>
+            <div class="banner-video-overlay"></div>
+        </div>
+    </section>
 
+    <!-- Navigation Header -->
     <header>
         <nav class="container">
             <a href="index.html" class="logo">7 Ensemble</a>
@@ -29,235 +26,287 @@
             </button>
             <div class="nav-menu">
                 <a href="index.html">Accueil</a>
-                <a href="index.html#principe">Principe</a>
                 <a href="les7tours.html">Les 7 Tours</a>
-                <a href="mission.html">Mission</a>
-                <a href="index.html#urgence">Urgence</a>
+                <a href="mission.html" class="active">Mission</a>
             </div>
-            <button class="btn-primary" onclick="window.location.href='index.html#inscription'">Rejoindre la révolution</button>
+            <button class="btn-primary" onclick="showModalBothOptions()">Rejoindre la révolution</button>
         </nav>
     </header>
 
     <main>
-        <section class="hero-mission">
-            <div class="container">
-                <h1 class="mission-title">Notre Mission Révolutionnaire</h1>
+        <!-- Mission Statement Section -->
+        <section class="section">
+            <h1 class="main-title">Notre Mission</h1>
+            <h2 class="section-header-cyan">Transformer l'entraide en révolution financière mondiale</h2>
 
-                <div class="celebration-banner">
-                    <div class="gratitude-message">
-                        Merci 7 Ensemble ! Tu es enfin là, on t'attendait depuis tellement longtemps !
-                    </div>
-                    <p style="font-size: 1.3rem;">Merci de penser aux citoyens ! Merci de créer une vraie solution d'entraide !</p>
+            <div class="explanation">
+                <h3 class="section-header-pink">Pourquoi 7 Ensemble existe</h3>
+                <p class="text-tours-explanation">
+                    Dans un monde où l'argent divise et isole, <strong class="text-strong-cyan">7 Ensemble</strong> rassemble et élève.
+                    Nous croyons que chaque personne mérite de vivre dignement, sans peur du lendemain,
+                    sans compter chaque euro pour survivre.
+                </p>
+                <p class="text-tours-explanation">
+                    Notre mission est simple mais révolutionnaire : <strong class="text-strong-cyan">créer une chaîne d'entraide mondiale</strong>
+                    où chacun peut transformer <strong class="text-strong-red">21€</strong> en un avenir meilleur.
+                    Pas de banques gourmandes, pas de frais cachés, juste la <strong class="text-strong-cyan">force du collectif</strong>.
+                </p>
+                <p class="text-tours-explanation">
+                    Nous ne sommes pas une entreprise. Nous sommes un <strong class="text-strong-cyan">mouvement</strong>.
+                    Une communauté qui refuse d'accepter que la pauvreté soit une fatalité.
+                    <strong class="text-strong-cyan">Ensemble, nous changeons les règles du jeu.</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- 7 Goals Section -->
+        <section class="section">
+            <h2 class="section-header-large">Nos 7 Objectifs Révolutionnaires</h2>
+
+            <div class="grid-explanation-columns">
+                <!-- Goal 1 -->
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-cyan">🏠 Familles Heureuses</h3>
+                    <p>
+                        Permettre à chaque famille de vivre sans stress financier, de profiter de la vie,
+                        de souffler enfin sans compter chaque franc.
+                    </p>
                 </div>
 
-                <div class="testimonial-section">
-                    <h2 style="font-size: 2.5rem; color: #4ecdc4; margin-bottom: 2rem;">Enfin une plateforme qui pense à NOUS !</h2>
-                    <p style="font-size: 1.4rem; line-height: 1.8;">
-                        Après des années d'attente, après avoir essayé tant de solutions qui ne marchent pas,<br>
-                        <strong style="color: #ffffff"><span class="blink" style="font-size:1.6rem; color:#ffffff; text-shadow:
-                            0 0 6px rgba(255,255,255,0.9),
-                            0 0 14px rgba(78,205,196,0.9),
-                            0 0 24px rgba(78,205,196,0.7);">
-                            &nbsp; 7 Ensemble
-                        </span> arrive enfin pour révolutionner l'entraide mondiale !</strong>
+                <!-- Goal 2 -->
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-blue">👴 Retraités Dignes</h3>
+                    <p>
+                        Offrir aux personnes âgées une fin de vie digne et sereine, après une existence
+                        entière de travail et de sacrifices.
+                    </p>
+                </div>
+
+                <!-- Goal 3 -->
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-yellow">💖 Accès à la Santé</h3>
+                    <p>
+                        Permettre à chacun d'accéder à la vraie santé, celle qui soigne et prévient,
+                        celle qu'on mérite tous... même quand elle coûte cher.
+                    </p>
+                </div>
+
+                <!-- Goal 4 -->
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-red">🌟 Rêves Réalisés</h3>
+                    <p>
+                        Que chacun puisse réaliser ses rêves, créer son entreprise, voyager, avancer,
+                        réaliser enfin ce qu'il a toujours porté en lui.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-explanation-columns" style="margin-top: 2rem;">
+                <!-- Goal 5 -->
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-cyan">🧸 Avenir pour Enfants</h3>
+                    <p>
+                        Offrir à chaque enfant et ado un vrai départ dans la vie, une tirelire pour leur futur,
+                        un soutien pour leurs rêves sans limitation injuste.
+                    </p>
+                </div>
+
+                <!-- Goal 6 -->
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-blue">🤝 Entraide Mondiale</h3>
+                    <p>
+                        Créer une chaîne d'entraide planétaire où chaque être humain peut compter sur les autres,
+                        sans jugement et sans frontières.
+                    </p>
+                </div>
+
+                <!-- Goal 7 -->
+                <div class="explanation-column-box">
+                    <h3 class="explanation-column-title-yellow">🍽️ Manger Pour TOUS</h3>
+                    <p>
+                        Gagnons cette bataille : qu'aucune personne, sur cette planète,
+                        ne se couche encore affamée. Jamais.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="container">
-            <div class="creator-section">
-                <h2 style="font-size: 2.5rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Pourquoi J'ai Créé 7 Ensemble</h2>
-
-                <div class="quote-bubble">
-                    <p style="font-size: 1.4rem; line-height: 1.8; font-style: italic;">
-                        Ne supportant plus ce qui se passe autour de moi, j'ai décidé de créer cette plateforme d'entraide révolutionnaire.
-                        Il était temps que quelqu'un se lève pour les citoyens ordinaires !
-                    </p>
-                </div>
-
-                <div class="impact-grid">
-                    <div class="impact-card">
-                        <div class="impact-icon">❤️</div>
-                        <h3 style="color: #ff6b6b; font-size: 1.5rem;">Vision Humaine</h3>
-                        <p>Une plateforme créée avec le cœur, pour répondre aux vrais besoins des Familles vous Créer un Vrai Pouvoir d'Achat.</p>
-                    </div>
-
-                    <div class="impact-card">
-                        <div class="impact-icon">🛡️</div>
-                        <h3 style="color: #4ecdc4; font-size: 1.5rem;">Protection Totale</h3>
-                        <p>Aucun frais caché, aucune commission. Votre seul Contribution de : 21€ pour changer votre vie.</p>
-                    </div>
-
-                    <div class="impact-card">
-                        <div class="impact-icon">🌍</div>
-                        <h3 style="color: #45b7d1; font-size: 1.5rem;">Impact Mondial</h3>
-                        <p>Ensemble, nous pouvons vraiment changer le monde et éradiquer la pauvreté, 7 Ensemble qu'on vas le faire.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creator-section">
-                <h2 style="font-size: 2.5rem; color: #4ecdc4; text-align: center; margin-bottom: 2rem;">7 Ensemble ❤️ Créons le Changement</h2>
-
-                <div style="background: linear-gradient(45deg, rgba(78,205,196,0.2), rgba(255,107,107,0.2)); padding: 3rem; border-radius: 20px; text-align: center;">
-                    <p style="font-size: 1.5rem; line-height: 1.3; margin-bottom: 2rem;">
-                        <strong style="font-size: 1.7rem; color: #f093fb;">Je n'ai pas créé 7 Ensemble pour devenir riche.</strong>
-                    </p>
-                    <div style="font-size:1.3rem; line-height:1.7; text-align:left; white-space:pre-line;">
-Depuis des années, J'ai vu trop de vies se casser à cause d'un simple chiffre sur un compte.
-Des Familles qui comptent tout.
-Des Parents qui se privent.
-Des Retraités qui ont tout donné et qui n'ont plus rien.
-
-J'ai moi aussi traversé des nuits froides,
-Un Matelas gonflable percés,
-Une Voiture transformée en chambre,
-Des Locaux vides en guise de refuge.
-
-J'ai connu les galères que personne ne voit.
-Les Peurs, les Pertes, les Injustices…
-Et malgré tout ça, une chose n'a jamais Changé :
-Je n'ai jamais accepté que le monde soit fait pour écraser les plus fragiles.
-
-Alors j'ai décidé de faire quelque chose.
-Pas un miracle, pas une invention folle,
-juste l'idée la plus simple du monde :
-<strong style="color:#4ecdc4;">S'entraider.<br> Ensemble.<br> Vraiment.</strong>
-
-Ce que les États n'ont jamais fait,
-Ce que les systèmes n'ont jamais compris,
-C'est que quand on donne un peu d'air aux gens,
-Ils se relèvent tous seuls.
-Quand tu donnes de la dignité,
-Tu répares une vie.
-
-Je ne prends rien.
-Je ne fais pas ça pour gagner.
-Je finance, je crée, je prends les risques.
-Je suis au même niveau que tout le monde,
-Parce que je suis comme tout le monde.
-
-Je fais ça parce que je sais ce que c'est
-De manquer,
-De tomber,
-De lutter,
-De se relever sans personne.
-<span class="blink" style="font-size:1.5rem; color:#ffffff; text-shadow:
-0 0 6px rgba(255,255,255,0.9),
-0 0 14px rgba(78,205,196,0.9),
-0 0 24px rgba(78,205,196,0.7);">
-7 Ensemble n'est pas une chance.
-</span>
-C'est une réponse.
-Une main tendue.
-Une respiration pour ceux qui n'en ont plus.<br>
-<strong><em>Ce que je veux ?
-Que personne ne vive dans la peur du lendemain.
-Que personne ne choisisse entre manger et se chauffer.
-Que les rêves redeviennent possibles.
-Que l'entraide devienne Normale.</em></strong>
-
-<div style="text-align:center; margin-top:0.1rem;">
-    <strong style="color:#4ecdc4; font-size:1.7rem;">Ce mouvement n'est pas à moi. Il est à NOUS.</strong><br><br>
-</div>
-
-<div style="width:100%; display:flex; justify-content:center; margin:2rem 0;">
-    <svg viewBox="-50 0 1000 180" style="max-width:900px; width:100%; height:auto; overflow:visible;">
-        <symbol id="perso">
-            <circle cx="0" cy="0" r="18" fill="currentColor"/>
-            <path d="M0 16 Q -22 50 0 80 Q 22 50 0 16 Z" fill="white" opacity="0.9"/>
-            <path d="M -26 35 Q -5 20 0 25 Q 5 20 26 35"
-                  stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
-        </symbol>
-        <g class="p" style="animation-delay:0s;  color:#ff6b6b;" transform="translate(80,60)"><use href="#perso"/></g>
-        <g class="p" style="animation-delay:0.1s; color:#ffa94d;" transform="translate(220,60)"><use href="#perso"/></g>
-        <g class="p" style="animation-delay:0.2s; color:#ffd93b;" transform="translate(360,60)"><use href="#perso"/></g>
-        <g class="p" style="animation-delay:0.3s; color:#51cf66;" transform="translate(500,60)"><use href="#perso"/></g>
-        <g class="p" style="animation-delay:0.4s; color:#22b8cf;" transform="translate(640,60)"><use href="#perso"/></g>
-        <g class="p" style="animation-delay:0.5s; color:#5c7cfa;" transform="translate(780,60)"><use href="#perso"/></g>
-        <g class="p" style="animation-delay:0.6s; color:#cc5de8;" transform="translate(920,60)"><use href="#perso"/></g>
-    </svg>
-</div>
-
-<div style="text-align:center; margin-top:0.1rem;">
-    <span class="blink" style="font-size:2rem; color:#ffffff; text-shadow:
-    0 0 6px rgba(255,255,255,0.9),
-    0 0 14px rgba(78,205,196,0.9),
-    0 0 24px rgba(4, 242, 226, 0.7);">
-        7 Ensemble, Oui : Que Nous Allons Créer Le Changement.
-    </span>
-</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="creator-section">
-                <h2 style="font-size: 2.5rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Nos Objectifs Révolutionnaires</h2>
-
-                <div class="vision-goals">
-                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,0,255,0.15), rgba(255,0,255,0.05));">
-                        <h3 style="color: #ff4dd2; font-size: 1.3rem; margin-bottom: 1rem;">🏠 Familles Heureuses</h3>
-                        <p>Permettre à chaque famille de vivre sans stress financier, de profiter de la vie, de souffler enfin sans compter chaque franc.</p>
-                    </div>
-
-                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(90,90,255,0.15), rgba(90,90,255,0.05));">
-                        <h3 style="color: #4c6ef5; font-size: 1.3rem; margin-bottom: 1rem;">👴 Retraités Dignes</h3>
-                        <p>Offrir aux personnes âgées une fin de vie digne, sereine, après une existence entière de travail et de sacrifices.</p>
-                    </div>
-
-                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,200,255,0.15), rgba(0,200,255,0.05));">
-                        <h3 style="color: #22b8cf; font-size: 1.3rem; margin-bottom: 1rem;">💖 Accès à la Santé</h3>
-                        <p>Permettre à chacun d'accéder à la vraie santé, celle qui soigne, qui prévient, celle qu'on mérite tous… même quand elle coûte cher.</p>
-                    </div>
-
-                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,255,200,0.15), rgba(0,255,200,0.05));">
-                        <h3 style="color: #20c997; font-size: 1.3rem; margin-bottom: 1rem;">🌟 Rêves Réalisés</h3>
-                        <p>Que chacun puisse réaliser ses rêves, créer son entreprise, voyager, avancer, réaliser enfin ce qu'il a toujours porté en lui. Vivre tout simplement !</p>
-                    </div>
-
-                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,255,0,0.15), rgba(255,255,0,0.05));">
-                        <h3 style="color: #ffd43b; font-size: 1.3rem; margin-bottom: 1rem;">🧸 Avenir Assuré pour Nos Enfants</h3>
-                        <p>Offrir à chaque enfant et ado un vrai départ dans la vie, une tirelire pour leur futur, un soutien pour leurs rêves, et la force d'avancer sans limitation injuste.</p>
-                    </div>
-
-                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,150,0,0.15), rgba(255,150,0,0.05));">
-                        <h3 style="color: #ff922b; font-size: 1.3rem; margin-bottom: 1rem;">🤝 Entraide Mondiale</h3>
-                        <p>Créer une chaîne d'entraide planétaire où chaque être humain peut compter sur les autres, sans jugement et sans frontières.</p>
-                    </div>
-
-                    <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,70,0,0.15), rgba(255,70,0,0.05));">
-                        <h3 style="color: #ff6b6b; font-size: 1.3rem; margin-bottom: 1rem;">🍽️ À Manger Pour TOUS</h3>
-                        <p>Gagnons cette bataille : qu'aucune personne, sur cette planète, ne se couche encore affamée.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin: 4rem 0;">
-                <div class="celebration-banner">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Rejoignez Notre Mission !</h2>
-                    <p style="font-size: 1.7rem; margin-bottom: 2rem;">
-                        Ensemble, écrivons l'histoire de <strong style="color: #ffffff"><span class="blink" style="font-size: 2.3rem; color:#ffffff; text-shadow:
-                            0 0 6px rgba(255,255,255,0.9),
-                            0 0 14px rgba(78,205,196,0.9),
-                            0 0 24px rgba(4, 242, 226, 0.7);">
-                            &nbsp;7 Ensemble </strong> : un mouvement qui avance, qui rassemble et qui transforme.
-Unissons nos forces pour redonner espoir, relever ceux qui n'y croient plus
-et faire briller ce que personne n'a encore osé construire.
-Changeons le monde… vraiment.
-Pas demain. Maintenant.
-                    </p>
-                    <a href="index.html" class="btn-mission">
-                        🚀 Je Rejoins la Mission Maintenant !
-                    </a>
-                </div>
-            </div>
+        <!-- Call to Action Section -->
+        <section class="cta-section-purple">
+            <h2 class="text-header-large">Rejoignez la Révolution 7 Ensemble</h2>
+            <p class="text-destination-amount">
+                Ne restez pas spectateur. Devenez acteur du changement.
+            </p>
+            <p class="text-explanation">
+                Avec seulement <strong class="text-strong-cyan">21€</strong>, vous pouvez rejoindre un mouvement qui change le monde.
+            </p>
+            <p class="text-medium-bold">
+                Pas demain. <strong class="text-strong-cyan">Maintenant</strong>.
+            </p>
+            <button class="btn-primary btn-large-cta" onclick="showModalBothOptions()">
+                🚀 Je Rejoins la Mission Maintenant !
+            </button>
         </section>
     </main>
+
+    <!-- Unified Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title-centered">🌟 Rejoindre 7 Ensemble 🌟</h2>
+
+            <form id="registrationForm" onsubmit="return submitRegistrationForm(event)">
+                <!-- Prénom -->
+                <div class="form-group">
+                    <label for="prenom">Prénom <span class="required">*</span></label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" autocomplete="given-name">
+                </div>
+
+                <!-- Nom -->
+                <div class="form-group">
+                    <label for="nom">Nom <span class="required">*</span></label>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" autocomplete="family-name">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email">
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                    <label for="country">Pays <span class="required">*</span></label>
+                    <select id="country" name="country" autocomplete="country">
+                        <option value="">Choisir votre pays</option>
+                        <option value="FR">France</option>
+                        <option value="CH">Suisse</option>
+                        <option value="BE">Belgique</option>
+                        <option value="CA">Canada</option>
+                        <option value="MA">Maroc</option>
+                        <option value="TN">Tunisie</option>
+                        <option value="SN">Sénégal</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="IN">Inde</option>
+                        <option value="OTHER">Autre</option>
+                    </select>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-group">
+                    <label for="paymentMethod">Mode de paiement préféré <span class="required">*</span></label>
+                    <select id="paymentMethod" name="paymentMethod">
+                        <option value="">Choisir votre méthode</option>
+                        <option value="card">💳 Carte bancaire</option>
+                        <option value="paypal">🔵 PayPal</option>
+                        <option value="transfer">🏦 Virement bancaire</option>
+                        <option value="mobile">📱 Mobile Money (Afrique)</option>
+                        <option value="crypto">₿ Bitcoin/Crypto</option>
+                        <option value="other">🌍 Autre (nous nous adapterons)</option>
+                    </select>
+                </div>
+
+                <!-- Terms -->
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" class="checkbox-inline">
+                        <span class="checkbox-label-text">J'accepte le système d'entraide 7 Ensemble et comprends le principe de solidarité mutuelle. <span class="required">*</span></span>
+                    </label>
+                </div>
+
+                <!-- Options Section -->
+                <div class="section-centree options-container">
+                    <h3 id="optionsTitle">✨ Choisir mon option ✨</h3>
+
+                    <!-- Option 3 people (conditionally shown) -->
+                    <div id="option3Container" class="option-container" style="display: none;">
+                        <label class="option-label">
+                            <input type="radio" id="option3Radio" name="choixOption" value="3">
+                            <span class="option-text">Option 3 personnes vers 7'789€</span>
+                        </label>
+                    </div>
+
+                    <!-- Option 7 people (conditionally shown) -->
+                    <div id="option7Container" class="option-container" style="display: none;">
+                        <label class="option-label">
+                            <input type="radio" id="option7Radio" name="choixOption" value="7">
+                            <span class="option-text">Option 7 personnes vers 1'575'747€</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full-width">
+                        🚀 Créer Ma Constellation !
+                    </button>
+
+                    <p class="voyage-text">
+                        Bravo, votre aventure commence ici 💖
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="site-footer-enhanced">
+        <div class="footer-content-wrapper">
+            <div class="footer-main">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">7 Ensemble</a>
+                    <p class="footer-description">
+                        Une plateforme révolutionnaire d'entraide mutuelle. Ensemble, changeons le monde et éradiquons la pauvreté.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="les7tours.html">Les 7 Tours</a></li>
+                        <li><a href="mission.html">Notre Mission</a></li>
+                        <li><a href="livre-blanc.html">Livre Blanc</a></li>
+                    </ul>
+                </div>
+
+                <!-- Document Links -->
+                <div class="footer-section">
+                    <h3>Documents</h3>
+                    <div class="footer-documents">
+                        <a href="mentions-legales.html" class="doc-link">
+                            Mentions Légales
+                        </a>
+                        <a href="politique-confidentialite.html" class="doc-link">
+                            Politique de Confidentialité
+                        </a>
+                        <a href="conditions-generales.html" class="doc-link">
+                            Conditions Générales
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-contact">
+                        <p>Email: <a href="mailto:support@7ensemble.ch">support@7ensemble.ch</a></p>
+                        <p>Mission: <a href="mailto:mission@7ensemble.ch">mission@7ensemble.ch</a></p>
+                        <p>Christophe: <a href="mailto:christophe@7ensemble.ch">christophe@7ensemble.ch</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 <strong>7 Ensemble</strong>. Tous droits réservés. | Ensemble, changeons le monde.
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <!-- External Scripts -->
     <script src="js/main.js"></script>
     <script src="js/modal.js"></script>
-    <script src="js/animations.js"></script>
 </body>
 </html>

@@ -162,3 +162,47 @@ if (typeof module !== 'undefined' && module.exports) {
         debounce
     };
 }
+
+/* ===================================
+   VIDEO HERO OPTIMIZATION
+   =================================== */
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.hero-video-bg');
+    
+    if (video) {
+        // Optimize video playback
+        video.addEventListener('loadeddata', function() {
+            console.log('Hero video loaded successfully');
+        });
+
+        // Handle video errors
+        video.addEventListener('error', function() {
+            console.warn('Video failed to load, fallback to static image');
+            video.style.display = 'none';
+        });
+
+        // Pause video when not in viewport (performance)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play().catch(err => console.log('Video autoplay prevented:', err));
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.25 });
+
+        observer.observe(video);
+
+        // Disable video on slow connections
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            if (connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g')) {
+                video.style.display = 'none';
+                console.log('Video disabled due to slow connection');
+            }
+        }
+    }
+});
+
