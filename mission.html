@@ -4,7 +4,490 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notre Mission - 7 Ensemble</title>
+
+    <!-- Preload banner video -->
+    <link rel="preload" as="image" href="img/banner.png">
+    <link rel="preload" as="video" href="img/banner-video.mp4" media="(min-width: 769px)">
+
+    <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* CRITICAL: Prevent scroll issues */
+        html {
+            scroll-behavior: smooth;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-y: auto;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Mission Page Specific Styles */
+        .mission-page-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animation confettis */
+        .confetti {
+            position: fixed; /* Changed from absolute to fixed */
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confetti-fall 3s linear infinite;
+            pointer-events: none; /* Prevent interaction */
+        }
+
+        .confetti:nth-child(2n) { background: #4ecdc4; animation-delay: -0.5s; }
+        .confetti:nth-child(3n) { background: #45b7d1; animation-delay: -1s; }
+        .confetti:nth-child(4n) { background: #feca57; animation-delay: -1.5s; }
+        .confetti:nth-child(5n) { background: #f093fb; animation-delay: -2s; }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Étoiles scintillantes */
+        .mission-page-content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent);
+            background-size: 200px 200px;
+            animation: twinkle 4s infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .hero-mission {
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .celebration-banner {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #f093fb);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 1200px;
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .celebration-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 20px rgba(255,107,107,0.5); }
+            100% { box-shadow: 0 0 40px rgba(78,205,196,0.8); }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+        }
+
+        .mission-title {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .impact-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: card-shine 3s ease-in-out infinite;
+        }
+
+        @keyframes card-shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255,107,107,0.3);
+        }
+
+        .impact-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .impact-card:nth-child(2n) .impact-icon {
+            animation-delay: -1s;
+        }
+
+        .impact-card:nth-child(3n) .impact-icon {
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .testimonial-section {
+            background: linear-gradient(45deg, rgba(255,107,107,0.2), rgba(78,205,196,0.2));
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            margin: 4rem auto;
+            max-width: 1400px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-section::before {
+            content: '🎉';
+            position: absolute;
+            font-size: 3rem;
+            top: 20px;
+            left: 20px;
+            animation: rotate 4s linear infinite;
+        }
+
+        .testimonial-section::after {
+            content: '✨';
+            position: absolute;
+            font-size: 2rem;
+            bottom: 20px;
+            right: 20px;
+            animation: rotate 4s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .gratitude-message {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes text-glow {
+            0% { text-shadow: 0 0 10px rgba(255,107,107,0.5); }
+            100% { text-shadow: 0 0 20px rgba(78,205,196,0.8); }
+        }
+
+        .creator-section {
+            background: rgba(255,255,255,0.05);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            margin: 3rem auto;
+            max-width: 1400px;
+            border-left: 5px solid #4ecdc4;
+        }
+
+        .quote-bubble {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            position: relative;
+            animation: bubble-float 4s ease-in-out infinite;
+        }
+
+        @keyframes bubble-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .quote-bubble::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .vision-goals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            justify-items: center;
+            max-width: 1400px;
+        }
+
+        .goal-item {
+            background: linear-gradient(135deg, rgba(240,147,251,0.2), rgba(245,87,108,0.2));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            animation: goal-pulse 3s ease-in-out infinite;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .goal-item:nth-child(2n) {
+            animation-delay: -1s;
+        }
+
+        .goal-item:nth-child(7) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            max-width: 350px;
+        }
+
+        @keyframes goal-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* FIXED: Button without href="#" */
+        .btn-mission {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: button-glow 2s ease-in-out infinite alternate;
+            display: inline-block;
+        }
+
+        @keyframes button-glow {
+            0% { box-shadow: 0 5px 20px rgba(255,107,107,0.4); }
+            100% { box-shadow: 0 5px 30px rgba(78,205,196,0.6); }
+        }
+
+        .btn-mission:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .blink {
+            animation: blink-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes blink-glow {
+            0%, 100% {
+                opacity: 1;
+                text-shadow: 0 0 6px rgba(255,255,255,0.9),
+                             0 0 14px rgba(78,205,196,0.9),
+                             0 0 24px rgba(78,205,196,0.7);
+            }
+            50% {
+                opacity: 0.8;
+                text-shadow: 0 0 10px rgba(255,255,255,1),
+                             0 0 20px rgba(78,205,196,1),
+                             0 0 30px rgba(78,205,196,0.9);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            overflow-y: auto; /* Allow scrolling within modal */
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            color: white;
+            box-shadow: 0 0 30px rgba(78,205,196,0.4);
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #ff6b6b;
+            transition: all 0.3s;
+        }
+
+        .close:hover {
+            color: #ff4444;
+            transform: scale(1.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4ecdc4;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid rgba(78,205,196,0.3);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .section-centree {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .section-centree h2 {
+            color: #f093fb;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-centree label {
+            display: block;
+            background: rgba(78,205,196,0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .section-centree label:hover {
+            background: rgba(78,205,196,0.2);
+            transform: translateX(5px);
+        }
+
+        .section-centree input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .voyage-text {
+            color: #4ecdc4;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* SVG Animation */
+        .p {
+            animation: float-person 2s ease-in-out infinite;
+            transform-origin: center 80%;
+        }
+
+        @keyframes float-person {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mission-title { font-size: 2.5rem; }
+            .gratitude-message { font-size: 1.5rem; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .vision-goals { grid-template-columns: 1fr; }
+            .goal-item:nth-child(7) { grid-column: 1; }
+
+            .celebration-banner {
+                padding: 1.5rem;
+            }
+
+            .creator-section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Video Banner Header -->
@@ -27,163 +510,296 @@
             <div class="nav-menu">
                 <a href="index.html">Accueil</a>
                 <a href="les7tours.html">Les 7 Tours</a>
-                <a href="mission.html" class="active">Mission</a>
+                <a href="mission.html">Mission</a>
             </div>
             <button class="btn-primary" onclick="showModalBothOptions()">Rejoindre la révolution</button>
         </nav>
     </header>
 
-    <main>
-        <!-- Mission Statement Section -->
-        <section class="section">
-            <h1 class="main-title">Notre Mission</h1>
-            <h2 class="section-header-cyan">Transformer l'entraide en révolution financière mondiale</h2>
+    <div class="mission-page-content">
+        <!-- Confettis animés -->
+        <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="confetti" style="left: 20%; animation-delay: -0.3s;"></div>
+        <div class="confetti" style="left: 30%; animation-delay: -0.6s;"></div>
+        <div class="confetti" style="left: 40%; animation-delay: -0.9s;"></div>
+        <div class="confetti" style="left: 50%; animation-delay: -1.2s;"></div>
+        <div class="confetti" style="left: 60%; animation-delay: -1.5s;"></div>
+        <div class="confetti" style="left: 70%; animation-delay: -1.8s;"></div>
+        <div class="confetti" style="left: 80%; animation-delay: -2.1s;"></div>
+        <div class="confetti" style="left: 90%; animation-delay: -2.4s;"></div>
 
-            <div class="explanation">
-                <h3 class="section-header-pink">Pourquoi 7 Ensemble existe</h3>
-                <p class="text-tours-explanation">
-                    Dans un monde où l'argent divise et isole, <strong class="text-strong-cyan">7 Ensemble</strong> rassemble et élève.
-                    Nous croyons que chaque personne mérite de vivre dignement, sans peur du lendemain,
-                    sans compter chaque euro pour survivre.
-                </p>
-                <p class="text-tours-explanation">
-                    Notre mission est simple mais révolutionnaire : <strong class="text-strong-cyan">créer une chaîne d'entraide mondiale</strong>
-                    où chacun peut transformer <strong class="text-strong-red">21€</strong> en un avenir meilleur.
-                    Pas de banques gourmandes, pas de frais cachés, juste la <strong class="text-strong-cyan">force du collectif</strong>.
-                </p>
-                <p class="text-tours-explanation">
-                    Nous ne sommes pas une entreprise. Nous sommes un <strong class="text-strong-cyan">mouvement</strong>.
-                    Une communauté qui refuse d'accepter que la pauvreté soit une fatalité.
-                    <strong class="text-strong-cyan">Ensemble, nous changeons les règles du jeu.</strong>
-                </p>
+        <main>
+            <section class="hero-mission">
+                <div class="container">
+                    <h1 class="mission-title">Notre Mission Révolutionnaire</h1>
+
+                    <div class="celebration-banner">
+                        <div class="gratitude-message">
+                            Merci 7 Ensemble ! Tu es enfin là, on t'attendait depuis tellement longtemps !
+                        </div>
+                        <p style="font-size: 1.3rem; position: relative; z-index: 2;">Merci de penser aux citoyens ! Merci de créer une vraie solution d'entraide !</p>
+                    </div>
+
+                    <div class="testimonial-section">
+                        <h2 style="font-size: 2.5rem; color: #4ecdc4; margin-bottom: 2rem;">Enfin une plateforme qui pense à NOUS !</h2>
+                        <p style="font-size: 1.4rem; line-height: 1.8;">
+                            Après des années d'attente, après avoir essayé tant de solutions qui ne marchent pas,<br>
+                            <strong style="color: #ffffff"><span class="blink" style="font-size:1.6rem;">&nbsp;7 Ensemble arrive enfin pour révolutionner l'entraide mondiale !</span></strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container">
+                <div class="creator-section">
+                    <h2 style="font-size: 2.5rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Pourquoi J'ai Créé 7 Ensemble</h2>
+
+                    <div class="quote-bubble">
+                        <p style="font-size: 1.4rem; line-height: 1.8; font-style: italic; position: relative; z-index: 1;">
+                            Ne supportant plus ce qui se passe autour de moi, j'ai décidé de créer cette plateforme d'entraide révolutionnaire.
+                            Il était temps que quelqu'un se lève pour les citoyens ordinaires !
+                        </p>
+                    </div>
+
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon">❤️</div>
+                            <h3 style="color: #ff6b6b; font-size: 1.5rem;">Vision Humaine</h3>
+                            <p>Une plateforme créée avec le cœur, pour répondre aux vrais besoins des Familles et vous créer un vrai pouvoir d'achat.</p>
+                        </div>
+
+                        <div class="impact-card">
+                            <div class="impact-icon">🛡️</div>
+                            <h3 style="color: #4ecdc4; font-size: 1.5rem;">Protection Totale</h3>
+                            <p>Aucun frais caché, aucune commission. Votre seule contribution : 21€ pour changer votre vie.</p>
+                        </div>
+
+                        <div class="impact-card">
+                            <div class="impact-icon">🌍</div>
+                            <h3 style="color: #45b7d1; font-size: 1.5rem;">Impact Mondial</h3>
+                            <p>Ensemble, nous pouvons vraiment changer le monde et éradiquer la pauvreté. 7 Ensemble, on va le faire.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="creator-section">
+                    <h2 style="font-size: 2.5rem; color: #4ecdc4; text-align: center; margin-bottom: 2rem;">7 Ensemble ❤️ Créons le Changement</h2>
+
+                    <div style="background: linear-gradient(45deg, rgba(78,205,196,0.2), rgba(255,107,107,0.2)); padding: 3rem; border-radius: 20px; text-align: center;">
+                        <p style="font-size: 1.5rem; line-height: 1.3; margin-bottom: 2rem;">
+                            <strong style="font-size: 1.7rem; color: #f093fb;">Je n'ai pas créé 7 Ensemble pour devenir riche.</strong>
+                        </p>
+                        <div style="font-size:1.3rem; line-height:1.7; text-align:left; white-space:pre-line; max-width: 900px; margin: 0 auto;">
+Depuis des années, j'ai vu trop de vies se casser à cause d'un simple chiffre sur un compte.
+Des familles qui comptent tout.
+Des parents qui se privent.
+Des retraités qui ont tout donné et qui n'ont plus rien.
+
+J'ai moi aussi traversé des nuits froides,
+Un matelas gonflable percé,
+Une voiture transformée en chambre,
+Des locaux vides en guise de refuge.
+
+J'ai connu les galères que personne ne voit.
+Les peurs, les pertes, les injustices…
+Et malgré tout ça, une chose n'a jamais changé :
+Je n'ai jamais accepté que le monde soit fait pour écraser les plus fragiles.
+
+Alors j'ai décidé de faire quelque chose.
+Pas un miracle, pas une invention folle,
+juste l'idée la plus simple du monde :
+<strong style="color:#4ecdc4;">S'entraider.<br>Ensemble.<br>Vraiment.</strong>
+
+Ce que les États n'ont jamais fait,
+Ce que les systèmes n'ont jamais compris,
+C'est que quand on donne un peu d'air aux gens,
+Ils se relèvent tous seuls.
+Quand tu donnes de la dignité,
+Tu répares une vie.
+
+Je ne prends rien.
+Je ne fais pas ça pour gagner.
+Je finance, je crée, je prends les risques.
+Je suis au même niveau que tout le monde,
+Parce que je suis comme tout le monde.
+
+Je fais ça parce que je sais ce que c'est
+De manquer,
+De tomber,
+De lutter,
+De se relever sans personne.
+
+<span class="blink" style="font-size:1.5rem;">7 Ensemble n'est pas une chance.</span>
+C'est une réponse.
+Une main tendue.
+Une respiration pour ceux qui n'en ont plus.
+
+<strong><em>Ce que je veux ?
+Que personne ne vive dans la peur du lendemain.
+Que personne ne choisisse entre manger et se chauffer.
+Que les rêves redeviennent possibles.
+Que l'entraide devienne normale.</em></strong>
+
+<div style="text-align:center; margin-top:2rem;">
+    <strong style="color:#4ecdc4; font-size:1.7rem;">Ce mouvement n'est pas à moi. Il est à NOUS.</strong>
+</div>
+                        </div>
+
+                        <!-- SVG People -->
+                        <div style="width:100%; display:flex; justify-content:center; margin:2rem 0;">
+                            <svg viewBox="-50 0 1000 180" style="max-width:900px; width:100%; height:auto; overflow:visible;">
+                                <symbol id="perso">
+                                    <circle cx="0" cy="0" r="18" fill="currentColor"/>
+                                    <path d="M0 16 Q -22 50 0 80 Q 22 50 0 16 Z" fill="white" opacity="0.9"/>
+                                    <path d="M -26 35 Q -5 20 0 25 Q 5 20 26 35" stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
+                                </symbol>
+
+                                <g class="p" style="animation-delay:0s; color:#ff6b6b;" transform="translate(80,60)"><use href="#perso"/></g>
+                                <g class="p" style="animation-delay:0.1s; color:#ffa94d;" transform="translate(220,60)"><use href="#perso"/></g>
+                                <g class="p" style="animation-delay:0.2s; color:#ffd93b;" transform="translate(360,60)"><use href="#perso"/></g>
+                                <g class="p" style="animation-delay:0.3s; color:#51cf66;" transform="translate(500,60)"><use href="#perso"/></g>
+                                <g class="p" style="animation-delay:0.4s; color:#22b8cf;" transform="translate(640,60)"><use href="#perso"/></g>
+                                <g class="p" style="animation-delay:0.5s; color:#5c7cfa;" transform="translate(780,60)"><use href="#perso"/></g>
+                                <g class="p" style="animation-delay:0.6s; color:#cc5de8;" transform="translate(920,60)"><use href="#perso"/></g>
+                            </svg>
+                        </div>
+
+                        <div style="text-align:center; margin-top:2rem;">
+                            <span class="blink" style="font-size:2rem;">7 Ensemble, Oui : Que Nous Allons Créer Le Changement.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="creator-section">
+                    <h2 style="font-size: 2.5rem; color: #f093fb; text-align: center; margin-bottom: 2rem;">Nos Objectifs Révolutionnaires</h2>
+
+                    <div class="vision-goals">
+                        <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,0,255,0.15), rgba(255,0,255,0.05));">
+                            <h3 style="color: #ff4dd2; font-size: 1.3rem; margin-bottom: 1rem;">🏠 Familles Heureuses</h3>
+                            <p>Permettre à chaque famille de vivre sans stress financier, de profiter de la vie, de souffler enfin sans compter chaque franc.</p>
+                        </div>
+
+                        <div class="goal-item" style="background: linear-gradient(135deg, rgba(90,90,255,0.15), rgba(90,90,255,0.05));">
+                            <h3 style="color: #4c6ef5; font-size: 1.3rem; margin-bottom: 1rem;">👴 Retraités Dignes</h3>
+                            <p>Offrir aux personnes âgées une fin de vie digne, sereine, après une existence entière de travail et de sacrifices.</p>
+                        </div>
+
+                        <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,200,255,0.15), rgba(0,200,255,0.05));">
+                            <h3 style="color: #22b8cf; font-size: 1.3rem; margin-bottom: 1rem;">💖 Accès à la Santé</h3>
+                            <p>Permettre à chacun d'accéder à la vraie santé, celle qui soigne, qui prévient, celle qu'on mérite tous… même quand elle coûte cher.</p>
+                        </div>
+
+                        <div class="goal-item" style="background: linear-gradient(135deg, rgba(0,255,200,0.15), rgba(0,255,200,0.05));">
+                            <h3 style="color: #20c997; font-size: 1.3rem; margin-bottom: 1rem;">🌟 Rêves Réalisés</h3>
+                            <p>Que chacun puisse réaliser ses rêves, créer son entreprise, voyager, avancer, réaliser enfin ce qu'il a toujours porté en lui. Vivre tout simplement !</p>
+                        </div>
+
+                        <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,255,0,0.15), rgba(255,255,0,0.05));">
+                            <h3 style="color: #ffd43b; font-size: 1.3rem; margin-bottom: 1rem;">🧸 Avenir Assuré pour Nos Enfants</h3>
+                            <p>Offrir à chaque enfant et ado un vrai départ dans la vie, une tirelire pour leur futur, un soutien pour leurs rêves, et la force d'avancer sans limitation injuste.</p>
+                        </div>
+
+                        <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,150,0,0.15), rgba(255,150,0,0.05));">
+                            <h3 style="color: #ff922b; font-size: 1.3rem; margin-bottom: 1rem;">🤝 Entraide Mondiale</h3>
+                            <p>Créer une chaîne d'entraide planétaire où chaque être humain peut compter sur les autres, sans jugement et sans frontières.</p>
+                        </div>
+
+                        <div class="goal-item" style="background: linear-gradient(135deg, rgba(255,70,0,0.15), rgba(255,70,0,0.05));">
+                            <h3 style="color: #ff6b6b; font-size: 1.3rem; margin-bottom: 1rem;">🍽️ À Manger Pour TOUS</h3>
+                            <p>Gagnons cette bataille : qu'aucune personne, sur cette planète, ne se couche encore affamée.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 4rem 0;">
+                    <div class="celebration-banner">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 2rem; position: relative; z-index: 2;">Rejoignez Notre Mission !</h2>
+                        <p style="font-size: 1.7rem; margin-bottom: 2rem; position: relative; z-index: 2;">
+                            Ensemble, écrivons l'histoire de <strong style="color: #ffffff"><span class="blink" style="font-size: 2.3rem;">7 Ensemble</span></strong> : un mouvement qui avance, qui rassemble et qui transforme.
+                            Unissons nos forces pour redonner espoir, relever ceux qui n'y croient plus
+                            et faire briller ce que personne n'a encore osé construire.
+                            Changeons le monde… vraiment.
+                            Pas demain. Maintenant.
+                        </p>
+                        <!-- FIXED: Use button instead of anchor with href="#" -->
+                        <button class="btn-mission" onclick="openMissionModal(event)">
+                            🚀 Je Rejoins la Mission Maintenant !
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer-enhanced">
+        <div class="container">
+            <div class="footer-main">
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="les7tours.html">Les 7 Tours</a>
+                    <a href="mission.html">Mission</a>
+                </div>
+
+                <!-- Documents -->
+                <div class="footer-section">
+                    <h3>Documents</h3>
+                    <div class="footer-documents">
+                        <a href="mentions-legales.html" class="doc-link">Mentions Légales</a>
+                        <a href="politique-confidentialite.html" class="doc-link">Politique de Confidentialité</a>
+                        <a href="conditions-generales.html" class="doc-link">Conditions Générales</a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@7ensemble.ch</p>
+                    <p>Téléphone: +41 XX XXX XX XX</p>
+                    <p>Adresse: 1926 Fully (VS), Suisse</p>
+                </div>
+
+                <!-- Info -->
+                <div class="footer-section">
+                    <h3>Informations</h3>
+                    <p>Horaires: 24/7 en ligne</p>
+                    <p>Plateforme d'entraide communautaire</p>
+                </div>
             </div>
-        </section>
 
-        <!-- 7 Goals Section -->
-        <section class="section">
-            <h2 class="section-header-large">Nos 7 Objectifs Révolutionnaires</h2>
-
-            <div class="grid-explanation-columns">
-                <!-- Goal 1 -->
-                <div class="explanation-column-box">
-                    <h3 class="explanation-column-title-cyan">🏠 Familles Heureuses</h3>
-                    <p>
-                        Permettre à chaque famille de vivre sans stress financier, de profiter de la vie,
-                        de souffler enfin sans compter chaque franc.
-                    </p>
-                </div>
-
-                <!-- Goal 2 -->
-                <div class="explanation-column-box">
-                    <h3 class="explanation-column-title-blue">👴 Retraités Dignes</h3>
-                    <p>
-                        Offrir aux personnes âgées une fin de vie digne et sereine, après une existence
-                        entière de travail et de sacrifices.
-                    </p>
-                </div>
-
-                <!-- Goal 3 -->
-                <div class="explanation-column-box">
-                    <h3 class="explanation-column-title-yellow">💖 Accès à la Santé</h3>
-                    <p>
-                        Permettre à chacun d'accéder à la vraie santé, celle qui soigne et prévient,
-                        celle qu'on mérite tous... même quand elle coûte cher.
-                    </p>
-                </div>
-
-                <!-- Goal 4 -->
-                <div class="explanation-column-box">
-                    <h3 class="explanation-column-title-red">🌟 Rêves Réalisés</h3>
-                    <p>
-                        Que chacun puisse réaliser ses rêves, créer son entreprise, voyager, avancer,
-                        réaliser enfin ce qu'il a toujours porté en lui.
-                    </p>
-                </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 7ensemble.ch - Tous droits réservés</p>
             </div>
+        </div>
+    </footer>
 
-            <div class="grid-explanation-columns" style="margin-top: 2rem;">
-                <!-- Goal 5 -->
-                <div class="explanation-column-box">
-                    <h3 class="explanation-column-title-cyan">🧸 Avenir pour Enfants</h3>
-                    <p>
-                        Offrir à chaque enfant et ado un vrai départ dans la vie, une tirelire pour leur futur,
-                        un soutien pour leurs rêves sans limitation injuste.
-                    </p>
-                </div>
-
-                <!-- Goal 6 -->
-                <div class="explanation-column-box">
-                    <h3 class="explanation-column-title-blue">🤝 Entraide Mondiale</h3>
-                    <p>
-                        Créer une chaîne d'entraide planétaire où chaque être humain peut compter sur les autres,
-                        sans jugement et sans frontières.
-                    </p>
-                </div>
-
-                <!-- Goal 7 -->
-                <div class="explanation-column-box">
-                    <h3 class="explanation-column-title-yellow">🍽️ Manger Pour TOUS</h3>
-                    <p>
-                        Gagnons cette bataille : qu'aucune personne, sur cette planète,
-                        ne se couche encore affamée. Jamais.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action Section -->
-        <section class="cta-section-purple">
-            <h2 class="text-header-large">Rejoignez la Révolution 7 Ensemble</h2>
-            <p class="text-destination-amount">
-                Ne restez pas spectateur. Devenez acteur du changement.
-            </p>
-            <p class="text-explanation">
-                Avec seulement <strong class="text-strong-cyan">21€</strong>, vous pouvez rejoindre un mouvement qui change le monde.
-            </p>
-            <p class="text-medium-bold">
-                Pas demain. <strong class="text-strong-cyan">Maintenant</strong>.
-            </p>
-            <button class="btn-primary btn-large-cta" onclick="showModalBothOptions()">
-                🚀 Je Rejoins la Mission Maintenant !
-            </button>
-        </section>
-    </main>
-
-    <!-- Unified Registration Modal -->
-    <div id="registrationModal" class="modal">
+    <!-- Modal Registration -->
+    <div id="missionModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 class="modal-title-centered">🌟 Rejoindre 7 Ensemble 🌟</h2>
+            <span class="close" onclick="closeMissionModal()">&times;</span>
+            <h2 style="text-align: center; color: #4ecdc4; margin-bottom: 2rem;">🌟 Rejoindre 7 Ensemble 🌟</h2>
 
-            <form id="registrationForm" onsubmit="return submitRegistrationForm(event)">
-                <!-- Alcyone -->
+            <form id="missionForm" onsubmit="submitMissionForm(event)">
                 <div class="form-group">
-                    <label for="alcyone">Alcyone (personne qui vous a invité) <span class="required">*</span></label>
-                    <input type="text" id="alcyone" name="alcyone" placeholder="Nom de votre Alcyone" required>
+                    <label for="alcyone">Alcyone (personne qui vous a invité) <span style="color: #ff6b6b;">*</span></label>
+                    <input type="text" id="alcyone" name="alcyone" required placeholder="Nom de votre Alcyone">
                 </div>
 
-                <!-- Prénom -->
                 <div class="form-group">
-                    <label for="prenom">Prénom <span class="required">*</span></label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" autocomplete="given-name">
+                    <label for="fullName">Nom complet <span style="color: #ff6b6b;">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Votre nom et prénom">
                 </div>
 
-                <!-- Nom -->
                 <div class="form-group">
-                    <label for="nom">Nom <span class="required">*</span></label>
-                    <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" autocomplete="family-name">
+                    <label for="email">Email <span style="color: #ff6b6b;">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="votre@email.com">
                 </div>
 
-                <!-- Email -->
                 <div class="form-group">
-                    <label for="email">Email <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email">
-                </div>
-
-                <!-- Country -->
-                <div class="form-group">
-                    <label for="country">Pays <span class="required">*</span></label>
-                    <select id="country" name="country" autocomplete="country">
+                    <label for="country">Pays <span style="color: #ff6b6b;">*</span></label>
+                    <select id="country" name="country" required>
                         <option value="">Choisir votre pays</option>
                         <option value="FR">France</option>
                         <option value="CH">Suisse</option>
@@ -198,10 +814,9 @@
                     </select>
                 </div>
 
-                <!-- Payment Method -->
                 <div class="form-group">
-                    <label for="paymentMethod">Mode de paiement préféré <span class="required">*</span></label>
-                    <select id="paymentMethod" name="paymentMethod">
+                    <label for="paymentMethod">Mode de paiement préféré <span style="color: #ff6b6b;">*</span></label>
+                    <select id="paymentMethod" name="paymentMethod" required>
                         <option value="">Choisir votre méthode</option>
                         <option value="card">💳 Carte bancaire</option>
                         <option value="paypal">🔵 PayPal</option>
@@ -212,35 +827,27 @@
                     </select>
                 </div>
 
-                <!-- Terms -->
-                <div class="form-group checkbox-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="terms" name="terms" class="checkbox-inline">
-                        <span class="checkbox-label-text">J'accepte le système d'entraide 7 Ensemble et comprends le principe de solidarité mutuelle. <span class="required">*</span></span>
+                <div class="form-group">
+                    <label style="display: flex; align-items: start; cursor: pointer;">
+                        <input type="checkbox" required style="width: auto; margin-right: 0.5rem; margin-top: 5px;">
+                        <span style="color: rgba(255,255,255,0.9);">J'accepte le système d'entraide 7 Ensemble (option 3 ou 7 personnes) et comprends le principe de solidarité mutuelle.</span>
                     </label>
                 </div>
 
-                <!-- Options Section -->
-                <div class="section-centree options-container">
-                    <h3 id="optionsTitle">✨ Choisir mon option ✨</h3>
+                <div class="section-centree">
+                    <h2>✨ Rejoindre 7 Ensemble ✨</h2>
 
-                    <!-- Option 3 people (conditionally shown) -->
-                    <div id="option3Container" class="option-container" style="display: none;">
-                        <label class="option-label">
-                            <input type="radio" id="option3Radio" name="choixOption" value="3">
-                            <span class="option-text">Option 3 personnes vers 7'789€</span>
-                        </label>
-                    </div>
+                    <label>
+                        <input type="radio" name="option" value="3">
+                        Option 3 personnes vers 7'789€
+                    </label>
 
-                    <!-- Option 7 people (conditionally shown) -->
-                    <div id="option7Container" class="option-container" style="display: none;">
-                        <label class="option-label">
-                            <input type="radio" id="option7Radio" name="choixOption" value="7">
-                            <span class="option-text">Option 7 personnes vers 1'575'747€</span>
-                        </label>
-                    </div>
+                    <label>
+                        <input type="radio" name="option" value="7" checked>
+                        Option 7 personnes vers 1'575'747€
+                    </label>
 
-                    <button type="submit" class="btn-primary btn-full-width">
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; font-size: 1.2rem; padding: 20px;">
                         🚀 Créer Ma Constellation !
                     </button>
 
@@ -251,6 +858,104 @@
             </form>
         </div>
     </div>
+
+    <!-- Modal.js integration -->
+    <script src="js/modal.js"></script>
+
+    <script>
+        // FIXED: Prevent scroll-to-top with proper event handling
+        function openMissionModal(event) {
+            if (event) event.preventDefault(); // Prevent default behavior
+            document.getElementById('missionModal').style.display = "block";
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+
+        function closeMissionModal() {
+            document.getElementById('missionModal').style.display = "none";
+            document.body.style.overflow = 'auto'; // Re-enable scroll
+        }
+
+        function submitMissionForm(event) {
+            event.preventDefault(); // Prevent form submission/page reload
+
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            console.log('Form submitted:', data);
+
+            // Show success message
+            alert('🎉 Merci ! Votre inscription a été enregistrée. Nous vous contactons très bientôt !');
+
+            // Close modal
+            closeMissionModal();
+
+            // Reset form
+            event.target.reset();
+
+            // Here you would normally send data to your backend
+            // Example: fetch('/api/register', { method: 'POST', body: JSON.stringify(data) })
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('missionModal');
+            if (event.target == modal) {
+                closeMissionModal();
+            }
+        }
+
+        // Animation des confettis
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confetti.style.backgroundColor = [
+                '#ff6b6b', '#4ecdc4', '#45b7d1', '#feca57', '#f093fb'
+            ][Math.floor(Math.random() * 5)];
+
+            document.querySelector('.mission-page-content').appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 6000);
+        }
+
+        // Créer des confettis régulièrement (less frequent for performance)
+        setInterval(createConfetti, 800);
+
+        // Animation au scroll (throttled for performance)
+        let scrollTimeout;
+        function animateOnScroll() {
+            if (scrollTimeout) return;
+
+            scrollTimeout = setTimeout(() => {
+                const elements = document.querySelectorAll('.impact-card, .goal-item');
+                elements.forEach((el, index) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+                scrollTimeout = null;
+            }, 100);
+        }
+
+        // Initial setup for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.impact-card, .goal-item');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
 
     <!-- Enhanced Footer -->
     <footer class="site-footer-enhanced">
@@ -310,9 +1015,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- External Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/modal.js"></script>
 </body>
 </html>
