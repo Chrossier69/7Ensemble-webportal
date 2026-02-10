@@ -1291,7 +1291,7 @@ nav {
     overflow-x: hidden;
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
     border-radius: 2rem;
-    padding: 2rem;
+    padding: 3rem 2.5rem;
     box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
@@ -1317,7 +1317,7 @@ nav {
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1rem;
+    font-size: 1.1rem;
     table-layout: auto;
 }
 
@@ -1337,14 +1337,15 @@ table {
 
 th {
     background: rgba(255,255,255,0.2);
-    padding: 1rem 0.5rem;
+    padding: 1.2rem 1rem;
     text-align: center;
     font-weight: bold;
     border: 1px solid rgba(255,255,255,0.2);
+    font-size: 1.1rem;
 }
 
 td {
-    padding: 0.8rem 0.5rem;
+    padding: 1rem 1rem;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.1);
     font-weight: bold;
@@ -1359,7 +1360,7 @@ td.amount {
 }
 
 .amount {
-    font-size: 14px;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
@@ -4131,7 +4132,7 @@ td.amount {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 23.125%; /* 444/1920 = 0.23125 - preserves video aspect ratio without cropping */
+    padding-bottom: 11.56%; /* Reduced by 50% from 23.125% per client request */
     overflow: hidden;
 }
 
@@ -4193,14 +4194,14 @@ td.amount {
 /* Tablet - Mission Banner */
 @media (max-width: 992px) {
     .mission-banner-video {
-        padding-bottom: 23.125%; /* Maintains video aspect ratio (1920x444) */
+        padding-bottom: 11.56%; /* Reduced by 50% per client request */
     }
 }
 
 /* Mobile - Mission Banner */
 @media (max-width: 768px) {
     .mission-banner-video {
-        padding-bottom: 23.125%; /* Maintains video aspect ratio (1920x444) */
+        padding-bottom: 11.56%; /* Reduced by 50% per client request */
     }
 
     /* Keep video playing on mobile with proper settings */

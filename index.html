@@ -39,18 +39,8 @@
     </header>
 
     <main>
-        <!-- Hero Section with Video Background -->
-        <section class="hero hero-video">
-            <!-- Video Background -->
-            <div class="hero-video-container">
-                <video class="hero-video-bg" autoplay loop muted playsinline poster="/img/banner-img.png">
-                    <source src="/img/banner-video.mp4" type="video/mp4">
-                    <!-- Fallback image if video doesn't load -->
-                </video>
-                <!-- Overlay for better text readability -->
-                <div class="hero-video-overlay"></div>
-            </div>
-
+        <!-- Hero Section with Normal Background -->
+        <section class="hero">
             <!-- Hero Content -->
             <div class="container hero-content">
                 <h1 class="hero-title">7 Ensemble</h1>
@@ -451,6 +441,12 @@
             <h2 class="modal-title-centered">🌟 Rejoindre 7 Ensemble 🌟</h2>
 
             <form id="registrationForm" onsubmit="return submitRegistrationForm(event)">
+                <!-- Alcyone -->
+                <div class="form-group">
+                    <label for="alcyone">Alcyone (personne qui vous a invité) <span class="required">*</span></label>
+                    <input type="text" id="alcyone" name="alcyone" placeholder="Nom de votre Alcyone" required>
+                </div>
+
                 <!-- Prénom -->
                 <div class="form-group">
                     <label for="prenom">Prénom <span class="required">*</span></label>
