@@ -3936,11 +3936,11 @@ td.amount {
 }
 
 .footer-main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
+
 
 /* Tablet - 2 columns */
 @media (max-width: 992px) {
