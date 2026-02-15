@@ -2760,7 +2760,7 @@ td.amount {
     .tour-table,
     .explanation,
     .important-note {
-        padding: 4rem 4rem;
+        padding: 50px 15px;
     }
 }
 
