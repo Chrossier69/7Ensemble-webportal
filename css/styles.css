@@ -3880,8 +3880,8 @@ td.amount {
 }
 
 /* Styling for highlight numbers in tables */
-.highlight-number {
-    font-size: 1.1rem;
+.tours-overview .highlight-number {
+    font-size: 0.9rem;
     /* Removed white-space: nowrap to allow natural text wrapping on smaller screens */
 }
 
