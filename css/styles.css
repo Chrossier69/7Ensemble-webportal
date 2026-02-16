@@ -116,7 +116,7 @@ header {
     width: 100%;
 }
 
-nav {
+header > nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
