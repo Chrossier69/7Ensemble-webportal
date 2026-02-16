@@ -110,63 +110,16 @@
     </main>
 
     <!-- Enhanced Footer -->
-    <footer class="site-footer-enhanced">
-        <div class="footer-content-wrapper">
-            <div class="footer-main">
-                <!-- About Section -->
-                <div class="footer-section">
-                    <a href="index.html" class="footer-logo">7 Ensemble</a>
-                    <p class="footer-description">
-                        Une plateforme révolutionnaire d'entraide mutuelle. Ensemble, changeons le monde et éradiquons la pauvreté.
-                    </p>
-                </div>
+   <div id="footer"></div>
 
-                <!-- Navigation Links -->
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="les7tours.html">Les 7 Tours</a></li>
-                        <li><a href="mission.html">Notre Mission</a></li>
-                        <li><a href="livre-blanc.html">Livre Blanc</a></li>
-                    </ul>
-                </div>
+<script>
+  fetch('footer-snippet.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
 
-                <!-- Document Links -->
-                <div class="footer-section">
-                    <h3>Documents</h3>
-                    <div class="footer-documents">
-                        <a href="mentions-legales.html" class="doc-link">
-                            Mentions Légales
-                        </a>
-                        <a href="politique-confidentialite.html" class="doc-link">
-                            Politique de Confidentialité
-                        </a>
-                        <a href="conditions-generales.html" class="doc-link">
-                            Conditions Générales
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Contact Section -->
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <div class="footer-contact">
-                        <p>Email: <a href="mailto:support@7ensemble.ch">support@7ensemble.ch</a></p>
-                        <p>Mission: <a href="mailto:mission@7ensemble.ch">mission@7ensemble.ch</a></p>
-                        <p>Christophe: <a href="mailto:christophe@7ensemble.ch">christophe@7ensemble.ch</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p class="footer-copyright">
-                    © 2024 <strong>7 Ensemble</strong>. Tous droits réservés. | Ensemble, changeons le monde.
-                </p>
-            </div>
-        </div>
-    </footer>
 
     <!-- External Scripts -->
     <script src="js/main.js"></script>

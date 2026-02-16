@@ -1437,7 +1437,7 @@ td.amount {
 
 /* === HERO MISSION === */
 .hero-mission {
-    padding: 4rem 0;
+    padding: 0 0;
     text-align: center;
     position: relative;
 }
@@ -2760,7 +2760,7 @@ td.amount {
     .tour-table,
     .explanation,
     .important-note {
-        padding: 4rem 4rem;
+        padding: 50px 15px;
     }
 }
 
@@ -3880,8 +3880,8 @@ td.amount {
 }
 
 /* Styling for highlight numbers in tables */
-.highlight-number {
-    font-size: 1.1rem;
+.tours-overview .highlight-number {
+    font-size: 0.9rem;
     /* Removed white-space: nowrap to allow natural text wrapping on smaller screens */
 }
 
@@ -3936,11 +3936,11 @@ td.amount {
 }
 
 .footer-main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
+
 
 /* Tablet - 2 columns */
 @media (max-width: 992px) {
@@ -4142,7 +4142,7 @@ td.amount {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 121%;
     z-index: 1;
     overflow: hidden;
 }
