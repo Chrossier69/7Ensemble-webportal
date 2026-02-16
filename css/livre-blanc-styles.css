@@ -162,7 +162,7 @@ header {
     width: 100%;
 }
 
-nav {
+header > nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -3669,4 +3669,5 @@ button:focus {
     .happiness-message {
         font-size: 1.3rem;
     }
+
 }
