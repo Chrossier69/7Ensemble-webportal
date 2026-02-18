@@ -196,9 +196,21 @@ nav {
     100% { filter: hue-rotate(360deg); }
 }
 
+/* Mobile default: nav hidden, dropdown style */
 .nav-menu {
-    display: flex;
-    gap: 2rem;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    margin-top: 1rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 .nav-menu a {
@@ -206,10 +218,44 @@ nav {
     color: rgba(255,255,255,0.9);
     font-weight: 500;
     transition: color 0.3s;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    display: block;
+}
+
+.nav-menu a:last-child {
+    border-bottom: none;
 }
 
 .nav-menu a:hover {
     color: #4ecdc4;
+}
+
+/* Desktop: show nav inline, hide burger */
+@media (min-width: 768px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        width: auto;
+        background: transparent;
+        padding: 0;
+        margin-top: 0;
+        border-radius: 0;
+        position: static;
+    }
+
+    .nav-menu a {
+        padding: 0;
+        border-bottom: none;
+        text-align: left;
+        display: inline;
+    }
 }
 
 /* === BUTTONS === */
@@ -456,7 +502,7 @@ nav {
 
 /* === MOBILE MENU === */
 .mobile-menu-toggle {
-    display: none;
+    display: block;
     background: none;
     border: none;
     color: white;
