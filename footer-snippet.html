@@ -1,0 +1,276 @@
+<!-- Enhanced Footer with Document Links -->
+<style>
+/* ===================================
+   FOOTER - Enhanced with Document Links
+   =================================== */
+.site-footer-enhanced {
+    background: linear-gradient(180deg, rgba(15,20,25,0.98) 0%, rgba(10,15,20,1) 100%);
+    border-top: 3px solid rgba(78,205,196,0.5);
+    padding: 3rem 0 1.5rem 0;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+    z-index: 100;
+    margin-top: 4rem;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h3 {
+    color: #4ecdc4;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background: linear-gradient(45deg, #4ecdc4, #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-description {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a:hover {
+    color: #4ecdc4;
+    transform: translateX(5px);
+}
+
+.footer-links a::before {
+    content: "→";
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+}
+
+.footer-contact {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 0.55rem;
+    font-size: 0.95rem;
+}
+
+.footer-contact a {
+    color: #4ecdc4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-documents {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 7px;
+    background: rgba(78,205,196,0.1);
+    border: 1px solid rgba(78,205,196,0.3);
+    border-radius: 5px;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.doc-link:hover {
+    background: rgba(78,205,196,0.2);
+    border-color: #4ecdc4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78,205,196,0.3);
+}
+
+.doc-link::before {
+    content: "📄";
+    font-size: 1.2rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.footer-copyright {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-copyright strong {
+    color: #4ecdc4;
+    font-weight: 700;
+}
+
+/* Social Icons (optional) */
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(78,205,196,0.1);
+    border: 1px solid rgba(78,205,196,0.3);
+    border-radius: 50%;
+    color: #4ecdc4;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #4ecdc4;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(78,205,196,0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .site-footer-enhanced {
+        padding: 2rem 0 1rem 0;
+    }
+    
+    .footer-content-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+}
+</style>
+
+<footer class="site-footer-enhanced">
+        <div class="footer-content-wrapper">
+            <div class="footer-main">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">7 Ensemble</a>
+                    <p class="footer-description">
+                        Une plateforme révolutionnaire d'entraide mutuelle. Ensemble, changeons le monde et éradiquons la pauvreté.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="les7tours.html">Les 7 Tours</a></li>
+                        <li><a href="mission.html">Notre Mission</a></li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Document Links -->
+                <div class="footer-section">
+                    <h3>Documents</h3>
+                    <div class="footer-documents">
+                        <a href="livre-blanc.html" class="doc-link">
+                            Livre Blanc
+                        </a>
+                        <a href="mentions-legales.html" class="doc-link">
+                            Mentions Légales
+                        </a>
+                        <a href="politique-confidentialite.html" class="doc-link">
+                            Politique de Confidentialité
+                        </a>
+                        <a href="conditions-generales.html" class="doc-link">
+                            Conditions Générales
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-contact">
+                        <p>Christophe: <a href="mailto:christophe@7ensemble.ch">christophe@7ensemble.ch</a></p>
+                        <p>Mission: <a href="mailto:mission@7ensemble.ch">mission@7ensemble.ch</a></p>
+                        <p>Support: <a href="mailto:support@7ensemble.ch">support@7ensemble.ch</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 <strong>7 Ensemble</strong>. Tous droits réservés. | Ensemble, Changeons le Monde.
+                </p>
+            </div>
+        </div>
+    </footer>

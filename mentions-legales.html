@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - 7 Ensemble</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Video Banner Header -->
+    <section class="mission-banner-video">
+        <div class="banner-video-container">
+            <video class="banner-video-bg" autoplay loop muted playsinline poster="img/banner.png">
+                <source src="img/banner-video.mp4" type="video/mp4">
+            </video>
+            <div class="banner-video-overlay"></div>
+        </div>
+    </section>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">7 Ensemble</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span>☰</span>
+            </button>
+            <div class="nav-menu">
+                <a href="index.html">Accueil</a>
+                <a href="les7tours.html">Les 7 Tours</a>
+                <a href="mission.html">Mission</a>
+            </div>
+            <button class="btn-primary" onclick="showModalBothOptions()">Rejoindre la révolution</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container legal-page">
+            <h1 class="page-title">Mentions Légales</h1>
+
+            <section class="legal-section">
+                <h2>Éditeur du site</h2>
+                <p><strong>7ensemble.ch</strong></p>
+                <p>Projet porté par : Société simple "O Cœur 2 la Pub"</p>
+                <p><strong>Responsable :</strong> Christophe Rossier</p>
+                <p><strong>Localisation :</strong> 1926 Fully (VS), Suisse</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>Contact</h2>
+                <p><strong>Email (mission) :</strong> <a href="mailto:mission@7ensemble.ch">mission@7ensemble.ch</a></p>
+                <p><strong>Email (support) :</strong> <a href="mailto:support@7ensemble.ch">support@7ensemble.ch</a></p>
+            </section>
+
+            <section class="legal-section">
+                <h2>Hébergement</h2>
+                <p>Le site est hébergé en Suisse par :</p>
+                <p><strong>Infomaniak Network SA</strong></p>
+                <p>Rue Eugène-Marziano 25, 1227 Les Acacias (GE), Suisse</p>
+                <p>Site : <a href="https://www.infomaniak.com" target="_blank" rel="noopener noreferrer">https://www.infomaniak.com</a></p>
+            </section>
+
+            <section class="legal-section">
+                <h2>Propriété intellectuelle</h2>
+                <p>L'ensemble des contenus présents sur le site (textes, visuels, logo, structure, idées et concepts) est protégé par le droit d'auteur.</p>
+                <p>Toute reproduction, diffusion ou utilisation sans autorisation écrite est interdite.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>Responsabilité</h2>
+                <p>Les informations publiées sur 7ensemble.ch ont pour but d'informer et de présenter le projet.</p>
+                <p>Malgré le soin apporté, des erreurs ou omissions peuvent exister.</p>
+                <p>L'éditeur ne peut être tenu responsable de l'usage qui serait fait des informations ou des contenus du site.</p>
+            </section>
+
+            <div class="back-to-home">
+                <a href="index.html" class="btn-primary">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <div id="footer"></div>
+
+<script>
+  fetch('footer-snippet.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+
+
+    <!-- External Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
+
+    <style>
+        /* Legal Page Specific Styles */
+        .legal-page {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #4ecdc4;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #4ecdc4, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .legal-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #4ecdc4;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .legal-section:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .legal-section h2 {
+            color: #4ecdc4;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .legal-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .legal-section a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .legal-section a:hover {
+            color: #4ecdc4;
+            text-decoration: underline;
+        }
+
+        .back-to-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-to-home .btn-primary {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .legal-section {
+                padding: 20px;
+            }
+
+            .legal-section h2 {
+                font-size: 1.4rem;
+            }
+
+            .legal-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</body>
+</html>
