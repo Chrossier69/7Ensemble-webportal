@@ -19,11 +19,11 @@
         </div>
     </section>
 
-        <!-- Navigation Header -->
+    <!-- Navigation Header -->
     <header>
         <nav class="container">
             <a href="index.html" class="logo">7 Ensemble</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="lbMenuOpen()">
                 <span>☰</span>
             </button>
             <div class="nav-menu">
@@ -34,6 +34,24 @@
             <button class="btn-primary" onclick="showModalBothOptions()">Rejoindre la révolution</button>
         </nav>
     </header>
+
+    <!-- Mobile nav overlay – fixed, above everything, no CSS class dependency -->
+    <div id="lb-mobile-nav" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,14,39,0.97);z-index:99999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;">
+        <button onclick="lbMenuClose()" style="position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;">✕</button>
+        <a href="index.html" style="color:#fff;text-decoration:none;font-size:1.6rem;font-weight:600;letter-spacing:0.02em;">Accueil</a>
+        <a href="les7tours.html" style="color:#fff;text-decoration:none;font-size:1.6rem;font-weight:600;letter-spacing:0.02em;">Les 7 Tours</a>
+        <a href="mission.html" style="color:#fff;text-decoration:none;font-size:1.6rem;font-weight:600;letter-spacing:0.02em;">Mission</a>
+    </div>
+    <script>
+        function lbMenuOpen() {
+            var o = document.getElementById('lb-mobile-nav');
+            if (o) { o.style.display = 'flex'; }
+        }
+        function lbMenuClose() {
+            var o = document.getElementById('lb-mobile-nav');
+            if (o) { o.style.display = 'none'; }
+        }
+    </script>
 
     <div>
         <main class="main-container">
