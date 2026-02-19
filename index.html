@@ -132,10 +132,11 @@
     #sn-overlay a:hover { color: #4ecdc4; }
     /* Responsive breakpoints */
     @media (max-width: 767px) {
+        #site-nav .sn-inner   { flex-wrap: wrap; }
+        #site-nav .sn-logo    { font-size: 1.4rem; flex: 1; }
         #site-nav .sn-burger  { display: block; }
         #site-nav .sn-links   { display: none; }
-        #site-nav .sn-cta     { display: none; }
-        #site-nav .sn-logo    { font-size: 1.4rem; }
+        #site-nav .sn-cta     { width: 100%; order: 3; margin-top: 0.4rem; text-align: center; }
     }
     @media (min-width: 768px) {
         #site-nav { padding: 1rem 0; }
