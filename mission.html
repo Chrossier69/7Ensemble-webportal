@@ -488,6 +488,9 @@
             }
         }
     </style>
+
+    <!-- SITE-NAV  –  Self-contained, conflict-free header styles -->
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
     <!-- Video Banner Header -->
@@ -501,20 +504,30 @@
     </section>
 
     <!-- Navigation Header -->
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">7 Ensemble</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span>☰</span>
-            </button>
-            <div class="nav-menu">
+    <!-- =====================================================
+         SITE-NAV  –  Self-contained, conflict-free header
+         ===================================================== -->
+    <div id="site-nav">
+        <div class="sn-inner">
+            <a href="index.html" class="sn-logo">7 Ensemble</a>
+            <button class="sn-burger" aria-label="Ouvrir le menu" onclick="snOpen()">&#9776;</button>
+            <nav class="sn-links">
                 <a href="index.html">Accueil</a>
                 <a href="les7tours.html">Les 7 Tours</a>
                 <a href="mission.html">Mission</a>
-            </div>
-            <button class="btn-primary" onclick="showModalBothOptions()">Rejoindre la révolution</button>
-        </nav>
-    </header>
+            </nav>
+            <button class="sn-cta" onclick="showModalBothOptions()">Rejoindre la révolution</button>
+        </div>
+    </div>
+
+    <!-- Mobile full-screen overlay (position:fixed → above all stacking contexts) -->
+    <div id="sn-overlay">
+        <button class="sn-ov-close" aria-label="Fermer le menu" onclick="snClose()">&#10005;</button>
+        <a href="index.html">Accueil</a>
+        <a href="les7tours.html">Les 7 Tours</a>
+        <a href="mission.html">Mission</a>
+    </div>
+    <script src="js/header.js"></script>
 
     <div class="mission-page-content">
         <!-- Confettis animés -->
