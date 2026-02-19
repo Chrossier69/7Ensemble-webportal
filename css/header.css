@@ -1,0 +1,146 @@
+/* =====================================================
+   SITE-NAV  –  Self-contained, conflict-free header
+   All selectors scoped to #site-nav / #sn-overlay
+   so nothing here can conflict with styles.css
+   ===================================================== */
+
+#site-nav {
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#site-nav .sn-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    box-sizing: border-box;
+}
+
+#site-nav .sn-logo {
+    font-size: 1.75rem;
+    font-weight: bold;
+    background: linear-gradient(45deg,#ff6b6b,#4ecdc4,#45b7d1,#96ceb4,#feca57);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: sn-rainbow 3s ease-in-out infinite alternate;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+@keyframes sn-rainbow {
+    0%   { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+#site-nav .sn-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#site-nav .sn-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+#site-nav .sn-links a:hover { color: #4ecdc4; }
+
+#site-nav .sn-cta {
+    background: linear-gradient(45deg,#667eea,#764ba2);
+    color: #fff;
+    padding: 0.65rem 1.4rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    white-space: nowrap;
+}
+
+#site-nav .sn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102,126,234,0.5);
+}
+
+#site-nav .sn-burger {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.9rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    line-height: 1;
+}
+
+/* ── Mobile overlay ── */
+#sn-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,14,39,0.97);
+    z-index: 99999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+#sn-overlay .sn-ov-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#sn-overlay a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+}
+
+#sn-overlay a:hover { color: #4ecdc4; }
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 767px) {
+    #site-nav .sn-inner   { flex-wrap: wrap; }
+    #site-nav .sn-logo    { font-size: 1.4rem; flex: 1; }
+    #site-nav .sn-burger  { display: block; }
+    #site-nav .sn-links   { display: none; }
+    #site-nav .sn-cta     { width: 100%; order: 3; margin-top: 0.4rem; text-align: center; }
+}
+
+@media (min-width: 768px) {
+    #site-nav            { padding: 1rem 0; }
+    #site-nav .sn-logo   { font-size: 2.5rem; }
+    #site-nav .sn-inner  { padding: 0 2rem; }
+}
