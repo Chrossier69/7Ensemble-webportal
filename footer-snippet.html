@@ -41,16 +41,15 @@
 }
 
 .footer-logo {
-    font-size: 2rem;
-    font-weight: 900;
-    color: #ffffff;
     text-decoration: none;
     margin-bottom: 0.5rem;
     display: inline-block;
-    background: linear-gradient(45deg, #4ecdc4, #667eea);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+}
+
+.footer-logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
 }
 
 .footer-description {
@@ -204,8 +203,8 @@
         gap: 2rem;
     }
     
-    .footer-logo {
-        font-size: 1.5rem;
+    .footer-logo-img {
+        height: 60px;
     }
     
     .footer-section h3 {
@@ -219,7 +218,9 @@
             <div class="footer-main">
                 <!-- About Section -->
                 <div class="footer-section">
-                    <a href="index.html" class="footer-logo">7 Ensemble</a>
+                    <a href="index.html" class="footer-logo">
+                        <img src="img/7E_Footer.png" alt="7 Ensemble Logo" class="footer-logo-img">
+                    </a>
                     <p class="footer-description">
                         Une plateforme révolutionnaire d'entraide mutuelle. Ensemble, changeons le monde et éradiquons la pauvreté.
                     </p>
