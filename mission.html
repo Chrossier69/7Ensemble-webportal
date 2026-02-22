@@ -496,42 +496,8 @@
     <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    <!-- Video Banner Header -->
-    <section class="mission-banner-video">
-        <div class="banner-video-container">
-            <video class="banner-video-bg" autoplay loop muted playsinline poster="img/banner.png">
-                <source src="img/banner-video.mp4" type="video/mp4">
-            </video>
-            <div class="banner-video-overlay"></div>
-        </div>
-    </section>
 
-    <!-- Navigation Header -->
-    <!-- =====================================================
-         SITE-NAV  –  Self-contained, conflict-free header
-         ===================================================== -->
-    <div id="site-nav">
-        <div class="sn-inner">
-            <a href="index.html" class="sn-logo">7 Ensemble</a>
-            <button class="sn-burger" aria-label="Ouvrir le menu" onclick="snOpen()">&#9776;</button>
-            <nav class="sn-links">
-                <a href="index.html">Accueil</a>
-                <a href="les7tours.html">Les 7 Tours</a>
-                <a href="mission.html">Mission</a>
-            </nav>
-            <button class="sn-cta" onclick="showModalBothOptions()">Rejoindre la révolution</button>
-        </div>
-    </div>
-
-    <!-- Mobile full-screen overlay (position:fixed → above all stacking contexts) -->
-    <div id="sn-overlay">
-        <button class="sn-ov-close" aria-label="Fermer le menu" onclick="snClose()">&#10005;</button>
-        <a href="index.html">Accueil</a>
-        <a href="les7tours.html">Les 7 Tours</a>
-        <a href="mission.html">Mission</a>
-        <a href="livre-blanc.html">Livre Blanc</a>
-    </div>
-    <script src="js/header.js"></script>
+    <div id="header-container"></div>
 
     <div class="mission-page-content">
         <!-- Confettis animés -->
@@ -573,7 +539,7 @@
 
                     <div class="quote-bubble">
                         <p style="font-size: 1.4rem; line-height: 1.8; font-style: italic; position: relative; z-index: 1;">
-                            Ne supportant plus ce qui se passe autour de moi, j'ai décidé de créer cette plateforme d'entraide révolutionnaire.
+                        Ne supportant plus ce qui se passe autour de moi, j'ai décidé de créer cette plateforme d'entraide révolutionnaire.
                             Il était temps que quelqu'un se lève pour les citoyens ordinaires !
                         </p>
                     </div>
@@ -920,6 +886,11 @@ Que l'entraide devienne normale.</em></strong>
     .then(data => {
       document.getElementById('footer').innerHTML = data;
     });
+</script>
+<script>
+fetch('header-snippet.html')
+  .then(r => r.text())
+  .then(html => document.getElementById('header-container').innerHTML = html);
 </script>
 
 </body>
