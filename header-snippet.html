@@ -2,9 +2,9 @@
 <!-- Video Banner Header -->
 <section class="mission-banner-video">
   <div class="banner-video-container">
-    <video class="banner-video-bg" autoplay muted playsinline poster="img/banner.png">
-      <source src="assets/header/7E-Entete-site.mp4" type="video/mp4">
-    </video>
+    <video id="bannerVideo" class="banner-video-bg" autoplay muted playsinline poster="img/banner.png">
+  <source src="assets/header/7E-Entete-site.mp4" type="video/mp4">
+</video>
     <button id="unmuteBtn" class="video-unmute-btn" type="button">
   🔊 Activer le son
 </button>
@@ -12,7 +12,45 @@
 <audio id="intro-audio" preload="auto">
   <source src="assets/audio/intro-7s.mp3" type="audio/mpeg">
 </audio>
+<button id="introPlay" type="button" class="video-unmute-btn">
+  ▶ Lancer l’intro (7s)
+</button>
 
+<script>
+(function () {
+  const video = document.getElementById('bannerVideo');
+  const btn = document.getElementById('unmuteBtn');
+  const STOP_AT = 7;
+
+  if (!video || !btn) return;
+
+  function stopAt7s() {
+    if (video.currentTime >= STOP_AT) {
+      video.pause();
+      video.currentTime = 0;
+      video.removeEventListener('timeupdate', stopAt7s);
+      btn.textContent = '🔊 Activer le son';
+    }
+  }
+
+  btn.addEventListener('click', async () => {
+    try {
+      // remettre à 0 et activer le son
+      video.currentTime = 0;
+      video.muted = false;
+      video.volume = 1;
+
+      // lire et stopper à 7s
+      video.addEventListener('timeupdate', stopAt7s);
+      await video.play();
+
+      btn.textContent = '⏸ Stop (7s)';
+    } catch (e) {
+      console.log('Play blocked:', e);
+    }
+  });
+})();
+</script>
 <div class="banner-video-overlay"></div>
       </div>
 </section>
